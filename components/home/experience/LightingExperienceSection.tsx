@@ -26,16 +26,10 @@ export const LightingExperienceSection: React.FC<
       id="lighting-experience"
       aria-label="The Lighting Experience"
       className={cn(
-        "relative w-full bg-[#070709] py-20 sm:py-28 md:py-32 lg:py-36 border-t border-white/[0.06] overflow-hidden select-none",
+        "relative w-full bg-[#F4F1EA] py-20 sm:py-28 md:py-32 lg:py-36 border-t border-[rgba(17,18,20,0.10)] overflow-hidden select-none",
         className
       )}
     >
-      {/* Background Subtle Ambient Aura */}
-      <div
-        aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-[1200px] h-[60vh] bg-cyan-950/[0.06] rounded-full blur-[140px] pointer-events-none -z-10"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Composition (lg+) */}
         <div className="hidden lg:grid lg:grid-cols-12 lg:gap-12 xl:gap-16 items-center">
@@ -47,7 +41,7 @@ export const LightingExperienceSection: React.FC<
             />
 
             <div className="pt-2">
-              <span className="block text-[10px] font-mono tracking-[0.2em] text-neutral-400 uppercase mb-2.5">
+              <span className="block text-[10px] font-mono tracking-[0.2em] text-[#6B6D70] uppercase mb-2.5">
                 SELECT ENVIRONMENT {"//"}
               </span>
               <ExperienceSelector
@@ -79,7 +73,7 @@ export const LightingExperienceSection: React.FC<
 
           {/* 5. Environment Selector */}
           <div className="w-full space-y-2.5">
-            <span className="block text-[10px] font-mono tracking-[0.2em] text-neutral-400 uppercase">
+            <span className="block text-[10px] font-mono tracking-[0.2em] text-[#6B6D70] uppercase">
               SELECT ENVIRONMENT {"//"}
             </span>
             <ExperienceSelector

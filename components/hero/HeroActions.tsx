@@ -24,7 +24,7 @@ export const HeroActions: React.FC<HeroActionsProps> = ({ className }) => {
           variant="primary"
           size="lg"
           rightIcon={<ArrowRightIcon size={16} />}
-          className="w-full sm:w-auto sm:min-w-[200px] px-5 sm:px-7 justify-between shadow-sm whitespace-nowrap text-xs sm:text-sm"
+          className="w-full sm:w-auto sm:min-w-[200px] px-5 sm:px-7 justify-between whitespace-nowrap text-xs sm:text-sm bg-[#111214] text-[#F4F1EA] border border-[#111214] hover:bg-[#1687FF] hover:border-[#1687FF] hover:text-[#F4F1EA] shadow-none"
         >
           <span>EXPLORE PRODUCTS</span>
         </Button>
@@ -40,7 +40,7 @@ export const HeroActions: React.FC<HeroActionsProps> = ({ className }) => {
             target.scrollIntoView({ behavior: "smooth" });
           }
         }}
-        className="w-full sm:w-auto sm:min-w-[190px] px-5 sm:px-7 justify-center text-xs sm:text-sm whitespace-nowrap"
+        className="w-full sm:w-auto sm:min-w-[190px] px-5 sm:px-7 justify-center text-xs sm:text-sm whitespace-nowrap bg-transparent border border-[rgba(17,18,20,0.16)] text-[#111214] hover:border-[rgba(17,18,20,0.30)] hover:bg-[rgba(17,18,20,0.04)] shadow-none"
       >
         <span>SEE HOW IT WORKS</span>
       </Button>

@@ -25,23 +25,23 @@ const ATMOSPHERE_CONFIGS: Record<EnvironmentMode, SetupAtmosphereConfig> = {
     aspectClass: "w-[90%] max-w-[680px] h-[48%] max-h-[260px] sm:max-h-[300px]",
     glowLayers: (
       <>
-        {/* Intense Cyan Ambient Backlight Bloom */}
-        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[95%] max-w-[760px] h-[75%] rounded-full bg-cyan-400/[0.22] blur-[80px] sm:blur-[120px]" />
+        {/* Electric Blue Ambient Backlight Bloom */}
+        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[95%] max-w-[760px] h-[75%] rounded-full bg-[#1687FF]/[0.22] blur-[80px] sm:blur-[120px]" />
         {/* Cobalt Deep Field Core */}
-        <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[80%] max-w-[620px] h-[65%] rounded-full bg-blue-600/[0.16] blur-[60px] sm:blur-[95px]" />
+        <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[80%] max-w-[620px] h-[65%] rounded-full bg-[#0757B8]/[0.16] blur-[60px] sm:blur-[95px]" />
       </>
     ),
     screenHud: (
       <div className="relative z-10 flex flex-col items-center gap-1.5 opacity-60 select-none">
-        <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.25em] text-cyan-400 uppercase font-semibold">
+        <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.25em] text-[#1687FF] uppercase font-semibold">
           CINEMA OPTICAL SYNC // 240HZ
         </span>
         <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.2em] text-neutral-400 uppercase">
           ACTIVE GAMING FIELD
         </span>
         <div className="flex items-center gap-1 mt-1">
-          <span className="w-1 h-1 rounded-full bg-cyan-400 shadow-[0_0_4px_#00E5FF]" />
-          <span className="text-[8px] font-mono text-cyan-400/80 tracking-widest">
+          <span className="w-1 h-1 rounded-full bg-[#1687FF] shadow-[0_0_4px_#1687FF]" />
+          <span className="text-[8px] font-mono text-[#1687FF]/80 tracking-widest">
             0.5MS CORE
           </span>
         </div>
@@ -49,7 +49,7 @@ const ATMOSPHERE_CONFIGS: Record<EnvironmentMode, SetupAtmosphereConfig> = {
     ),
     surfaceReflection: (
       <div className="absolute bottom-0 inset-x-0 h-[24%] bg-gradient-to-t from-[#070709] via-neutral-950/80 to-transparent border-t border-white/[0.04]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-[500px] h-12 bg-cyan-400/[0.08] rounded-full blur-[35px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-[500px] h-12 bg-[#1687FF]/[0.08] rounded-full blur-[35px]" />
       </div>
     ),
   },
@@ -131,7 +131,7 @@ export const ExperienceVisual: React.FC<ExperienceVisualProps> = ({
   return (
     <div
       className={cn(
-        "relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/11] lg:aspect-[16/10] rounded-sm border border-white/[0.08] bg-[#050608] overflow-hidden shadow-2xl select-none",
+        "relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/11] lg:aspect-[16/10] rounded-sm border border-[rgba(17,18,20,0.12)] bg-[#050608] overflow-hidden shadow-2xl select-none",
         className
       )}
     >

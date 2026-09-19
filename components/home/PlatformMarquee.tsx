@@ -53,11 +53,11 @@ function MarqueeSequence({
         >
           <div className="inline-flex items-baseline gap-2.5 sm:gap-3.5">
             {item.index && (
-              <span className="font-mono text-[10px] sm:text-xs text-white/35 tracking-widest font-medium select-none">
+              <span className="font-mono text-[10px] sm:text-xs text-[#6B6D70] tracking-widest font-medium select-none">
                 {item.index}
               </span>
             )}
-            <span className="font-sans text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-[#F3F4F6] uppercase select-none transition-colors duration-200">
+            <span className="font-sans text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-[#111214] uppercase select-none transition-colors duration-200">
               {item.label}
             </span>
           </div>
@@ -67,7 +67,7 @@ function MarqueeSequence({
             className="mx-6 sm:mx-8 md:mx-12 select-none flex items-center justify-center"
             aria-hidden="true"
           >
-            <span className="inline-block w-1 h-1 bg-white/25 rotate-45" />
+            <span className="inline-block w-1 h-1 bg-[rgba(17,18,20,0.20)] rotate-45" />
           </div>
         </li>
       ))}
@@ -94,13 +94,13 @@ export function PlatformMarquee() {
     <section
       id="ecosystem-compatibility"
       aria-labelledby="ecosystem-heading"
-      className="relative w-full bg-[#070709] py-24 sm:py-32 md:py-36 border-t border-white/[0.08] overflow-hidden"
+      className="relative w-full bg-[#F4F1EA] py-24 sm:py-32 md:py-36 border-t border-[rgba(17,18,20,0.10)] overflow-hidden"
     >
       {/* 1. Header Container with Asymmetric Editorial Layout */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
         {/* Small Technical Section Identifier */}
-        <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#9CA3AF] mb-6 md:mb-8 flex items-center gap-2 select-none">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF]/70" />
+        <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#6B6D70] mb-6 md:mb-8 flex items-center gap-2 select-none">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1687FF]" />
           <span>ECOSYSTEM // 01</span>
         </div>
 
@@ -109,7 +109,7 @@ export function PlatformMarquee() {
           <div className="lg:col-span-8">
             <h2
               id="ecosystem-heading"
-              className="font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[0.95] text-[#F3F4F6] uppercase"
+              className="font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[0.95] text-[#111214] uppercase"
             >
               BUILT FOR
               <br />
@@ -118,7 +118,7 @@ export function PlatformMarquee() {
           </div>
 
           <div className="lg:col-span-4 pb-1 sm:pb-2">
-            <p className="text-[#9CA3AF] text-base sm:text-lg leading-relaxed font-normal">
+            <p className="text-[#55575A] text-base sm:text-lg leading-relaxed font-normal">
               Light in Motion integrates into the hardware, displays, and
               entertainment systems already at the center of your setup.
             </p>
@@ -127,21 +127,21 @@ export function PlatformMarquee() {
       </div>
 
       {/* 2. Marquee Region (Bleeds Edge-to-Edge) */}
-      <div className="relative w-full mt-16 sm:mt-20 md:mt-28 border-y border-white/[0.08] bg-[#070709] group">
+      <div className="relative w-full mt-16 sm:mt-20 md:mt-28 border-y border-[rgba(17,18,20,0.10)] bg-[#ECE9E1] group">
         {/* Subtle Edge Masks: left & right gradients smoothly dissolve into background */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 md:w-44 z-20 pointer-events-none bg-gradient-to-r from-[#070709] via-[#070709]/80 to-transparent"
+          className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 md:w-44 z-20 pointer-events-none bg-gradient-to-r from-[#ECE9E1] via-[#ECE9E1]/80 to-transparent"
           aria-hidden="true"
         />
         <div
-          className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 md:w-44 z-20 pointer-events-none bg-gradient-to-l from-[#070709] via-[#070709]/80 to-transparent"
+          className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 md:w-44 z-20 pointer-events-none bg-gradient-to-l from-[#ECE9E1] via-[#ECE9E1]/80 to-transparent"
           aria-hidden="true"
         />
 
         {/* TRACK 01: Platforms & Consoles (Moves Left -> Right) */}
-        <div className="marquee-row relative w-full border-b border-white/[0.06] overflow-hidden">
+        <div className="marquee-row relative w-full border-b border-[rgba(17,18,20,0.10)] overflow-hidden">
           {/* Subtle Technical Track Sub-Header */}
-          <div className="px-6 sm:px-8 md:px-12 py-2.5 flex items-center justify-between font-mono text-[10px] md:text-[11px] tracking-[0.2em] text-white/30 uppercase border-b border-white/[0.04] select-none">
+          <div className="px-6 sm:px-8 md:px-12 py-2.5 flex items-center justify-between font-mono text-[10px] md:text-[11px] tracking-[0.2em] text-[#6B6D70] uppercase border-b border-[rgba(17,18,20,0.10)] select-none">
             <span>TRACK 01 // PLATFORMS &amp; CONSOLES</span>
             <span>DIRECTION: FORWARD &rarr;</span>
           </div>
@@ -159,7 +159,7 @@ export function PlatformMarquee() {
         {/* TRACK 02: Protocols & Architecture (Moves Right -> Left) */}
         <div className="marquee-row relative w-full overflow-hidden">
           {/* Subtle Technical Track Sub-Header */}
-          <div className="px-6 sm:px-8 md:px-12 py-2.5 flex items-center justify-between font-mono text-[10px] md:text-[11px] tracking-[0.2em] text-white/30 uppercase border-b border-white/[0.04] select-none">
+          <div className="px-6 sm:px-8 md:px-12 py-2.5 flex items-center justify-between font-mono text-[10px] md:text-[11px] tracking-[0.2em] text-[#6B6D70] uppercase border-b border-[rgba(17,18,20,0.10)] select-none">
             <span>&larr; DIRECTION: REVERSE</span>
             <span>TRACK 02 // PROTOCOLS &amp; ARCHITECTURE</span>
           </div>
@@ -177,9 +177,9 @@ export function PlatformMarquee() {
 
       {/* 3. Restrained Technical Footer / Telemetry Line */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mt-16 sm:mt-20 md:mt-24">
-        <div className="border-t border-white/[0.08] pt-6 md:pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] md:text-xs text-white/40 tracking-[0.2em] uppercase select-none">
+        <div className="border-t border-[rgba(17,18,20,0.10)] pt-6 md:pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] md:text-xs text-[#6B6D70] tracking-[0.2em] uppercase select-none">
           <div className="flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF]/60" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1687FF]" />
             <span>SIGNAL / DISPLAY / ENTERTAINMENT</span>
           </div>
           <span>DESIGNED FOR MODERN SETUPS</span>

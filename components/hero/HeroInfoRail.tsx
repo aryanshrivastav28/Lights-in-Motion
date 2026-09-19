@@ -16,7 +16,7 @@ export const HeroInfoRail: React.FC<HeroInfoRailProps> = ({ className }) => {
   return (
     <div
       className={cn(
-        "w-full py-4 border-t border-white/[0.08] animate-hero-fade [animation-delay:800ms] motion-reduce:animate-none select-none",
+        "w-full py-4 border-t border-[rgba(17,18,20,0.10)] animate-hero-fade [animation-delay:800ms] motion-reduce:animate-none select-none",
         className
       )}
     >
@@ -26,18 +26,18 @@ export const HeroInfoRail: React.FC<HeroInfoRailProps> = ({ className }) => {
             key={item.label}
             className={cn(
               "flex flex-col justify-center space-y-1",
-              idx > 0 && "md:border-l md:border-white/[0.08] md:pl-6 lg:pl-8"
+              idx > 0 && "md:border-l md:border-[rgba(17,18,20,0.10)] md:pl-6 lg:pl-8"
             )}
           >
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="text-[10px] font-mono text-cyan-400 font-semibold tracking-wider shrink-0">
+              <span className="text-[10px] font-mono text-[#1687FF] font-semibold tracking-wider shrink-0">
                 {item.index}
               </span>
-              <span className="text-[11px] sm:text-xs font-mono font-medium tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white">
+              <span className="text-[11px] sm:text-xs font-mono font-medium tracking-[0.12em] sm:tracking-[0.18em] uppercase text-[#111214]">
                 {item.label}
               </span>
             </div>
-            <span className="text-[9px] sm:text-[10px] font-mono text-neutral-400 tracking-wider uppercase">
+            <span className="text-[9px] sm:text-[10px] font-mono text-[#6B6D70] tracking-wider uppercase">
               {item.spec}
             </span>
           </div>

@@ -29,15 +29,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const variantClasses = {
       primary:
-        "bg-white text-neutral-950 font-semibold hover:bg-neutral-200 active:bg-neutral-300 border border-white",
+        "bg-[#111214] text-[#FAF9F6] font-semibold hover:bg-[#25282C] active:bg-[#34383D] border border-[#111214]",
       secondary:
-        "bg-white/[0.04] text-white hover:bg-white/[0.08] hover:border-white/25 active:bg-white/[0.12] border border-white/10 backdrop-blur-sm",
+        "bg-[rgba(17,18,20,0.05)] text-[#111214] hover:bg-[rgba(17,18,20,0.08)] hover:border-[rgba(17,18,20,0.2)] active:bg-[rgba(17,18,20,0.12)] border border-[rgba(17,18,20,0.12)] backdrop-blur-sm",
       accent:
-        "border border-cyan-400/80 text-cyan-400 hover:bg-cyan-400/10 active:bg-cyan-400/20 bg-transparent",
+        "border border-[#1687FF] text-[#1687FF] hover:bg-[#1687FF]/10 active:bg-[#1687FF]/20 bg-transparent",
       outline:
-        "border border-white/15 text-white hover:border-white/30 hover:bg-white/[0.03] active:bg-white/[0.06]",
+        "border border-[rgba(17,18,20,0.15)] text-[#111214] hover:border-[rgba(17,18,20,0.3)] hover:bg-[rgba(17,18,20,0.03)] active:bg-[rgba(17,18,20,0.06)]",
       ghost:
-        "text-neutral-300 hover:text-white hover:bg-white/[0.05] active:bg-white/[0.08] border border-transparent",
+        "text-[#55575A] hover:text-[#111214] hover:bg-[rgba(17,18,20,0.05)] active:bg-[rgba(17,18,20,0.08)] border border-transparent",
     };
 
     const sizeClasses = {
@@ -53,7 +53,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || isLoading}
         className={cn(
           "inline-flex items-center justify-center transition-colors duration-150 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed select-none",
-          "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950",
+          "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F1EA]",
           variantClasses[variant],
           sizeClasses[size],
           className

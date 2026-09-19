@@ -91,6 +91,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
   const isOverlay = overlay || pathname === "/";
   const isScrolledState = scrolled || !isOverlay;
+  const isLightHeader = true;
 
   return (
     <>
@@ -99,7 +100,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
           "w-full transition-[background-color,border-color,box-shadow,padding] duration-300 ease-out select-none",
           isOverlay ? "fixed top-0 left-0 right-0 z-50" : "sticky top-0 z-50",
           isScrolledState
-            ? "bg-[#070709]/[0.94] backdrop-blur-[14px] [-webkit-backdrop-filter:blur(14px)] border-b border-white/[0.08] shadow-[0_1px_0_rgba(255,255,255,0.05),0_4px_24px_rgba(0,0,0,0.6)] py-3.5 sm:py-4"
+            ? "bg-[#F4F1EA]/[0.92] backdrop-blur-[14px] [-webkit-backdrop-filter:blur(14px)] border-b border-[rgba(17,18,20,0.10)] shadow-[0_1px_0_rgba(17,18,20,0.05),0_4px_24px_rgba(17,18,20,0.04)] py-3.5 sm:py-4"
             : "bg-transparent border-b border-transparent py-5 sm:py-6"
         )}
       >
@@ -109,12 +110,16 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
             <div className="flex items-baseline">
               <Link
                 href="/"
-                className="group flex flex-col focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm"
+                className="group flex flex-col focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm"
               >
-                <span className="text-sm sm:text-base font-semibold tracking-[0.24em] uppercase text-white group-hover:text-cyan-400 transition-colors">
+                <span
+                  className="text-sm sm:text-base font-semibold tracking-[0.24em] uppercase transition-colors text-[#111214] group-hover:text-[#1687FF]"
+                >
                   LIGHT IN MOTION
                 </span>
-                <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-neutral-500 hidden sm:inline-block">
+                <span
+                  className="text-[9px] font-mono tracking-[0.2em] uppercase hidden sm:inline-block text-[#6B6D70]"
+                >
                   CINEMA AT HOME
                 </span>
               </Link>
@@ -137,15 +142,15 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                     href={item.href}
                     className={cn(
                       "text-xs font-medium tracking-[0.18em] uppercase transition-colors duration-150 py-1 relative",
-                      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm",
+                      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm",
                       isActive
-                        ? "text-white"
-                        : "text-neutral-400 hover:text-white"
+                        ? "text-[#111214]"
+                        : "text-[#55575A] hover:text-[#111214]"
                     )}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-cyan-400 rounded-full" />
+                      <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#1687FF] rounded-full" />
                     )}
                   </Link>
                 );
@@ -158,11 +163,15 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 isLoggedIn={isLoggedIn}
                 userName={userName}
                 onClick={handleAccountClick}
+                light={isLightHeader}
               />
-              <span className="w-px h-3.5 bg-white/10" />
+              <span
+                className="w-px h-3.5 bg-[rgba(17,18,20,0.10)]"
+              />
               <CartTrigger
                 itemCount={cartCount}
                 onClick={handleCartClick}
+                light={isLightHeader}
               />
             </div>
 
@@ -172,12 +181,13 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 itemCount={cartCount}
                 onClick={handleCartClick}
                 className="px-2"
+                light={isLightHeader}
               />
               <button
                 type="button"
                 aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-sm text-neutral-400 hover:text-white hover:bg-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                className="inline-flex items-center justify-center p-2 rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] text-[#111214] hover:text-[#1687FF] hover:bg-[rgba(17,18,20,0.04)]"
               >
                 {mobileMenuOpen ? <CloseIcon size={22} /> : <MenuIcon size={22} />}
               </button>
@@ -192,18 +202,18 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
-          className="fixed inset-0 z-50 flex flex-col bg-[#070709]/98 backdrop-blur-xl md:hidden animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex flex-col bg-[#F4F1EA]/98 backdrop-blur-xl md:hidden animate-in fade-in duration-200"
         >
           {/* Mobile Menu Top Bar */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.08]">
-            <span className="text-xs font-mono uppercase tracking-[0.24em] text-white font-semibold">
+          <div className="flex items-center justify-between px-6 py-5 border-b border-[rgba(17,18,20,0.08)]">
+            <span className="text-xs font-mono uppercase tracking-[0.24em] text-[#111214] font-semibold">
               LIGHT IN MOTION
             </span>
             <button
               type="button"
               aria-label="Close menu"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 text-neutral-400 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm"
+              className="p-2 text-[#55575A] hover:text-[#111214] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm"
             >
               <CloseIcon size={22} />
             </button>
@@ -216,22 +226,22 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-4 px-4 rounded-sm border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 text-base font-medium tracking-[0.16em] uppercase text-white transition-colors"
+                className="flex items-center justify-between py-4 px-4 rounded-sm border border-[rgba(17,18,20,0.10)] bg-[rgba(17,18,20,0.02)] hover:bg-[rgba(17,18,20,0.05)] hover:border-[rgba(17,18,20,0.16)] text-base font-medium tracking-[0.16em] uppercase text-[#111214] transition-colors"
               >
                 <span>{item.label}</span>
-                <ChevronRightIcon size={16} className="text-neutral-500" />
+                <ChevronRightIcon size={16} className="text-[#6B6D70]" />
               </Link>
             ))}
 
             {/* Mobile Account Trigger */}
-            <div className="pt-6 border-t border-white/[0.08] mt-6">
+            <div className="pt-6 border-t border-[rgba(17,18,20,0.10)] mt-6">
               <button
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   handleAccountClick();
                 }}
-                className="w-full flex items-center justify-between py-4 px-4 rounded-sm border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] text-white text-sm font-mono tracking-[0.16em] uppercase transition-colors"
+                className="w-full flex items-center justify-between py-4 px-4 rounded-sm border border-[rgba(17,18,20,0.10)] bg-[rgba(17,18,20,0.02)] hover:bg-[rgba(17,18,20,0.05)] text-[#111214] text-sm font-mono tracking-[0.16em] uppercase transition-colors"
               >
                 <span>ACCOUNT</span>
                 <ChevronRightIcon size={16} />
@@ -240,8 +250,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
           </div>
 
           {/* Mobile Footer note */}
-          <div className="p-6 border-t border-white/[0.08] bg-white/[0.01]">
-            <p className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest text-center">
+          <div className="p-6 border-t border-[rgba(17,18,20,0.10)] bg-[rgba(17,18,20,0.02)]">
+            <p className="text-[11px] font-mono text-[#6B6D70] uppercase tracking-widest text-center">
               A CINEMA EXPERIENCE AT HOME.
             </p>
           </div>

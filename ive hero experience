@@ -1,0 +1,52 @@
+warning: in the working copy of 'app/globals.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/layout.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/account/AccountTrigger.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/cart/CartTrigger.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/hero/HeroActions.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/hero/HeroContent.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/hero/HeroInfoRail.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/hero/HeroMedia.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/hero/HeroSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/hero/ScrollIndicator.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/HardwareBentoGrid.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/ImmersionShowcase.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/PlatformMarquee.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/SyncEngineTimeline.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/experience/ExperienceContent.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/experience/ExperienceSelector.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/experience/ExperienceTelemetry.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/experience/ExperienceVisual.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/home/experience/LightingExperienceSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/layout/SiteFooter.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/layout/SiteHeader.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ui/Button.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ui/LinkButton.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tailwind.config.ts', LF will be replaced by CRLF the next time Git touches it
+ app/globals.css                                    |  42 [32m++++[m[31m--[m
+ app/layout.tsx                                     |   8 [32m+[m[31m-[m
+ app/page.tsx                                       |   2 [32m+[m[31m-[m
+ components/account/AccountTrigger.tsx              |  16 [32m+[m[31m-[m
+ components/cart/CartTrigger.tsx                    |  12 [32m+[m[31m-[m
+ components/hero/HeroActions.tsx                    |   4 [32m+[m[31m-[m
+ components/hero/HeroContent.tsx                    |  14 [32m+[m[31m-[m
+ components/hero/HeroInfoRail.tsx                   |  10 [32m+[m[31m-[m
+ components/hero/HeroMedia.tsx                      |  48 [32m+++[m[31m---[m
+ components/hero/HeroSection.tsx                    |  58 [32m+[m[31m-------[m
+ components/hero/ScrollIndicator.tsx                |   4 [32m+[m[31m-[m
+ components/home/HardwareBentoGrid.tsx              | 145 [32m+++++++++[m[31m---------[m
+ components/home/ImmersionShowcase.tsx              |  84 [32m+++++[m[31m------[m
+ components/home/PlatformMarquee.tsx                |  32 [32m++[m[31m--[m
+ components/home/SyncEngineTimeline.tsx             | 164 [32m++++++++++[m[31m-----------[m
+ components/home/experience/ExperienceContent.tsx   |  38 [32m++[m[31m---[m
+ components/home/experience/ExperienceSelector.tsx  |  14 [32m+[m[31m-[m
+ components/home/experience/ExperienceTelemetry.tsx |  16 [32m+[m[31m-[m
+ components/home/experience/ExperienceVisual.tsx    |  16 [32m+[m[31m-[m
+ .../home/experience/LightingExperienceSection.tsx  |  12 [32m+[m[31m-[m
+ components/layout/SiteFooter.tsx                   |  34 [32m++[m[31m---[m
+ components/layout/SiteHeader.tsx                   |  50 [32m++++[m[31m---[m
+ components/ui/Button.tsx                           |  12 [32m+[m[31m-[m
+ components/ui/LinkButton.tsx                       |  14 [32m+[m[31m-[m
+ package.json                                       |   4 [32m+[m[31m-[m
+ tailwind.config.ts                                 |  58 [32m+++++[m[31m---[m
+ 26 files changed, 446 insertions(+), 465 deletions(-)

@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070709",
-  colorScheme: "dark",
+  themeColor: "#F4F1EA",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -34,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="bg-[#070709] text-[#F3F4F6] antialiased">
+    <html lang="en">
+      <body className="bg-[#F4F1EA] text-[#111214] font-sans antialiased">
         <SiteHeader overlay={false} cartCount={0} />
         <main>{children}</main>
         <SiteFooter />

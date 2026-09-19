@@ -86,19 +86,19 @@ export const ExperienceNarrative: React.FC<{
   return (
     <div
       className={cn(
-        "space-y-2 pt-3 border-t border-white/[0.08] max-w-xl transition-all duration-300",
+        "space-y-2 pt-3 border-t border-[rgba(17,18,20,0.10)] max-w-xl transition-all duration-300",
         className
       )}
     >
       <div className="flex items-center gap-2">
-        <span className="text-[10px] font-mono text-cyan-400 font-semibold">
+        <span className="text-[10px] font-mono text-[#1687FF] font-semibold">
           {current.index} {"//"}
         </span>
-        <h3 className="text-sm sm:text-base font-mono font-medium tracking-[0.16em] uppercase text-white">
+        <h3 className="text-sm sm:text-base font-mono font-medium tracking-[0.16em] uppercase text-[#111214]">
           {current.tagline}
         </h3>
       </div>
-      <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+      <p className="text-xs sm:text-sm text-[#55575A] leading-relaxed font-sans">
         {current.description}
       </p>
     </div>
@@ -113,35 +113,35 @@ export const ExperienceContent: React.FC<ExperienceContentProps> = ({
   return (
     <div className={cn("space-y-6 sm:space-y-8 select-none", className)}>
       {/* Small Technical Section Label */}
-      <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-white/[0.04] border border-white/10 backdrop-blur-sm">
-        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(0,229,255,0.8)]" />
-        <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.22em] uppercase text-neutral-300 font-medium">
-          02 <span className="text-neutral-500 mx-1">{"//"}</span> THE EXPERIENCE
+      <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-[rgba(17,18,20,0.04)] border border-[rgba(17,18,20,0.10)] backdrop-blur-sm">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#1687FF] shadow-[0_0_8px_rgba(22,135,255,0.6)]" />
+        <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.22em] uppercase text-[#6B6D70] font-medium">
+          02 <span className="text-[#6B6D70]/60 mx-1">{"//"}</span> THE EXPERIENCE
         </span>
       </div>
 
       {/* Main Display Headline */}
-      <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold tracking-tight text-white leading-[0.95] uppercase">
+      <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold tracking-tight text-[#111214] leading-[0.95] uppercase">
         THE LIGHTING
         <br />
-        <span className="text-white">EXPERIENCE.</span>
+        <span className="text-[#111214]">EXPERIENCE.</span>
       </h2>
 
       {/* Core Supporting Copy */}
-      <p className="text-base sm:text-lg text-neutral-300 tracking-wide max-w-xl leading-relaxed">
+      <p className="text-base sm:text-lg text-[#55575A] tracking-wide max-w-xl leading-relaxed">
         Your screen doesn&apos;t end at the display. Neither should your experience.
       </p>
 
       {/* Immersion Pipeline Flow Indicator */}
       <div className="pt-1 pb-1">
-        <div className="inline-flex flex-wrap items-center gap-2 px-3 py-2 rounded-sm bg-white/[0.02] border border-white/[0.06] text-[10px] sm:text-[11px] font-mono tracking-[0.16em] uppercase">
-          <span className="text-white font-medium">SCREEN</span>
-          <span className="text-cyan-400 font-bold">→</span>
-          <span className="text-white font-medium">LIGHT</span>
-          <span className="text-cyan-400 font-bold">→</span>
-          <span className="text-white font-medium">ENVIRONMENT</span>
-          <span className="text-cyan-400 font-bold">→</span>
-          <span className="text-cyan-400 font-semibold tracking-widest">IMMERSION</span>
+        <div className="inline-flex flex-wrap items-center gap-2 px-3 py-2 rounded-sm bg-[#ECE9E1] border border-[rgba(17,18,20,0.10)] text-[10px] sm:text-[11px] font-mono tracking-[0.16em] uppercase">
+          <span className="text-[#111214] font-medium">SCREEN</span>
+          <span className="text-[#1687FF] font-bold">→</span>
+          <span className="text-[#111214] font-medium">LIGHT</span>
+          <span className="text-[#1687FF] font-bold">→</span>
+          <span className="text-[#111214] font-medium">ENVIRONMENT</span>
+          <span className="text-[#1687FF] font-bold">→</span>
+          <span className="text-[#1687FF] font-semibold tracking-widest">IMMERSION</span>
         </div>
       </div>
 

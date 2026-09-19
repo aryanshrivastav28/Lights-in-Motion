@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <div id="homepage-canvas" className="w-full min-h-screen bg-[#070709]">
+    <div id="homepage-canvas" className="w-full min-h-screen bg-[#F4F1EA] text-[#111214]">
       <HeroSection />
       <LightingExperienceSection />
       <PlatformMarquee />

@@ -26,7 +26,7 @@ export const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
       onClick={handleScroll}
       aria-label="Scroll to content"
       className={cn(
-        "group flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-200 select-none py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400",
+        "group flex items-center gap-2 text-[#6B6D70] hover:text-[#111214] transition-colors duration-200 select-none py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF]",
         "animate-hero-fade [animation-delay:900ms] motion-reduce:animate-none",
         className
       )}
@@ -36,7 +36,7 @@ export const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
       </span>
       <ChevronDownIcon
         size={14}
-        className="text-neutral-500 group-hover:text-cyan-400 transition-colors duration-200 animate-bounce motion-reduce:animate-none"
+        className="text-[#6B6D70] group-hover:text-[#1687FF] transition-colors duration-200 animate-bounce motion-reduce:animate-none"
         strokeWidth={2}
       />
     </button>

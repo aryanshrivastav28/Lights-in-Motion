@@ -52,7 +52,7 @@ export const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({
       role="tablist"
       aria-label="Experience Environment Mode Selector"
       className={cn(
-        "flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 p-1 rounded-sm bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm select-none max-w-xl w-full",
+        "flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 p-1 rounded-sm bg-[#ECE9E1] border border-[rgba(17,18,20,0.10)] backdrop-blur-sm select-none max-w-xl w-full",
         className
       )}
     >
@@ -75,27 +75,27 @@ export const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({
             onClick={() => onSelect(mode)}
             onKeyDown={(e) => handleKeyDown(e, mode)}
             className={cn(
-              "flex-1 flex items-center justify-between sm:justify-center gap-2.5 px-3.5 sm:px-4 py-2.5 rounded-sm transition-all duration-200 text-xs font-mono tracking-[0.14em] uppercase focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 cursor-pointer",
+              "flex-1 flex items-center justify-between sm:justify-center gap-2.5 px-3.5 sm:px-4 py-2.5 rounded-sm transition-all duration-200 text-xs font-mono tracking-[0.14em] uppercase focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] cursor-pointer",
               isActive
-                ? "bg-white/[0.09] text-white border border-white/20 shadow-sm"
-                : "bg-transparent text-neutral-400 hover:text-white hover:bg-white/[0.03] border border-transparent"
+                ? "bg-[#FAF9F6] text-[#111214] border border-[rgba(17,18,20,0.16)] shadow-sm font-semibold"
+                : "bg-transparent text-[#55575A] hover:text-[#111214] hover:bg-[rgba(17,18,20,0.03)] border border-transparent font-medium"
             )}
           >
             <div className="flex items-center gap-2">
               <span
                 className={cn(
                   "text-[10px] font-mono",
-                  isActive ? "text-cyan-400 font-semibold" : "text-neutral-500"
+                  isActive ? "text-[#1687FF] font-semibold" : "text-[#6B6D70]"
                 )}
               >
                 {item.index}
               </span>
-              <span className="font-medium whitespace-nowrap">{item.label}</span>
+              <span className="whitespace-nowrap">{item.label}</span>
             </div>
 
             {/* Active micro-indicator dot */}
             {isActive ? (
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#00E5FF] shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1687FF] shadow-[0_0_8px_rgba(22,135,255,0.6)] shrink-0" />
             ) : (
               <span className="w-1.5 h-1.5 rounded-full bg-transparent shrink-0" />
             )}

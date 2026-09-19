@@ -30,8 +30,8 @@ const ENVIRONMENTS: ShowcaseEnvironment[] = [
     displaySpec: "CURVED ULTRAWIDE",
     modeLabel: "FAST-PACED GAMING",
     fieldLabel: "PERIPHERAL EXPANSION",
-    accentColor: "#00E5FF",
-    glowClass: "from-cyan-500/25 via-blue-600/15 to-transparent",
+    accentColor: "#1687FF",
+    glowClass: "from-blue-500/25 via-blue-600/15 to-transparent",
   },
   {
     id: "cinema",
@@ -58,7 +58,7 @@ const ENVIRONMENTS: ShowcaseEnvironment[] = [
     displaySpec: "DUAL DISPLAY WORKSPACE",
     modeLabel: "BIAS ILLUMINATION",
     fieldLabel: "ARCHITECTURAL BALANCE",
-    accentColor: "#E2E8F0",
+    accentColor: "#55575A",
     glowClass: "from-slate-200/20 via-sky-300/10 to-transparent",
   },
 ];
@@ -79,12 +79,12 @@ function GamingVisual() {
       />
 
       {/* Atmospheric Ambient Light Glow Behind Display */}
-      <div className="absolute top-[18%] left-1/2 -translate-x-1/2 w-[92%] max-w-[840px] h-[72%] rounded-full bg-cyan-400/[0.18] blur-[80px] sm:blur-[120px] pointer-events-none" />
+      <div className="absolute top-[18%] left-1/2 -translate-x-1/2 w-[92%] max-w-[840px] h-[72%] rounded-full bg-[#1687FF]/[0.18] blur-[80px] sm:blur-[120px] pointer-events-none" />
       <div className="absolute top-[24%] left-1/2 -translate-x-1/2 w-[76%] max-w-[640px] h-[60%] rounded-full bg-blue-600/[0.14] blur-[60px] sm:blur-[90px] pointer-events-none" />
 
       {/* Desk Surface Horizon Line & Ambient Reflection */}
       <div className="absolute bottom-0 inset-x-0 h-[28%] bg-gradient-to-t from-[#070709] via-[#090a0f] to-transparent border-t border-white/[0.05]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] max-w-[700px] h-12 bg-cyan-400/[0.08] rounded-full blur-[35px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] max-w-[700px] h-12 bg-[#1687FF]/[0.08] rounded-full blur-[35px]" />
         {/* Subtle desk mat silhouette */}
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[60%] max-w-[500px] h-[2px] bg-white/[0.08] rounded-full" />
       </div>
@@ -94,7 +94,7 @@ function GamingVisual() {
         {/* Bezel Frame */}
         <div className="relative w-full h-full rounded-sm border border-white/[0.18] bg-[#090b12] shadow-[0_24px_80px_rgba(0,0,0,0.95)] overflow-hidden flex items-center justify-center">
           {/* Specular Edge Highlight */}
-          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
 
           {/* Minimalist Game Environment Abstract Vectors */}
           <svg
@@ -110,8 +110,8 @@ function GamingVisual() {
                 <stop offset="100%" stopColor="#04060a" />
               </linearGradient>
               <linearGradient id="cyberGrid" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#00E5FF" stopOpacity="0" />
+                <stop offset="0%" stopColor="#1687FF" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#1687FF" stopOpacity="0" />
               </linearGradient>
             </defs>
             <rect width="740" height="317" fill="url(#skyGrad)" />
@@ -122,7 +122,7 @@ function GamingVisual() {
             />
             <polyline
               points="0,220 140,160 220,190 320,130 430,200 560,140 680,210 740,180"
-              stroke="rgba(0,229,255,0.4)"
+              stroke="rgba(22,135,255,0.4)"
               strokeWidth="1"
             />
             {/* Minimal perspective ground grid */}
@@ -133,7 +133,7 @@ function GamingVisual() {
                 y1={y}
                 x2="740"
                 y2={y}
-                stroke="rgba(0,229,255,0.08)"
+                stroke="rgba(22,135,255,0.08)"
                 strokeWidth="0.75"
               />
             ))}
@@ -142,20 +142,20 @@ function GamingVisual() {
               cx="370"
               cy="158"
               r="14"
-              stroke="rgba(0,229,255,0.5)"
+              stroke="rgba(22,135,255,0.5)"
               strokeWidth="1"
               strokeDasharray="2 2"
             />
-            <line x1="370" y1="140" x2="370" y2="148" stroke="#00E5FF" strokeWidth="1" />
-            <line x1="370" y1="168" x2="370" y2="176" stroke="#00E5FF" strokeWidth="1" />
-            <line x1="352" y1="158" x2="360" y2="158" stroke="#00E5FF" strokeWidth="1" />
-            <line x1="380" y1="158" x2="388" y2="158" stroke="#00E5FF" strokeWidth="1" />
+            <line x1="370" y1="140" x2="370" y2="148" stroke="#1687FF" strokeWidth="1" />
+            <line x1="370" y1="168" x2="370" y2="176" stroke="#1687FF" strokeWidth="1" />
+            <line x1="352" y1="158" x2="360" y2="158" stroke="#1687FF" strokeWidth="1" />
+            <line x1="380" y1="158" x2="388" y2="158" stroke="#1687FF" strokeWidth="1" />
           </svg>
 
           {/* Screen HUD Overlay */}
           <div className="absolute top-3 left-4 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="font-mono text-[9px] tracking-[0.2em] text-cyan-400 uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1687FF] animate-pulse" />
+            <span className="font-mono text-[9px] tracking-[0.2em] text-[#1687FF] uppercase">
               SYNC ACTIVE
             </span>
           </div>
@@ -419,23 +419,23 @@ function EnvironmentArticle({ env, isActive }: EnvironmentArticleProps) {
     <article
       id={`environment-${env.id}`}
       data-env-id={env.id}
-      className="group relative flex flex-col border border-white/[0.08] bg-[#0c0d14] rounded-none overflow-hidden transition-colors duration-300 hover:border-white/[0.18]"
+      className="group relative flex flex-col border border-[rgba(17,18,20,0.10)] bg-[#FAF9F6] rounded-none overflow-hidden transition-colors duration-300 hover:border-[rgba(17,18,20,0.22)]"
       aria-labelledby={`env-title-${env.id}`}
     >
       {/* ── Top Micro-Header Bar ── */}
-      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/[0.06] bg-black/40 select-none">
+      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-[rgba(17,18,20,0.10)] bg-[#ECE9E1] select-none">
         <div className="flex items-center gap-2.5">
           <span
             className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
-            style={{ backgroundColor: isActive ? env.accentColor : "rgba(255,255,255,0.25)" }}
+            style={{ backgroundColor: isActive ? env.accentColor : "rgba(17,18,20,0.3)" }}
           />
-          <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-white/60">
+          <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#55575A]">
             ENVIRONMENT {"//"} {env.index}
           </span>
         </div>
-        <div className="flex items-center gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] tracking-[0.18em] uppercase text-white/35">
+        <div className="flex items-center gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] tracking-[0.18em] uppercase text-[#6B6D70]">
           <span className="hidden sm:inline">{env.displaySpec}</span>
-          <span className="hidden sm:inline text-white/15">|</span>
+          <span className="hidden sm:inline text-[rgba(17,18,20,0.15)]">|</span>
           <span>{env.tag}</span>
         </div>
       </div>
@@ -448,7 +448,7 @@ function EnvironmentArticle({ env, isActive }: EnvironmentArticleProps) {
       </div>
 
       {/* ── Bottom Editorial Content & Metadata Strip ── */}
-      <div className="p-6 sm:p-8 md:p-10 border-t border-white/[0.06] bg-[#0e1018]">
+      <div className="p-6 sm:p-8 md:p-10 border-t border-[rgba(17,18,20,0.10)] bg-[#FAF9F6]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
           {/* Index & Title */}
           <div className="lg:col-span-5">
@@ -462,24 +462,24 @@ function EnvironmentArticle({ env, isActive }: EnvironmentArticleProps) {
             </div>
             <h3
               id={`env-title-${env.id}`}
-              className="font-sans font-bold uppercase tracking-tight leading-[0.92] text-[#F3F4F6]"
+              className="font-sans font-bold uppercase tracking-tight leading-[0.92] text-[#111214]"
               style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}
             >
               {env.title}
             </h3>
-            <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-white/30">
+            <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-[#6B6D70]">
               {env.modeLabel}
             </div>
           </div>
 
           {/* Supporting Description & Technical Note */}
           <div className="lg:col-span-7 flex flex-col justify-between h-full">
-            <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed mb-4">
+            <p className="text-[#55575A] text-sm sm:text-base leading-relaxed mb-4">
               {env.description}
             </p>
-            <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-white/[0.04] font-mono text-[10px] tracking-[0.18em] uppercase text-white/30 select-none">
+            <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-[rgba(17,18,20,0.10)] font-mono text-[10px] tracking-[0.18em] uppercase text-[#6B6D70] select-none">
               <span>FIELD: {env.fieldLabel}</span>
-              <span className="text-white/15">•</span>
+              <span className="text-[rgba(17,18,20,0.15)]">•</span>
               <span>SETUP: {env.displaySpec}</span>
             </div>
           </div>
@@ -544,13 +544,13 @@ export function ImmersionShowcase() {
       id="immersion-action"
       aria-labelledby="immersion-heading"
       ref={sectionRef}
-      className="relative w-full bg-[#070709] border-t border-white/[0.08]"
+      className="relative w-full bg-[#F4F1EA] border-t border-[rgba(17,18,20,0.10)]"
     >
       {/* ── Section Header & Intro ─────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-20">
         {/* Technical Section Identifier */}
-        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9CA3AF] mb-8 flex items-center gap-2 select-none">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF]/60" aria-hidden="true" />
+        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#6B6D70] mb-8 flex items-center gap-2 select-none">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1687FF]" aria-hidden="true" />
           <span>05 {" // "} IMMERSION IN ACTION</span>
         </div>
 
@@ -559,7 +559,7 @@ export function ImmersionShowcase() {
           <div className="lg:col-span-8">
             <h2
               id="immersion-heading"
-              className="font-sans font-bold uppercase leading-[0.9] tracking-tight text-[#F3F4F6]"
+              className="font-sans font-bold uppercase leading-[0.9] tracking-tight text-[#111214]"
               style={{ fontSize: "clamp(2.625rem, 8vw, 5.5rem)" }}
             >
               LIGHT
@@ -571,10 +571,10 @@ export function ImmersionShowcase() {
           </div>
 
           <div className="lg:col-span-4 lg:pb-2">
-            <p className="font-sans text-[#F3F4F6] text-base sm:text-lg font-medium leading-relaxed mb-3">
+            <p className="font-sans text-[#111214] text-base sm:text-lg font-medium leading-relaxed mb-3">
               Three environments. One visual principle.
             </p>
-            <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed">
+            <p className="text-[#55575A] text-sm sm:text-base leading-relaxed">
               The display becomes the source. The surrounding space becomes part of
               the experience. Ambient light extends the content field into your
               room architecture.
@@ -584,7 +584,7 @@ export function ImmersionShowcase() {
       </div>
 
       {/* ── Sticky Environment Quick-Nav Strip (Desktop only) ───────────── */}
-      <div className="hidden md:block sticky z-30 top-16 sm:top-20 bg-[#070709]/90 backdrop-blur-md border-y border-white/[0.06] mb-12 sm:mb-16">
+      <div className="hidden md:block sticky z-30 top-16 sm:top-20 bg-[#F4F1EA]/90 backdrop-blur-md border-y border-[rgba(17,18,20,0.10)] mb-12 sm:mb-16">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-3 flex items-center justify-between">
           <div className="flex items-center gap-8 lg:gap-12">
             {ENVIRONMENTS.map((env) => {
@@ -594,19 +594,19 @@ export function ImmersionShowcase() {
                   key={env.id}
                   type="button"
                   onClick={() => scrollToEnv(env.id)}
-                  className="group flex items-center gap-2.5 py-1 text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm"
+                  className="group flex items-center gap-2.5 py-1 text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm"
                 >
                   <span
                     className="w-1.5 h-1.5 rounded-full transition-all duration-300"
                     style={{
-                      backgroundColor: isCurrent ? env.accentColor : "rgba(255,255,255,0.2)",
+                      backgroundColor: isCurrent ? env.accentColor : "rgba(17,18,20,0.25)",
                       boxShadow: isCurrent ? `0 0 6px ${env.accentColor}` : "none",
                     }}
                   />
                   <span
                     className="font-mono text-xs tracking-[0.2em] uppercase transition-colors duration-200"
                     style={{
-                      color: isCurrent ? "#F3F4F6" : "rgba(255,255,255,0.4)",
+                      color: isCurrent ? "#111214" : "#55575A",
                     }}
                   >
                     {env.index} {"//"} {env.tag}
@@ -616,7 +616,7 @@ export function ImmersionShowcase() {
             })}
           </div>
 
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/20 select-none">
+          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B6D70] select-none">
             REAL ENVIRONMENT SIMULATION
           </span>
         </div>
@@ -633,9 +633,9 @@ export function ImmersionShowcase() {
         ))}
 
         {/* ── Section Footer Telemetry Strip ── */}
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] text-white/30 tracking-[0.2em] uppercase select-none">
+        <div className="pt-8 border-t border-[rgba(17,18,20,0.10)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] text-[#6B6D70] tracking-[0.2em] uppercase select-none">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/60" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1687FF]" />
             <span>01 GAMING {"//"} 02 CINEMA {"//"} 03 WORKSPACE</span>
           </div>
           <span>END OF SIMULATION</span>

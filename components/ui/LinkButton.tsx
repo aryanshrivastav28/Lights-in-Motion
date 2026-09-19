@@ -27,23 +27,23 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   "aria-label": ariaLabel,
 }) => {
   const baseClasses =
-    "inline-flex items-center transition-colors duration-150 select-none cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950";
+    "inline-flex items-center transition-colors duration-150 select-none cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F1EA]";
 
   const variantClasses = {
     standard:
-      "text-neutral-300 hover:text-white underline-offset-4 hover:underline decoration-white/30 text-sm font-normal",
+      "text-[#55575A] hover:text-[#111214] underline-offset-4 hover:underline decoration-[rgba(17,18,20,0.3)] text-sm font-normal",
     navigation: cn(
       "text-xs tracking-[0.18em] uppercase transition-colors duration-150 py-1 font-medium",
       active
-        ? "text-white border-b border-cyan-400"
-        : "text-neutral-400 hover:text-white"
+        ? "text-[#111214] border-b border-[#1687FF]"
+        : "text-[#6B6D70] hover:text-[#111214]"
     ),
     technical: cn(
       "font-mono text-xs tracking-wider uppercase inline-flex items-center gap-2",
-      active ? "text-cyan-400" : "text-neutral-400 hover:text-neutral-200"
+      active ? "text-[#1687FF]" : "text-[#6B6D70] hover:text-[#111214]"
     ),
     arrow:
-      "group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-white hover:text-cyan-400 transition-colors",
+      "group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#111214] hover:text-[#1687FF] transition-colors",
   };
 
   const content = (
@@ -52,7 +52,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
         <span
           className={cn(
             "w-1.5 h-1.5 rounded-full transition-colors",
-            active ? "bg-cyan-400 shadow-[0_0_8px_rgba(0,229,255,0.6)]" : "bg-neutral-600 group-hover:bg-neutral-400"
+            active ? "bg-[#1687FF] shadow-[0_0_8px_rgba(22,135,255,0.6)]" : "bg-[#6B6D70] group-hover:bg-[#111214]"
           )}
         />
       )}
