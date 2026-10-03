@@ -432,7 +432,7 @@ export const HeroScrollExperience: React.FC<HeroScrollExperienceProps> = ({
     <div
       ref={stageRef}
       className={cn(
-        "relative w-full h-[100svh] overflow-hidden bg-[#F4F1EA] flex flex-col justify-between select-none",
+        "relative w-full h-[100svh] overflow-hidden bg-black flex flex-col justify-between select-none",
         className
       )}
     >
@@ -468,8 +468,8 @@ export const HeroScrollExperience: React.FC<HeroScrollExperienceProps> = ({
       </div>
 
       {/* Bottom Architectural Grounding Bar */}
-      <div className="relative z-20 w-full pb-4 sm:pb-6 px-5 sm:px-8 md:px-12 lg:px-16 border-t border-[rgba(17,18,20,0.08)] bg-gradient-to-t from-[#F4F1EA] via-[#F4F1EA]/90 to-transparent">
-        <div className="max-w-[1720px] mx-auto flex items-center justify-between text-[10px] sm:text-[11px] font-mono tracking-[0.2em] uppercase text-[#6B6D70]">
+      <div className="relative z-20 w-full pb-4 sm:pb-6 px-5 sm:px-8 md:px-12 lg:px-16 border-t border-white/10 bg-gradient-to-t from-black via-black/90 to-transparent">
+        <div className="max-w-[1720px] mx-auto flex items-center justify-between text-[10px] sm:text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400">
           <span className="inline-flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1687FF]" />
             LIGHT IN MOTION // CINEMATIC CORE

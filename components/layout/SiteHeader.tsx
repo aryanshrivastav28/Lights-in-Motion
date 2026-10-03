@@ -93,6 +93,23 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
   const isScrolledState = scrolled || !isOverlay;
   const isLightHeader = true;
 
+  // On homepage, the SoScaleHero component has its own dedicated top header
+  if (pathname === "/") {
+    return (
+      <>
+        <CartDrawer
+          isOpen={cartDrawerOpen}
+          onClose={() => setCartDrawerOpen(false)}
+          itemCount={cartCount}
+        />
+        <AuthModal
+          isOpen={authModalOpen}
+          onClose={() => setAuthModalOpen(false)}
+        />
+      </>
+    );
+  }
+
   return (
     <>
       <header

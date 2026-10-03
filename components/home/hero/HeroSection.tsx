@@ -1,28 +1,26 @@
 "use client";
 
-import React, { useRef } from "react";
-import { HeroScrollExperience } from "./HeroScrollExperience";
+import React from "react";
+import { MotionValue } from "framer-motion";
+import { SoScaleHero } from "./SoScaleHero";
 import { cn } from "@/lib/utils/cn";
 
 export interface HeroSectionProps {
   className?: string;
+  scrollYProgress?: MotionValue<number>;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
+export const HeroSection: React.FC<HeroSectionProps> = ({ className, scrollYProgress }) => {
   return (
     <section
-      ref={containerRef}
       id="hero-experience-track"
-      aria-label="Light in Motion Cinematic Scroll Experience"
+      aria-label="LIGHTINMOTION Cinema Landing Experience"
       className={cn(
-        "relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-[#F4F1EA]",
+        "relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-black",
         className
       )}
     >
-      {/* Cinematic Viewport Stage */}
-      <HeroScrollExperience containerRef={containerRef} />
+      <SoScaleHero scrollYProgress={scrollYProgress} />
     </section>
   );
 };

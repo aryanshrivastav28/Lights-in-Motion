@@ -64,26 +64,26 @@ export const HeroText: React.FC<HeroTextProps> = ({
             className="absolute inset-x-0 top-0 flex flex-col justify-center will-change-transform transition-[visibility] duration-75"
           >
             {/* Context Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[rgba(17,18,20,0.04)] border border-[rgba(17,18,20,0.10)] w-fit mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/5 border border-white/10 w-fit mb-4 sm:mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1687FF]" />
-              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.2em] uppercase text-[#6B6D70]">
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400">
                 {state.badge}
               </span>
             </div>
 
             {/* Editorial Headline */}
             {idx === 0 ? (
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#111214] uppercase leading-[1.04] mb-4 sm:mb-5 whitespace-pre-line">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-[1.04] mb-4 sm:mb-5 whitespace-pre-line">
                 {state.title}
               </h1>
             ) : (
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#111214] uppercase leading-[1.04] mb-4 sm:mb-5 whitespace-pre-line">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-[1.04] mb-4 sm:mb-5 whitespace-pre-line">
                 {state.title}
               </h2>
             )}
 
             {/* Subtitle / Narrative Copy */}
-            <p className="text-sm sm:text-base md:text-lg text-[#55575A] font-normal leading-relaxed max-w-lg mb-6 sm:mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-neutral-300 font-normal leading-relaxed max-w-lg mb-6 sm:mb-8">
               {state.subtitle}
             </p>
 
@@ -93,23 +93,23 @@ export const HeroText: React.FC<HeroTextProps> = ({
                 style={{
                   opacity: idx === currentIndex && !isTransitioning ? 1 : Math.max(0, (blend - 0.4) * 1.6),
                 }}
-                className="pt-4 border-t border-[rgba(17,18,20,0.10)] mt-2 flex items-center justify-between transition-opacity duration-300"
+                className="pt-4 border-t border-white/10 mt-2 flex items-center justify-between transition-opacity duration-300"
               >
                 <Link
                   href={SAFETY_VIDEO_URL}
                   aria-label="View safety overview and reassurance video"
-                  className="group inline-flex items-center gap-2 text-xs sm:text-sm font-mono tracking-[0.16em] uppercase text-[#55575A] hover:text-[#1687FF] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm py-1"
+                  className="group inline-flex items-center gap-2 text-xs sm:text-sm font-mono tracking-[0.16em] uppercase text-neutral-300 hover:text-[#1687FF] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm py-1"
                 >
-                  <span className="underline decoration-[rgba(17,18,20,0.20)] underline-offset-4 group-hover:decoration-[#1687FF]">
+                  <span className="underline decoration-white/20 underline-offset-4 group-hover:decoration-[#1687FF]">
                     STILL CONCERNED?
                   </span>
                   <ArrowUpRight
                     size={15}
-                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#6B6D70] group-hover:text-[#1687FF]"
+                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-neutral-400 group-hover:text-[#1687FF]"
                   />
                 </Link>
 
-                <span className="text-[10px] font-mono tracking-widest uppercase text-[#6B6D70]">
+                <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400">
                   SYSTEM SECURE
                 </span>
               </div>

@@ -102,13 +102,13 @@ function OpticalFieldDiagram() {
       {/* ── Light bar body ── */}
       {/* Mount bracket left */}
       <rect x="60" y="140" width="6" height="18" rx="1"
-        fill="none" stroke="rgba(17,18,20,0.25)" strokeWidth="0.75" />
+        fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.75" />
       {/* Mount bracket right */}
       <rect x="414" y="140" width="6" height="18" rx="1"
-        fill="none" stroke="rgba(17,18,20,0.25)" strokeWidth="0.75" />
+        fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.75" />
       {/* Main bar track */}
       <rect x="66" y="143" width="348" height="12" rx="1.5"
-        fill="#ECE9E1" stroke="rgba(17,18,20,0.2)" strokeWidth="0.75" />
+        fill="#1A1A1A" stroke="rgba(255,255,255,0.2)" strokeWidth="0.75" />
       {/* LED emission strip */}
       <rect x="70" y="145" width="340" height="8" rx="1"
         fill="url(#barGlow)" />
@@ -127,11 +127,11 @@ function OpticalFieldDiagram() {
 
       {/* ── Vertical dimension lines ── */}
       <line x1="50" y1="90" x2="50" y2="155"
-        stroke="rgba(17,18,20,0.15)" strokeWidth="0.5" strokeDasharray="2 3" />
+        stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" strokeDasharray="2 3" />
       <line x1="46" y1="90" x2="54" y2="90"
-        stroke="rgba(17,18,20,0.2)" strokeWidth="0.5" />
+        stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" />
       <line x1="46" y1="155" x2="54" y2="155"
-        stroke="rgba(17,18,20,0.2)" strokeWidth="0.5" />
+        stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" />
 
       {/* ── Technical annotations ── */}
       {/* AMBIENT FIELD label */}
@@ -143,25 +143,25 @@ function OpticalFieldDiagram() {
       {/* DIFFUSION label */}
       <text x="240" y="126" textAnchor="middle"
         fontFamily="monospace" fontSize="7" letterSpacing="1.5"
-        fill="#55575A">
+        fill="#A3A3A3">
         DIFFUSION ZONE
       </text>
       {/* OPTICAL OUTPUT label */}
       <text x="240" y="172" textAnchor="middle"
         fontFamily="monospace" fontSize="7" letterSpacing="1.5"
-        fill="#111214">
+        fill="#FFFFFF">
         OPTICAL OUTPUT
       </text>
       {/* Left END label */}
       <text x="70" y="168" textAnchor="middle"
         fontFamily="monospace" fontSize="6" letterSpacing="1"
-        fill="#6B6D70">
+        fill="#A3A3A3">
         L
       </text>
       {/* Right END label */}
       <text x="410" y="168" textAnchor="middle"
         fontFamily="monospace" fontSize="6" letterSpacing="1"
-        fill="#6B6D70">
+        fill="#A3A3A3">
         R
       </text>
 
@@ -179,21 +179,21 @@ function OpticalFieldDiagram() {
       {/* ── ENVIRONMENT label ── */}
       <text x="240" y="228" textAnchor="middle"
         fontFamily="monospace" fontSize="7" letterSpacing="1.5"
-        fill="#55575A">
+        fill="#A3A3A3">
         ENVIRONMENT
       </text>
       {/* Thin environment horizon line */}
       <line x1="110" y1="222" x2="370" y2="222"
-        stroke="rgba(17,18,20,0.16)" strokeWidth="0.5" />
+        stroke="rgba(255,255,255,0.16)" strokeWidth="0.5" />
 
       {/* ── Top section label ── */}
       <text x="240" y="24" textAnchor="middle"
         fontFamily="monospace" fontSize="7" letterSpacing="1.5"
-        fill="#6B6D70">
+        fill="#A3A3A3">
         LIGHT IN MOTION — OPTICAL SYSTEM
       </text>
       <line x1="110" y1="30" x2="370" y2="30"
-        stroke="rgba(17,18,20,0.16)" strokeWidth="0.5" />
+        stroke="rgba(255,255,255,0.16)" strokeWidth="0.5" />
     </svg>
   );
 }
@@ -209,7 +209,7 @@ interface ModuleCardProps {
 function ModuleCard({ module, visible, delay = 0 }: ModuleCardProps) {
   return (
     <article
-      className="group relative flex flex-col justify-between h-full border border-[rgba(17,18,20,0.10)] bg-[#FAF9F6] p-6 sm:p-7 transition-colors duration-300 hover:border-[rgba(22,135,255,0.3)]"
+      className="group relative flex flex-col justify-between h-full border border-white/10 bg-[#0D0D0D] p-6 sm:p-7 transition-colors duration-300 hover:border-[rgba(22,135,255,0.3)]"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(10px)",
@@ -225,7 +225,7 @@ function ModuleCard({ module, visible, delay = 0 }: ModuleCardProps) {
         >
           {module.index}
         </span>
-        <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-[#6B6D70] font-medium">
+        <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-neutral-400 font-medium">
           {module.annotation}
         </span>
       </div>
@@ -233,14 +233,14 @@ function ModuleCard({ module, visible, delay = 0 }: ModuleCardProps) {
       {/* Title */}
       <h3
         id={`module-title-${module.id}`}
-        className="font-sans font-bold uppercase tracking-tight leading-[0.9] text-[#111214] mb-4"
+        className="font-sans font-bold uppercase tracking-tight leading-[0.9] text-white mb-4"
         style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)" }}
       >
         {module.title}
       </h3>
 
       {/* Description */}
-      <p className="text-[#55575A] text-sm leading-relaxed flex-1">
+      <p className="text-neutral-300 text-base sm:text-lg leading-relaxed flex-1">
         {module.description}
       </p>
 
@@ -269,7 +269,7 @@ interface PrimaryModuleProps {
 function PrimaryModule({ module, visible }: PrimaryModuleProps) {
   return (
     <article
-      className="group relative flex flex-col border border-[rgba(17,18,20,0.10)] bg-[#FAF9F6] transition-colors duration-300 hover:border-[rgba(22,135,255,0.3)] overflow-hidden"
+      className="group relative flex flex-col border border-white/10 bg-[#0D0D0D] transition-colors duration-300 hover:border-[rgba(22,135,255,0.3)] overflow-hidden"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(10px)",
@@ -287,33 +287,33 @@ function PrimaryModule({ module, visible }: PrimaryModuleProps) {
       </div>
 
       {/* Bottom info strip */}
-      <div className="border-t border-[rgba(17,18,20,0.10)] p-5 sm:p-6 flex items-start justify-between gap-6">
+      <div className="border-t border-white/10 p-5 sm:p-6 flex items-start justify-between gap-6">
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-2">
             <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#1687FF]">
               {module.index}
             </span>
-            <span className="w-px h-3 bg-[rgba(17,18,20,0.15)]" aria-hidden="true" />
-            <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-[#6B6D70] font-medium">
+            <span className="w-px h-3 bg-white/15" aria-hidden="true" />
+            <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-neutral-400 font-medium">
               {module.annotation}
             </span>
           </div>
           <h3
             id={`module-title-${module.id}`}
-            className="font-sans font-bold uppercase tracking-tight leading-[0.92] text-[#111214] mb-2"
+            className="font-sans font-bold uppercase tracking-tight leading-[0.92] text-white mb-2"
             style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
           >
             {module.title}
           </h3>
-          <p className="text-[#55575A] text-sm leading-relaxed max-w-md">
+          <p className="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-xl">
             {module.description}
           </p>
         </div>
 
         {/* Corner bracket decoration */}
         <div className="hidden sm:flex flex-col items-end gap-0.5 pt-1 select-none" aria-hidden="true">
-          <div className="w-4 h-px bg-[rgba(17,18,20,0.15)]" />
-          <div className="w-px h-4 bg-[rgba(17,18,20,0.15)] self-end" />
+          <div className="w-4 h-px bg-white/15" />
+          <div className="w-px h-4 bg-white/15 self-end" />
         </div>
       </div>
 
@@ -370,12 +370,12 @@ export function HardwareBentoGrid() {
       id="hardware-architecture"
       aria-labelledby="hardware-heading"
       ref={sectionRef}
-      className="relative w-full bg-[#ECE9E1] border-t border-[rgba(17,18,20,0.10)]"
+      className="relative w-full bg-black border-t border-white/10"
     >
       {/* ── Section Header ─────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-24 sm:pt-32 md:pt-36 pb-14 sm:pb-18">
         {/* Technical label */}
-        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#6B6D70] mb-8 flex items-center gap-2 select-none">
+        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-400 mb-8 flex items-center gap-2 select-none">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1687FF]" aria-hidden="true" />
           <span>04 {" // "} HARDWARE ARCHITECTURE</span>
         </div>
@@ -385,7 +385,7 @@ export function HardwareBentoGrid() {
           <div className="lg:col-span-7">
             <h2
               id="hardware-heading"
-              className="font-sans font-bold uppercase leading-[0.9] tracking-tight text-[#111214]"
+              className="font-sans font-bold uppercase leading-[0.9] tracking-tight text-white"
               style={{ fontSize: "clamp(2.625rem, 8vw, 5.5rem)" }}
             >
               BUILT AROUND
@@ -394,10 +394,10 @@ export function HardwareBentoGrid() {
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pb-1">
-            <p className="text-[#55575A] text-base sm:text-lg leading-relaxed mb-3">
+            <p className="text-neutral-300 text-base sm:text-lg leading-relaxed mb-3">
               Hardware, optics, and control working together.
             </p>
-            <p className="text-[#55575A] text-sm sm:text-base leading-relaxed max-w-md">
+            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed max-w-md">
               The Light in Motion system is built around a coordinated set of
               physical and electronic components designed to extend the visual
               environment into the room around the display.
@@ -417,7 +417,7 @@ export function HardwareBentoGrid() {
           Using CSS grid with named areas for clarity.
         */}
         <div
-          className="hidden lg:grid gap-px bg-[rgba(17,18,20,0.10)]"
+          className="hidden lg:grid gap-px bg-white/10"
           style={{
             gridTemplateColumns: "1fr 1fr 1fr",
             gridTemplateRows: "auto auto",
@@ -428,60 +428,60 @@ export function HardwareBentoGrid() {
             `,
           }}
         >
-          <div style={{ gridArea: "primary" }} className="bg-[#ECE9E1]">
+          <div style={{ gridArea: "primary" }} className="bg-black">
             <PrimaryModule module={primaryModule} visible={visible} />
           </div>
 
-          <div style={{ gridArea: "ctrl" }} className="bg-[#ECE9E1]">
+          <div style={{ gridArea: "ctrl" }} className="bg-black">
             <ModuleCard module={secondaryModules[0]} visible={visible} delay={80} />
           </div>
 
-          <div style={{ gridArea: "sig" }} className="bg-[#ECE9E1]">
+          <div style={{ gridArea: "sig" }} className="bg-black">
             <ModuleCard module={secondaryModules[1]} visible={visible} delay={160} />
           </div>
 
-          <div style={{ gridArea: "diff" }} className="bg-[#ECE9E1]">
+          <div style={{ gridArea: "diff" }} className="bg-black">
             <ModuleCard module={secondaryModules[2]} visible={visible} delay={240} />
           </div>
 
-          <div style={{ gridArea: "env" }} className="bg-[#ECE9E1]">
+          <div style={{ gridArea: "env" }} className="bg-black">
             <ModuleCard module={secondaryModules[3]} visible={visible} delay={320} />
           </div>
         </div>
 
         {/* Tablet layout: 2-column grid */}
-        <div className="hidden sm:grid lg:hidden gap-px bg-[rgba(17,18,20,0.10)]"
+        <div className="hidden sm:grid lg:hidden gap-px bg-white/10"
           style={{ gridTemplateColumns: "1fr 1fr" }}
         >
-          <div className="col-span-2 bg-[#ECE9E1]">
+          <div className="col-span-2 bg-black">
             <PrimaryModule module={primaryModule} visible={visible} />
           </div>
           {secondaryModules.map((mod, i) => (
-            <div key={mod.id} className="bg-[#ECE9E1]">
+            <div key={mod.id} className="bg-black">
               <ModuleCard module={mod} visible={visible} delay={i * 80} />
             </div>
           ))}
         </div>
 
         {/* Mobile layout: single column vertical sequence */}
-        <div className="flex flex-col sm:hidden gap-px bg-[rgba(17,18,20,0.10)]">
-          <div className="bg-[#ECE9E1]">
+        <div className="flex flex-col sm:hidden gap-px bg-white/10">
+          <div className="bg-black">
             <PrimaryModule module={primaryModule} visible={visible} />
           </div>
           {secondaryModules.map((mod, i) => (
-            <div key={mod.id} className="bg-[#ECE9E1]">
+            <div key={mod.id} className="bg-black">
               <ModuleCard module={mod} visible={visible} delay={i * 60} />
             </div>
           ))}
         </div>
 
         {/* Bottom telemetry strip */}
-        <div className="mt-px bg-[#FAF9F6] border-t border-[rgba(17,18,20,0.10)] px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B6D70] select-none">
+        <div className="mt-px bg-[#0D0D0D] border-t border-white/10 px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase text-neutral-400 select-none">
             <span className="inline-block w-1 h-1 rounded-full bg-[#1687FF]" aria-hidden="true" />
             <span>OPTICAL {" // "} CONTROL {" // "} SIGNAL {" // "} DIFFUSION {" // "} ENVIRONMENT</span>
           </div>
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B6D70] select-none">
+          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-neutral-400 select-none">
             SYSTEM OVERVIEW
           </span>
         </div>

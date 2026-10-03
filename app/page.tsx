@@ -1,10 +1,5 @@
 import React from "react";
-import { HeroSection } from "@/components/hero/HeroSection";
-import { PlatformMarquee } from "@/components/home/PlatformMarquee";
-import { SyncEngineTimeline } from "@/components/home/SyncEngineTimeline";
-import { HardwareBentoGrid } from "@/components/home/HardwareBentoGrid";
-import { ImmersionShowcase } from "@/components/home/ImmersionShowcase";
-import { LightingExperienceSection } from "@/components/home/experience/LightingExperienceSection";
+import { StackingHomeWrapper } from "@/components/home/StackingHomeWrapper";
 
 export const metadata = {
   title: "Light in Motion | Immersive Ambient Lighting for Gaming & Cinema",
@@ -13,14 +8,5 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  return (
-    <div id="homepage-canvas" className="w-full min-h-screen bg-[#F4F1EA] text-[#111214]">
-      <HeroSection />
-      <LightingExperienceSection />
-      <PlatformMarquee />
-      <SyncEngineTimeline />
-      <HardwareBentoGrid />
-      <ImmersionShowcase />
-    </div>
-  );
+  return <StackingHomeWrapper />;
 }

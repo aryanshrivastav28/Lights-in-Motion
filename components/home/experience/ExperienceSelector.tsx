@@ -52,7 +52,7 @@ export const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({
       role="tablist"
       aria-label="Experience Environment Mode Selector"
       className={cn(
-        "flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 p-1 rounded-sm bg-[#ECE9E1] border border-[rgba(17,18,20,0.10)] backdrop-blur-sm select-none max-w-xl w-full",
+        "flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 p-1 rounded-sm bg-[#141414] border border-white/10 backdrop-blur-sm select-none max-w-xl w-full",
         className
       )}
     >
@@ -77,15 +77,15 @@ export const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({
             className={cn(
               "flex-1 flex items-center justify-between sm:justify-center gap-2.5 px-3.5 sm:px-4 py-2.5 rounded-sm transition-all duration-200 text-xs font-mono tracking-[0.14em] uppercase focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] cursor-pointer",
               isActive
-                ? "bg-[#FAF9F6] text-[#111214] border border-[rgba(17,18,20,0.16)] shadow-sm font-semibold"
-                : "bg-transparent text-[#55575A] hover:text-[#111214] hover:bg-[rgba(17,18,20,0.03)] border border-transparent font-medium"
+                ? "bg-[#222222] text-white border border-white/20 shadow-sm font-semibold"
+                : "bg-transparent text-neutral-400 hover:text-white hover:bg-white/5 border border-transparent font-medium"
             )}
           >
             <div className="flex items-center gap-2">
               <span
                 className={cn(
                   "text-[10px] font-mono",
-                  isActive ? "text-[#1687FF] font-semibold" : "text-[#6B6D70]"
+                  isActive ? "text-[#1687FF] font-semibold" : "text-neutral-400"
                 )}
               >
                 {item.index}

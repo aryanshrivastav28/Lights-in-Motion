@@ -419,23 +419,23 @@ function EnvironmentArticle({ env, isActive }: EnvironmentArticleProps) {
     <article
       id={`environment-${env.id}`}
       data-env-id={env.id}
-      className="group relative flex flex-col border border-[rgba(17,18,20,0.10)] bg-[#FAF9F6] rounded-none overflow-hidden transition-colors duration-300 hover:border-[rgba(17,18,20,0.22)]"
+      className="group relative flex flex-col border border-white/10 bg-[#0D0D0D] rounded-none overflow-hidden transition-colors duration-300 hover:border-white/20"
       aria-labelledby={`env-title-${env.id}`}
     >
       {/* ── Top Micro-Header Bar ── */}
-      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-[rgba(17,18,20,0.10)] bg-[#ECE9E1] select-none">
+      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-[#141414] select-none">
         <div className="flex items-center gap-2.5">
           <span
             className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
-            style={{ backgroundColor: isActive ? env.accentColor : "rgba(17,18,20,0.3)" }}
+            style={{ backgroundColor: isActive ? env.accentColor : "rgba(255,255,255,0.3)" }}
           />
-          <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#55575A]">
+          <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-neutral-300">
             ENVIRONMENT {"//"} {env.index}
           </span>
         </div>
-        <div className="flex items-center gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] tracking-[0.18em] uppercase text-[#6B6D70]">
+        <div className="flex items-center gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] tracking-[0.18em] uppercase text-neutral-400">
           <span className="hidden sm:inline">{env.displaySpec}</span>
-          <span className="hidden sm:inline text-[rgba(17,18,20,0.15)]">|</span>
+          <span className="hidden sm:inline text-white/20">|</span>
           <span>{env.tag}</span>
         </div>
       </div>
@@ -448,7 +448,7 @@ function EnvironmentArticle({ env, isActive }: EnvironmentArticleProps) {
       </div>
 
       {/* ── Bottom Editorial Content & Metadata Strip ── */}
-      <div className="p-6 sm:p-8 md:p-10 border-t border-[rgba(17,18,20,0.10)] bg-[#FAF9F6]">
+      <div className="p-6 sm:p-8 md:p-10 border-t border-white/10 bg-[#0D0D0D]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
           {/* Index & Title */}
           <div className="lg:col-span-5">
@@ -462,24 +462,24 @@ function EnvironmentArticle({ env, isActive }: EnvironmentArticleProps) {
             </div>
             <h3
               id={`env-title-${env.id}`}
-              className="font-sans font-bold uppercase tracking-tight leading-[0.92] text-[#111214]"
+              className="font-sans font-bold uppercase tracking-tight leading-[0.92] text-white"
               style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}
             >
               {env.title}
             </h3>
-            <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-[#6B6D70]">
+            <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-neutral-400">
               {env.modeLabel}
             </div>
           </div>
 
           {/* Supporting Description & Technical Note */}
           <div className="lg:col-span-7 flex flex-col justify-between h-full">
-            <p className="text-[#55575A] text-sm sm:text-base leading-relaxed mb-4">
+            <p className="text-neutral-300 text-base sm:text-lg leading-relaxed mb-4">
               {env.description}
             </p>
-            <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-[rgba(17,18,20,0.10)] font-mono text-[10px] tracking-[0.18em] uppercase text-[#6B6D70] select-none">
+            <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-white/10 font-mono text-[10px] tracking-[0.18em] uppercase text-neutral-400 select-none">
               <span>FIELD: {env.fieldLabel}</span>
-              <span className="text-[rgba(17,18,20,0.15)]">•</span>
+              <span className="text-white/20">•</span>
               <span>SETUP: {env.displaySpec}</span>
             </div>
           </div>
@@ -544,12 +544,12 @@ export function ImmersionShowcase() {
       id="immersion-action"
       aria-labelledby="immersion-heading"
       ref={sectionRef}
-      className="relative w-full bg-[#F4F1EA] border-t border-[rgba(17,18,20,0.10)]"
+      className="relative w-full bg-black border-t border-white/10"
     >
       {/* ── Section Header & Intro ─────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-20">
         {/* Technical Section Identifier */}
-        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#6B6D70] mb-8 flex items-center gap-2 select-none">
+        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-400 mb-8 flex items-center gap-2 select-none">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1687FF]" aria-hidden="true" />
           <span>05 {" // "} IMMERSION IN ACTION</span>
         </div>
@@ -559,7 +559,7 @@ export function ImmersionShowcase() {
           <div className="lg:col-span-8">
             <h2
               id="immersion-heading"
-              className="font-sans font-bold uppercase leading-[0.9] tracking-tight text-[#111214]"
+              className="font-sans font-bold uppercase leading-[0.9] tracking-tight text-white"
               style={{ fontSize: "clamp(2.625rem, 8vw, 5.5rem)" }}
             >
               LIGHT
@@ -571,10 +571,10 @@ export function ImmersionShowcase() {
           </div>
 
           <div className="lg:col-span-4 lg:pb-2">
-            <p className="font-sans text-[#111214] text-base sm:text-lg font-medium leading-relaxed mb-3">
+            <p className="font-sans text-white text-base sm:text-lg font-medium leading-relaxed mb-3">
               Three environments. One visual principle.
             </p>
-            <p className="text-[#55575A] text-sm sm:text-base leading-relaxed">
+            <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
               The display becomes the source. The surrounding space becomes part of
               the experience. Ambient light extends the content field into your
               room architecture.
@@ -584,7 +584,7 @@ export function ImmersionShowcase() {
       </div>
 
       {/* ── Sticky Environment Quick-Nav Strip (Desktop only) ───────────── */}
-      <div className="hidden md:block sticky z-30 top-16 sm:top-20 bg-[#F4F1EA]/90 backdrop-blur-md border-y border-[rgba(17,18,20,0.10)] mb-12 sm:mb-16">
+      <div className="hidden md:block sticky z-30 top-16 sm:top-20 bg-black/90 backdrop-blur-md border-y border-white/10 mb-12 sm:mb-16">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-3 flex items-center justify-between">
           <div className="flex items-center gap-8 lg:gap-12">
             {ENVIRONMENTS.map((env) => {
@@ -599,14 +599,14 @@ export function ImmersionShowcase() {
                   <span
                     className="w-1.5 h-1.5 rounded-full transition-all duration-300"
                     style={{
-                      backgroundColor: isCurrent ? env.accentColor : "rgba(17,18,20,0.25)",
+                      backgroundColor: isCurrent ? env.accentColor : "rgba(255,255,255,0.25)",
                       boxShadow: isCurrent ? `0 0 6px ${env.accentColor}` : "none",
                     }}
                   />
                   <span
                     className="font-mono text-xs tracking-[0.2em] uppercase transition-colors duration-200"
                     style={{
-                      color: isCurrent ? "#111214" : "#55575A",
+                      color: isCurrent ? "#FFFFFF" : "#A3A3A3",
                     }}
                   >
                     {env.index} {"//"} {env.tag}
@@ -616,7 +616,7 @@ export function ImmersionShowcase() {
             })}
           </div>
 
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B6D70] select-none">
+          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-neutral-400 select-none">
             REAL ENVIRONMENT SIMULATION
           </span>
         </div>
@@ -633,7 +633,7 @@ export function ImmersionShowcase() {
         ))}
 
         {/* ── Section Footer Telemetry Strip ── */}
-        <div className="pt-8 border-t border-[rgba(17,18,20,0.10)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] text-[#6B6D70] tracking-[0.2em] uppercase select-none">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] text-neutral-400 tracking-[0.2em] uppercase select-none">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1687FF]" />
             <span>01 GAMING {"//"} 02 CINEMA {"//"} 03 WORKSPACE</span>
