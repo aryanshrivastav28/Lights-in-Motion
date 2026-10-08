@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { LocalizationProvider } from "@/context/LocalizationContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,9 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black text-white font-sans antialiased">
-        <SiteHeader overlay={true} cartCount={0} />
-        <main>{children}</main>
-        <SiteFooter />
+        <LocalizationProvider>
+          <SiteHeader overlay={true} cartCount={0} />
+          <main>{children}</main>
+          <SiteFooter />
+        </LocalizationProvider>
       </body>
     </html>
   );

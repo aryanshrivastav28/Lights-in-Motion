@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/cn";
@@ -8,6 +8,13 @@ import { Container } from "@/components/ui/Container";
 import { MenuIcon, CloseIcon, ChevronRightIcon } from "@/components/ui/Icons";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { AuthModal } from "@/components/account/AuthModal";
+import {
+  useLocalization,
+  CURRENCIES,
+  LANGUAGES,
+  CurrencyCode,
+  LanguageCode,
+} from "@/context/LocalizationContext";
 
 export interface SiteHeaderProps {
   overlay?: boolean;
@@ -18,23 +25,38 @@ export interface SiteHeaderProps {
   onOpenAccount?: () => void;
 }
 
-const NAV_ITEMS = [
-  { label: "HOME", href: "/" },
-  { label: "STORE", href: "/store" },
-  { label: "APP", href: "/app" },
-];
-
 export const SiteHeader: React.FC<SiteHeaderProps> = ({
   cartCount = 0,
   onOpenCart,
   onOpenAccount,
 }) => {
   const pathname = usePathname();
+  const { currency, setCurrency, language, setLanguage, t } = useLocalization();
+
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [currencyDropdownOpen, setCurrencyDropdownOpen] = useState(false);
+  const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
+
+  const currencyRef = useRef<HTMLDivElement>(null);
+  const languageRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (currencyRef.current && !currencyRef.current.contains(e.target as Node)) {
+        setCurrencyDropdownOpen(false);
+      }
+      if (languageRef.current && !languageRef.current.contains(e.target as Node)) {
+        setLanguageDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +83,12 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
     }
   };
 
+  const navItems = [
+    { label: t("home"), href: "/" },
+    { label: t("store"), href: "/store" },
+    { label: t("app"), href: "/app" },
+  ];
+
   return (
     <>
       <header
@@ -74,7 +102,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
         <Container size="wide">
           <div className="flex items-center justify-between h-11">
             
-            {/* Left: Brand Logo */}
+            {/* Left: Brand Logo & Desktop Nav */}
             <div className="flex items-center gap-8">
               <Link
                 href="/"
@@ -87,7 +115,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
               {/* Desktop Nav */}
               <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-                {NAV_ITEMS.map((item) => {
+                {navItems.map((item) => {
                   const isActive =
                     item.href === "/"
                       ? pathname === "/"
@@ -95,7 +123,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
                   return (
                     <Link
-                      key={item.label}
+                      key={item.href}
                       href={item.href}
                       className={cn(
                         "text-xs font-mono font-bold tracking-[0.18em] uppercase transition-colors py-1 relative",
@@ -114,21 +142,116 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
             {/* Right Action Utilities matching exact uploaded reference */}
             <div className="hidden md:flex items-center space-x-6 sm:space-x-7 text-sm font-medium text-white">
-              {/* Country & Currency */}
-              <button
-                type="button"
-                className="hover:text-neutral-300 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide"
-              >
-                India (USD $)
-              </button>
+              
+              {/* Country & Currency Selector Dropdown */}
+              <div ref={currencyRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCurrencyDropdownOpen(!currencyDropdownOpen);
+                    setLanguageDropdownOpen(false);
+                  }}
+                  className="flex items-center gap-1.5 hover:text-neutral-300 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide py-1"
+                >
+                  <span>{currency.label}</span>
+                  <svg
+                    className={cn(
+                      "w-3.5 h-3.5 transition-transform duration-200",
+                      currencyDropdownOpen ? "rotate-180" : ""
+                    )}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
 
-              {/* Language */}
-              <button
-                type="button"
-                className="hover:text-neutral-300 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide"
-              >
-                English
-              </button>
+                {currencyDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-56 bg-[#0E0F12] border border-white/15 rounded-xl shadow-[0_10px_35px_rgba(0,0,0,0.95)] py-2 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+                    <div className="px-3 py-1.5 text-[10px] font-mono tracking-wider text-neutral-400 uppercase border-b border-white/10 mb-1">
+                      Select Currency
+                    </div>
+                    {Object.values(CURRENCIES).map((curr) => {
+                      const isSelected = currency.code === curr.code;
+                      return (
+                        <button
+                          key={curr.code}
+                          type="button"
+                          onClick={() => {
+                            setCurrency(curr.code as CurrencyCode);
+                            setCurrencyDropdownOpen(false);
+                          }}
+                          className={cn(
+                            "w-full text-left px-3.5 py-2 text-xs sm:text-sm flex items-center justify-between hover:bg-white/10 transition-colors cursor-pointer",
+                            isSelected ? "text-white font-bold bg-white/5" : "text-neutral-300"
+                          )}
+                        >
+                          <span>{curr.label}</span>
+                          {isSelected && (
+                            <span className="text-[#963b18] font-bold text-xs">✓</span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Language Selector Dropdown */}
+              <div ref={languageRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLanguageDropdownOpen(!languageDropdownOpen);
+                    setCurrencyDropdownOpen(false);
+                  }}
+                  className="flex items-center gap-1.5 hover:text-neutral-300 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide py-1"
+                >
+                  <span>{language.label}</span>
+                  <svg
+                    className={cn(
+                      "w-3.5 h-3.5 transition-transform duration-200",
+                      languageDropdownOpen ? "rotate-180" : ""
+                    )}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {languageDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-[#0E0F12] border border-white/15 rounded-xl shadow-[0_10px_35px_rgba(0,0,0,0.95)] py-2 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+                    <div className="px-3 py-1.5 text-[10px] font-mono tracking-wider text-neutral-400 uppercase border-b border-white/10 mb-1">
+                      Select Language
+                    </div>
+                    {Object.values(LANGUAGES).map((lang) => {
+                      const isSelected = language.code === lang.code;
+                      return (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => {
+                            setLanguage(lang.code as LanguageCode);
+                            setLanguageDropdownOpen(false);
+                          }}
+                          className={cn(
+                            "w-full text-left px-3.5 py-2 text-xs sm:text-sm flex items-center justify-between hover:bg-white/10 transition-colors cursor-pointer",
+                            isSelected ? "text-white font-bold bg-white/5" : "text-neutral-300"
+                          )}
+                        >
+                          <span>{lang.label}</span>
+                          {isSelected && (
+                            <span className="text-[#963b18] font-bold text-xs">✓</span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
 
               {/* Search Icon */}
               <button
@@ -237,7 +360,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
             <input
               type="text"
               autoFocus
-              placeholder="Search products, lighting systems..."
+              placeholder={t("searchPlaceholder")}
               className="w-full bg-[#111214] border border-white/15 rounded-xl px-4 py-2.5 text-white placeholder:text-neutral-500 outline-none text-sm focus:border-white/40"
             />
             <button
@@ -266,9 +389,9 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
           </div>
 
           <div className="flex-1 overflow-y-auto px-6 py-8 space-y-4">
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <Link
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider"
@@ -278,14 +401,39 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
               </Link>
             ))}
 
-            <div className="pt-6 border-t border-white/10 space-y-3">
-              <div className="flex items-center justify-between text-neutral-400 text-sm py-2">
-                <span>Region &amp; Currency</span>
-                <span className="text-white font-medium">India (USD $)</span>
+            <div className="pt-6 border-t border-white/10 space-y-4">
+              <div>
+                <label className="block text-xs font-mono text-neutral-400 uppercase mb-1">
+                  Region &amp; Currency
+                </label>
+                <select
+                  value={currency.code}
+                  onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
+                  className="w-full bg-[#111214] border border-white/15 rounded-lg px-3 py-2 text-white text-sm outline-none"
+                >
+                  {Object.values(CURRENCIES).map((curr) => (
+                    <option key={curr.code} value={curr.code} className="bg-black text-white">
+                      {curr.label}
+                    </option>
+                  ))}
+                </select>
               </div>
-              <div className="flex items-center justify-between text-neutral-400 text-sm py-2">
-                <span>Language</span>
-                <span className="text-white font-medium">English</span>
+
+              <div>
+                <label className="block text-xs font-mono text-neutral-400 uppercase mb-1">
+                  Language
+                </label>
+                <select
+                  value={language.code}
+                  onChange={(e) => setLanguage(e.target.value as LanguageCode)}
+                  className="w-full bg-[#111214] border border-white/15 rounded-lg px-3 py-2 text-white text-sm outline-none"
+                >
+                  {Object.values(LANGUAGES).map((lang) => (
+                    <option key={lang.code} value={lang.code} className="bg-black text-white">
+                      {lang.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>

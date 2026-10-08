@@ -3,95 +3,90 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLocalization } from "@/context/LocalizationContext";
 
 export interface CollectionProduct {
   id: string;
-  badge: "BEST SELLING" | "SALE" | string;
-  title: string;
+  badgeKey: "bestSelling" | "sale";
+  titleKey: string;
   price: number;
   compareAtPrice?: number;
   image: string;
   category: "TV Sync Set" | "Monitor Sync Set" | "LIGHTINMOTION Collection";
-  dealLabel: string;
   slug: string;
 }
 
 const PRODUCTS: CollectionProduct[] = [
   {
     id: "tv-backlight",
-    badge: "BEST SELLING",
-    title: "TV Backlight",
+    badgeKey: "bestSelling",
+    titleKey: "tvBacklightTitle",
     price: 1699.0,
     compareAtPrice: 2199.0,
     image: "/products/tv-backlight/main.png",
     category: "TV Sync Set",
-    dealLabel: "Diwali Special Deal",
     slug: "tv-backlight",
   },
   {
     id: "monitor-backlight",
-    badge: "SALE",
-    title: "LightinMotion Monitor Backlight",
+    badgeKey: "sale",
+    titleKey: "monitorBacklightTitle",
     price: 1399.0,
     compareAtPrice: 1799.0,
     image: "/products/monitor-backlight/main.png",
     category: "Monitor Sync Set",
-    dealLabel: "Diwali Special Deal",
     slug: "monitor-backlight",
   },
   {
     id: "lamp-lights",
-    badge: "SALE",
-    title: "LightinMotion Lamp Light",
+    badgeKey: "sale",
+    titleKey: "lampLightTitle",
     price: 1899.0,
     compareAtPrice: 2499.0,
     image: "/products/lamp-lights/main.png",
     category: "LIGHTINMOTION Collection",
-    dealLabel: "Diwali Special Deal",
     slug: "lamp-lights",
   },
   {
     id: "bar-lights",
-    badge: "SALE",
-    title: "Monitor Bar Lights",
+    badgeKey: "sale",
+    titleKey: "monitorBarTitle",
     price: 1899.0,
     compareAtPrice: 2499.0,
     image: "/products/bar-lights/main.png",
     category: "Monitor Sync Set",
-    dealLabel: "Diwali Special Deal",
     slug: "bar-lights",
   },
   {
     id: "custom-sync-lights",
-    badge: "SALE",
-    title: "Custom Sync Lights",
+    badgeKey: "sale",
+    titleKey: "customSyncTitle",
     price: 1000.0,
     compareAtPrice: 1499.0,
     image: "/products/custom-strip-light/main.png",
     category: "LIGHTINMOTION Collection",
-    dealLabel: "Diwali Special Deal",
     slug: "custom-strip-light",
   },
   {
     id: "cloud-lights",
-    badge: "SALE",
-    title: "Cloud Lights",
+    badgeKey: "sale",
+    titleKey: "cloudLightsTitle",
     price: 2200.0,
     compareAtPrice: 2999.0,
     image: "/products/cloudlights/main.jpg",
     category: "LIGHTINMOTION Collection",
-    dealLabel: "Diwali Special Deal",
     slug: "cloudlights",
   },
 ];
 
 export const ProductCollectionGrid: React.FC = () => {
+  const { t, formatPrice } = useLocalization();
   const [activeTab, setActiveTab] = useState<string>("LIGHTINMOTION Collection");
 
   const tabs = [
-    { id: "LIGHTINMOTION Collection", label: "LIGHTINMOTION Collection" },
-    { id: "TV Sync Set", label: "TV Sync Set" },
-    { id: "Monitor Sync Set", label: "Monitor Sync Set" },
+    { id: "LIGHTINMOTION Collection", labelKey: "lightinmotionCollection" },
+    { id: "TV Sync Set", labelKey: "tvSyncSet" },
+    { id: "Monitor Sync Set", labelKey: "monitorSyncSet" },
   ];
 
   const filteredProducts = PRODUCTS.filter((product) => {
@@ -111,20 +106,20 @@ export const ProductCollectionGrid: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 ${
+                className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 cursor-pointer ${
                   isActive
                     ? "bg-[#963b18] text-white shadow-[0_0_20px_rgba(150,59,24,0.4)] scale-100"
                     : "text-neutral-400 hover:text-white hover:bg-white/5"
                 }`}
               >
-                {tab.label}
+                {t(tab.labelKey)}
               </button>
             );
           })}
         </div>
       </div>
 
-      {/* 4 Products In One Line (Responsive Grid: 1 col mobile, 2 col tablet, 4 col desktop) */}
+      {/* 4 Products In One Line Responsive Grid */}
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <div
@@ -136,20 +131,23 @@ export const ProductCollectionGrid: React.FC = () => {
               <span
                 className="text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 py-1 rounded-r-md rounded-tl-md shadow-xs font-sans bg-[#E52E2E]"
               >
-                {product.badge}
+                {t(product.badgeKey)}
               </span>
             </div>
 
-            {/* Product Image Stage - High-Fill Portrait Showcase so images are large & clearly visible */}
-            <div className="relative w-full aspect-[3/4] my-3.5 overflow-hidden rounded-xl bg-neutral-950 border border-white/[0.08] shadow-inner">
+            {/* Product Image Stage */}
+            <Link
+              href={`/products/${product.slug}`}
+              className="relative w-full aspect-[3/4] my-3.5 overflow-hidden rounded-xl bg-neutral-950 border border-white/[0.08] shadow-inner block"
+            >
               <Image
                 src={product.image}
-                alt={product.title}
+                alt={t(product.titleKey)}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            </div>
+            </Link>
 
             {/* Deal Banner */}
             <div className="bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs mb-3 text-center">
@@ -166,23 +164,25 @@ export const ProductCollectionGrid: React.FC = () => {
                   d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 13C10.832 21 2 21 2 12c0-3.314 2.686-6 6-6h8c3.314 0 6 2.686 6 6 0 9-8.832 9-10 9z"
                 />
               </svg>
-              <span>{product.dealLabel}</span>
+              <span>{t("diwaliDeal")}</span>
             </div>
 
             {/* Title & Price Information */}
             <div className="space-y-2 mt-1 flex-1 flex flex-col justify-between">
-              <h3 className="text-white font-bold text-sm sm:text-base leading-snug line-clamp-2 min-h-[2.6rem] group-hover:text-neutral-100 transition-colors">
-                {product.title}
-              </h3>
+              <Link href={`/products/${product.slug}`} className="block">
+                <h3 className="text-white font-bold text-sm sm:text-base leading-snug line-clamp-2 min-h-[2.6rem] group-hover:text-neutral-200 transition-colors">
+                  {t(product.titleKey)}
+                </h3>
+              </Link>
 
-              {/* Price Row */}
+              {/* Price Row dynamically formatted according to selected currency */}
               <div className="flex items-baseline gap-2 pt-1">
                 <span className="text-white font-black text-lg sm:text-xl tracking-tight">
-                  Rs. {product.price.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  {formatPrice(product.price)}
                 </span>
                 {product.compareAtPrice && (
                   <span className="text-neutral-500 line-through text-xs sm:text-sm font-normal">
-                    Rs. {product.compareAtPrice.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    {formatPrice(product.compareAtPrice)}
                   </span>
                 )}
               </div>
@@ -190,10 +190,10 @@ export const ProductCollectionGrid: React.FC = () => {
 
             {/* CTA Button */}
             <Link
-              href={`/store?product=${product.slug}`}
+              href={`/products/${product.slug}`}
               className="bg-[#963b18] hover:bg-[#b0451c] text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 mt-4 transition-colors duration-200 shadow-md group/btn"
             >
-              <span>Shop Now</span>
+              <span>{t("shopNow")}</span>
               <svg
                 className="w-4 h-4 transition-transform group-hover/btn:translate-x-1"
                 fill="none"
