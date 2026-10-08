@@ -10,6 +10,7 @@ import {
   PRODUCT_CATALOG,
 } from "@/lib/data/product-catalog";
 import { useLocalization } from "@/context/LocalizationContext";
+import { ReelsShowcase } from "@/components/shared/ReelsShowcase";
 import { cn } from "@/lib/utils/cn";
 
 interface ProductDetailViewProps {
@@ -418,61 +419,122 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
                 </div>
               )}
 
-              {/* Description matching exact text from uploaded reference */}
-              <div className="pt-4 border-t border-white/10 space-y-3 text-neutral-300 text-sm leading-relaxed font-sans">
-                <p>
-                  Transform your space with <strong className="text-white font-bold">{product.title}</strong> — {product.shortDescription}
+              {/* 8-Part Consumer-Electronics Branding Architecture */}
+              <div className="pt-6 border-t border-white/10 space-y-5">
+                
+                {/* 1. One-Line Premium Headline */}
+                <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-snug font-sans">
+                  {product.headline}
+                </h2>
+
+                {/* 2. Short Emotional/Product Introduction */}
+                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
+                  {product.introduction}
                 </p>
-                <div className="space-y-2 text-xs sm:text-sm text-neutral-400">
-                  {product.fullDescription.map((p, idx) => (
-                    <p key={idx}>{p}</p>
-                  ))}
+
+                {/* 3. How It Works / Experience */}
+                <div className="bg-[#0C0D11] border border-white/10 rounded-2xl p-5 sm:p-6 space-y-3 shadow-inner">
+                  <h3 className="text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-white flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#963b18]" />
+                    {product.experienceTitle}
+                  </h3>
+                  <div className="space-y-2 text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans">
+                    {product.experienceContent.map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 4. Key Features */}
+                <div className="space-y-3 pt-1">
+                  <span className="block text-xs font-mono tracking-wider uppercase text-neutral-400 font-semibold">
+                    Key Features
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {product.keyFeatures.map((feat, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-2.5 bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-neutral-200 font-medium"
+                      >
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 5. Perfect For */}
+                <div className="space-y-2.5 pt-1">
+                  <span className="block text-xs font-mono tracking-wider uppercase text-neutral-400 font-semibold">
+                    Perfect For
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {product.perfectFor.map((item, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-neutral-200 font-medium"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 8. Final LightinMotion Tagline Banner */}
+                <div className="p-4 rounded-xl bg-gradient-to-r from-[#963b18]/25 via-[#963b18]/10 to-transparent border-l-4 border-[#963b18] text-sm text-white">
+                  <span className="font-extrabold text-white not-italic font-mono">{product.title}</span>
+                  <span className="text-neutral-400 mx-2">—</span>
+                  <span className="italic text-neutral-200 font-medium">{product.tagline}</span>
                 </div>
               </div>
 
-              {/* Collapsible Accordions: Details & Shipping/Returns */}
+              {/* Collapsible Accordions: 6. Technical Specifications & 7. What's Included */}
               <div className="border-t border-white/10 pt-2 space-y-2">
                 
-                {/* Details Accordion */}
+                {/* 6. Technical Specifications & 7. What's Included Accordion */}
                 <div className="border-b border-white/10 py-3">
                   <button
                     type="button"
                     onClick={() => setDetailsOpen(!detailsOpen)}
                     className="w-full flex items-center justify-between text-base font-bold text-white hover:text-neutral-200 transition-colors cursor-pointer text-left py-1"
                   >
-                    <span>Details</span>
+                    <span>Technical Specifications & What's Included</span>
                     <span className="text-xl font-mono text-neutral-400">
                       {detailsOpen ? "−" : "+"}
                     </span>
                   </button>
                   {detailsOpen && (
-                    <div className="pt-3 pb-2 text-xs sm:text-sm text-neutral-300 space-y-3 animate-in fade-in duration-150">
-                      <ul className="space-y-1.5 list-disc list-inside text-neutral-400">
-                        {product.features.map((feat, i) => (
-                          <li key={i}>{feat}</li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-3 pt-3 border-t border-white/5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                        {product.specs.map((spec, i) => (
-                          <div key={i} className="flex flex-col bg-white/[0.02] p-2 rounded-lg border border-white/5">
-                            <span className="text-neutral-500 font-mono text-[10px] uppercase">
-                              {spec.label}
-                            </span>
-                            <span className="text-neutral-200 font-medium mt-0.5">
-                              {spec.value}
-                            </span>
-                          </div>
-                        ))}
+                    <div className="pt-3 pb-2 text-xs sm:text-sm text-neutral-300 space-y-4 animate-in fade-in duration-150">
+                      
+                      {/* Specifications Table */}
+                      <div>
+                        <span className="text-xs font-bold text-white uppercase tracking-wider block mb-2 font-mono">
+                          Technical Specifications:
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                          {product.specs.map((spec, i) => (
+                            <div key={i} className="flex flex-col bg-white/[0.03] p-2.5 rounded-xl border border-white/10">
+                              <span className="text-neutral-400 font-mono text-[10px] uppercase">
+                                {spec.label}
+                              </span>
+                              <span className="text-neutral-100 font-bold mt-0.5">
+                                {spec.value}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
-                      <div className="mt-3">
-                        <span className="text-xs font-bold text-white uppercase tracking-wider block mb-1">
-                          In The Box:
+                      {/* 7. What's Included Checklist */}
+                      <div className="pt-2 border-t border-white/5">
+                        <span className="text-xs font-bold text-white uppercase tracking-wider block mb-2 font-mono">
+                          What's Included:
                         </span>
-                        <ul className="text-xs text-neutral-400 space-y-1">
+                        <ul className="text-xs text-neutral-300 space-y-1.5 list-none">
                           {product.whatsInTheBox.map((item, i) => (
-                            <li key={i}>• {item}</li>
+                            <li key={i} className="flex items-center gap-2">
+                              <span className="text-[#963b18] font-bold">✓</span>
+                              <span>{item}</span>
+                            </li>
                           ))}
                         </ul>
                       </div>
@@ -874,6 +936,9 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
               ))}
             </div>
           </section>
+
+          {/* Watch. Explore. Choose. Reels Showcase Section */}
+          <ReelsShowcase className="mt-16 sm:mt-24 border-t border-white/10" />
 
         </div>
       </div>

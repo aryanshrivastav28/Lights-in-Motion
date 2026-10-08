@@ -7,6 +7,7 @@ import { HoverExpandGallery } from "@/components/home/HoverExpandGallery";
 import { PlatformMarquee } from "@/components/home/PlatformMarquee";
 import { LightingExperienceSection } from "@/components/home/experience/LightingExperienceSection";
 import { ProductCollectionGrid } from "@/components/home/ProductCollectionGrid";
+import { ReelsShowcase } from "@/components/shared/ReelsShowcase";
 
 export const StackingHomeWrapper: React.FC = () => {
   const heroTrackRef = useRef<HTMLDivElement>(null);
@@ -49,6 +50,7 @@ export const StackingHomeWrapper: React.FC = () => {
       {/* SUBSEQUENT SECTIONS (Follow Page 2 naturally) */}
       <div className="relative z-20 w-full bg-black text-white">
         <ProductCollectionGrid />
+        <ReelsShowcase />
         <PlatformMarquee />
         <LightingExperienceSection />
       </div>
