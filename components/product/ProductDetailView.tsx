@@ -217,7 +217,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
             <div className="lg:col-span-7 flex flex-col gap-4">
               
               {/* Main Media Showcase Display */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] bg-[#0A0B0E] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.9)] flex items-center justify-center">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:min-h-[460px] lg:min-h-[500px] bg-black rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.9)] flex items-center justify-center">
                 
                 {/* Active Media Display: Video */}
                 {activeMedia === "video" && product.video ? (
@@ -230,23 +230,19 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
                       muted
                       playsInline
                       controls
-                      className="w-full h-full object-cover rounded-2xl sm:rounded-3xl"
+                      className="w-full h-full object-contain rounded-2xl sm:rounded-3xl"
                     />
-                    <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[11px] font-mono text-emerald-400 flex items-center gap-1.5 pointer-events-none">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>LIVE PREVIEW</span>
-                    </div>
                   </div>
                 ) : (
                   /* Active Media Display: High-Res Image */
-                  <div className="relative w-full h-full">
+                  <div className="relative w-full h-full flex items-center justify-center bg-black">
                     <Image
                       src={product.images[selectedImageIndex] || product.images[0]}
                       alt={product.title}
                       fill
                       priority
                       sizes="(max-width: 1024px) 100vw, 60vw"
-                      className="object-cover rounded-2xl sm:rounded-3xl"
+                      className="object-contain rounded-2xl sm:rounded-3xl"
                     />
                   </div>
                 )}
