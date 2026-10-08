@@ -6,8 +6,6 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/cn";
 import { Container } from "@/components/ui/Container";
 import { MenuIcon, CloseIcon, ChevronRightIcon } from "@/components/ui/Icons";
-import { CartTrigger } from "@/components/cart/CartTrigger";
-import { AccountTrigger } from "@/components/account/AccountTrigger";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { AuthModal } from "@/components/account/AuthModal";
 
@@ -20,23 +18,14 @@ export interface SiteHeaderProps {
   onOpenAccount?: () => void;
 }
 
-const DESKTOP_NAV = [
-  { label: "HOME", href: "/" },
-  { label: "STORE", href: "/store" },
-  { label: "APP", href: "/app" },
-];
-
-const MOBILE_NAV = [
+const NAV_ITEMS = [
   { label: "HOME", href: "/" },
   { label: "STORE", href: "/store" },
   { label: "APP", href: "/app" },
 ];
 
 export const SiteHeader: React.FC<SiteHeaderProps> = ({
-  overlay = false,
   cartCount = 0,
-  isLoggedIn = false,
-  userName,
   onOpenCart,
   onOpenAccount,
 }) => {
@@ -45,6 +34,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,24 +44,6 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setMobileMenuOpen(false);
-      }
-    };
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [mobileMenuOpen]);
 
   const handleCartClick = () => {
     if (onOpenCart) {
@@ -89,193 +61,237 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
     }
   };
 
-  const isOverlay = overlay || pathname === "/";
-  const isScrolledState = scrolled || !isOverlay;
-  const isLightHeader = true;
-
-  // On homepage, the SoScaleHero component has its own dedicated top header
-  if (pathname === "/") {
-    return (
-      <>
-        <CartDrawer
-          isOpen={cartDrawerOpen}
-          onClose={() => setCartDrawerOpen(false)}
-          itemCount={cartCount}
-        />
-        <AuthModal
-          isOpen={authModalOpen}
-          onClose={() => setAuthModalOpen(false)}
-        />
-      </>
-    );
-  }
-
   return (
     <>
       <header
         className={cn(
-          "w-full transition-[background-color,border-color,box-shadow,padding] duration-300 ease-out select-none",
-          isOverlay ? "fixed top-0 left-0 right-0 z-50" : "sticky top-0 z-50",
-          isScrolledState
-            ? "bg-[#F4F1EA]/[0.92] backdrop-blur-[14px] [-webkit-backdrop-filter:blur(14px)] border-b border-[rgba(17,18,20,0.10)] shadow-[0_1px_0_rgba(17,18,20,0.05),0_4px_24px_rgba(17,18,20,0.04)] py-3.5 sm:py-4"
-            : "bg-transparent border-b border-transparent py-5 sm:py-6"
+          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 select-none",
+          scrolled
+            ? "bg-black/90 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-3 sm:py-3.5"
+            : "bg-black/60 backdrop-blur-sm border-b border-white/5 py-4 sm:py-4.5"
         )}
       >
         <Container size="wide">
-          <div className="flex items-center justify-between h-10">
-            {/* Brand Mark */}
-            <div className="flex items-baseline">
+          <div className="flex items-center justify-between h-11">
+            
+            {/* Left: Brand Logo */}
+            <div className="flex items-center gap-8">
               <Link
                 href="/"
-                className="group flex flex-col focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm"
+                className="group flex items-baseline gap-1 focus-visible:outline-none"
               >
-                <span
-                  className="text-sm sm:text-base font-semibold tracking-[0.24em] uppercase transition-colors text-[#111214] group-hover:text-[#1687FF]"
-                >
-                  LIGHT IN MOTION
-                </span>
-                <span
-                  className="text-[9px] font-mono tracking-[0.2em] uppercase hidden sm:inline-block text-[#6B6D70]"
-                >
-                  CINEMA AT HOME
+                <span className="text-base sm:text-lg font-black tracking-[0.22em] uppercase text-white transition-colors group-hover:text-neutral-200">
+                  LIGHTINMOTION
                 </span>
               </Link>
+
+              {/* Desktop Nav */}
+              <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                {NAV_ITEMS.map((item) => {
+                  const isActive =
+                    item.href === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(item.href);
+
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={cn(
+                        "text-xs font-mono font-bold tracking-[0.18em] uppercase transition-colors py-1 relative",
+                        isActive ? "text-white" : "text-neutral-400 hover:text-white"
+                      )}
+                    >
+                      <span>{item.label}</span>
+                      {isActive && (
+                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#963b18] rounded-full" />
+                      )}
+                    </Link>
+                  );
+                })}
+              </nav>
             </div>
 
-            {/* Desktop Navigation (Strictly valid routes only) */}
-            <nav
-              aria-label="Main Navigation"
-              className="hidden md:flex items-center space-x-8 lg:space-x-10"
-            >
-              {DESKTOP_NAV.map((item) => {
-                const isActive =
-                  item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
-
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={cn(
-                      "text-xs font-medium tracking-[0.18em] uppercase transition-colors duration-150 py-1 relative",
-                      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm",
-                      isActive
-                        ? "text-[#111214]"
-                        : "text-[#55575A] hover:text-[#111214]"
-                    )}
-                  >
-                    <span>{item.label}</span>
-                    {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#1687FF] rounded-full" />
-                    )}
-                  </Link>
-                );
-              })}
-            </nav>
-
-            {/* Right Action Utilities (Desktop) */}
-            <div className="hidden md:flex items-center space-x-2">
-              <AccountTrigger
-                isLoggedIn={isLoggedIn}
-                userName={userName}
-                onClick={handleAccountClick}
-                light={isLightHeader}
-              />
-              <span
-                className="w-px h-3.5 bg-[rgba(17,18,20,0.10)]"
-              />
-              <CartTrigger
-                itemCount={cartCount}
-                onClick={handleCartClick}
-                light={isLightHeader}
-              />
-            </div>
-
-            {/* Mobile Header Controls */}
-            <div className="flex md:hidden items-center space-x-1 sm:space-x-2">
-              <CartTrigger
-                itemCount={cartCount}
-                onClick={handleCartClick}
-                className="px-2"
-                light={isLightHeader}
-              />
+            {/* Right Action Utilities matching exact uploaded reference */}
+            <div className="hidden md:flex items-center space-x-6 sm:space-x-7 text-sm font-medium text-white">
+              {/* Country & Currency */}
               <button
                 type="button"
-                aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                className="hover:text-neutral-300 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide"
+              >
+                India (USD $)
+              </button>
+
+              {/* Language */}
+              <button
+                type="button"
+                className="hover:text-neutral-300 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide"
+              >
+                English
+              </button>
+
+              {/* Search Icon */}
+              <button
+                type="button"
+                aria-label="Search"
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="p-1 hover:text-neutral-300 transition-colors focus-visible:outline-none cursor-pointer"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </button>
+
+              {/* User Account Icon */}
+              <button
+                type="button"
+                aria-label="Account"
+                onClick={handleAccountClick}
+                className="p-1 hover:text-neutral-300 transition-colors focus-visible:outline-none cursor-pointer"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </button>
+
+              {/* Shopping Bag Icon with Dark Rounded Square & Orange-Red Neon Corner Accent */}
+              <button
+                type="button"
+                aria-label="Shopping Bag"
+                onClick={handleCartClick}
+                className="relative bg-[#1A1B1E] hover:bg-[#24252A] p-2.5 rounded-xl border border-white/10 transition-colors focus-visible:outline-none group cursor-pointer shadow-md"
+              >
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+
+                {/* Orange-Red Corner Accent Indicator */}
+                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#FF3823] rounded-br-[4px] pointer-events-none" />
+
+                {cartCount > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 bg-[#FF3823] text-white text-[10px] font-black rounded-full w-4 h-4 flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+            </div>
+
+            {/* Mobile Controls */}
+            <div className="flex md:hidden items-center space-x-3">
+              <button
+                type="button"
+                aria-label="Shopping Bag"
+                onClick={handleCartClick}
+                className="relative bg-[#1A1B1E] p-2 rounded-lg border border-white/10"
+              >
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-[#FF3823] rounded-br-[3px]" />
+              </button>
+
+              <button
+                type="button"
+                aria-label="Toggle Menu"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] text-[#111214] hover:text-[#1687FF] hover:bg-[rgba(17,18,20,0.04)]"
+                className="p-1.5 text-white hover:text-neutral-300"
               >
                 {mobileMenuOpen ? <CloseIcon size={22} /> : <MenuIcon size={22} />}
               </button>
             </div>
+
           </div>
         </Container>
       </header>
 
-      {/* Mobile Navigation Panel */}
+      {/* Search Input Bar (Dropdown) */}
+      {searchOpen && (
+        <div className="fixed top-16 left-0 right-0 z-40 bg-black/95 border-b border-white/10 py-4 px-6 backdrop-blur-md animate-in slide-in-from-top-2">
+          <div className="max-w-xl mx-auto flex items-center gap-3">
+            <input
+              type="text"
+              autoFocus
+              placeholder="Search products, lighting systems..."
+              className="w-full bg-[#111214] border border-white/15 rounded-xl px-4 py-2.5 text-white placeholder:text-neutral-500 outline-none text-sm focus:border-white/40"
+            />
+            <button
+              onClick={() => setSearchOpen(false)}
+              className="text-neutral-400 hover:text-white text-xs font-mono uppercase"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile Navigation"
-          className="fixed inset-0 z-50 flex flex-col bg-[#F4F1EA]/98 backdrop-blur-xl md:hidden animate-in fade-in duration-200"
-        >
-          {/* Mobile Menu Top Bar */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-[rgba(17,18,20,0.08)]">
-            <span className="text-xs font-mono uppercase tracking-[0.24em] text-[#111214] font-semibold">
-              LIGHT IN MOTION
+        <div className="fixed inset-0 z-50 flex flex-col bg-black/95 backdrop-blur-xl md:hidden animate-in fade-in duration-200">
+          <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+            <span className="text-sm font-black uppercase tracking-[0.2em] text-white">
+              LIGHTINMOTION
             </span>
             <button
-              type="button"
-              aria-label="Close menu"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 text-[#55575A] hover:text-[#111214] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1687FF] rounded-sm"
+              className="p-2 text-neutral-400 hover:text-white"
             >
               <CloseIcon size={22} />
             </button>
           </div>
 
-          {/* Navigation Items (Touch targets > 48px) */}
-          <div className="flex-1 overflow-y-auto px-6 py-8 space-y-3">
-            {MOBILE_NAV.map((item) => (
+          <div className="flex-1 overflow-y-auto px-6 py-8 space-y-4">
+            {NAV_ITEMS.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-4 px-4 rounded-sm border border-[rgba(17,18,20,0.10)] bg-[rgba(17,18,20,0.02)] hover:bg-[rgba(17,18,20,0.05)] hover:border-[rgba(17,18,20,0.16)] text-base font-medium tracking-[0.16em] uppercase text-[#111214] transition-colors"
+                className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider"
               >
                 <span>{item.label}</span>
-                <ChevronRightIcon size={16} className="text-[#6B6D70]" />
+                <ChevronRightIcon size={16} className="text-neutral-500" />
               </Link>
             ))}
 
-            {/* Mobile Account Trigger */}
-            <div className="pt-6 border-t border-[rgba(17,18,20,0.10)] mt-6">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  handleAccountClick();
-                }}
-                className="w-full flex items-center justify-between py-4 px-4 rounded-sm border border-[rgba(17,18,20,0.10)] bg-[rgba(17,18,20,0.02)] hover:bg-[rgba(17,18,20,0.05)] text-[#111214] text-sm font-mono tracking-[0.16em] uppercase transition-colors"
-              >
-                <span>ACCOUNT</span>
-                <ChevronRightIcon size={16} />
-              </button>
+            <div className="pt-6 border-t border-white/10 space-y-3">
+              <div className="flex items-center justify-between text-neutral-400 text-sm py-2">
+                <span>Region &amp; Currency</span>
+                <span className="text-white font-medium">India (USD $)</span>
+              </div>
+              <div className="flex items-center justify-between text-neutral-400 text-sm py-2">
+                <span>Language</span>
+                <span className="text-white font-medium">English</span>
+              </div>
             </div>
-          </div>
-
-          {/* Mobile Footer note */}
-          <div className="p-6 border-t border-[rgba(17,18,20,0.10)] bg-[rgba(17,18,20,0.02)]">
-            <p className="text-[11px] font-mono text-[#6B6D70] uppercase tracking-widest text-center">
-              A CINEMA EXPERIENCE AT HOME.
-            </p>
           </div>
         </div>
       )}
 
-      {/* Cart Drawer and Auth Modal Instances (triggered only when user clicks CART or ACCOUNT) */}
       <CartDrawer
         isOpen={cartDrawerOpen}
         onClose={() => setCartDrawerOpen(false)}
@@ -288,3 +304,5 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
     </>
   );
 };
+
+export default SiteHeader;

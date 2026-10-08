@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F4F1EA",
-  colorScheme: "light",
+  themeColor: "#000000",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
@@ -35,8 +35,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#F4F1EA] text-[#111214] font-sans antialiased">
-        <SiteHeader overlay={false} cartCount={0} />
+      <body className="bg-black text-white font-sans antialiased">
+        <SiteHeader overlay={true} cartCount={0} />
         <main>{children}</main>
         <SiteFooter />
       </body>
