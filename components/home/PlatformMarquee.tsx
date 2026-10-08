@@ -176,16 +176,7 @@ export function PlatformMarquee() {
         </div>
       </div>
 
-      {/* 3. Restrained Technical Footer / Telemetry Line */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mt-16 sm:mt-20 md:mt-24">
-        <div className="border-t border-white/10 pt-6 md:pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] md:text-xs text-neutral-400 tracking-[0.2em] uppercase select-none">
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1687FF]" />
-            <span>SIGNAL / DISPLAY / ENTERTAINMENT</span>
-          </div>
-          <span>DESIGNED FOR MODERN SETUPS</span>
-        </div>
-      </div>
+
     </section>
   );
 }

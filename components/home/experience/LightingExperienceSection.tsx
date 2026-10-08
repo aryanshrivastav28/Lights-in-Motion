@@ -236,74 +236,7 @@ export const LightingExperienceSection: React.FC<{ className?: string }> = ({
           </AnimatePresence>
         </div>
 
-        {/* Bottom Metric Telemetry Grid Bar */}
-        <div className="w-full border-t border-white/10 pt-3 shrink-0">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-neutral-900 border border-white/10 text-white">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div>
-                <span className="block text-xs font-mono font-bold text-white tracking-tight">
-                  {currentProduct.specs.latency}
-                </span>
-                <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
-                  LATENCY PERFORMANCE
-                </span>
-              </div>
-            </div>
 
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-neutral-900 border border-white/10 text-white">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                </svg>
-              </div>
-              <div>
-                <span className="block text-xs font-mono font-bold text-white tracking-tight">
-                  {currentProduct.specs.syncEngine}
-                </span>
-                <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
-                  SYNC ENGINE
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-neutral-900 border border-white/10 text-white">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
-              </div>
-              <div>
-                <span className="block text-xs font-mono font-bold text-white tracking-tight">
-                  {currentProduct.specs.refresh}
-                </span>
-                <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
-                  REFRESH RATE
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-neutral-900 border border-white/10 text-white">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div>
-                <span className="block text-xs font-mono font-bold text-white tracking-tight">
-                  {currentProduct.specs.gamut}
-                </span>
-                <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
-                  COLOR ACCURACY
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>

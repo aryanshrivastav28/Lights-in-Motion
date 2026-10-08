@@ -5,10 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 import { HoverExpandGallery } from "@/components/home/HoverExpandGallery";
 import { PlatformMarquee } from "@/components/home/PlatformMarquee";
-import { SyncEngineTimeline } from "@/components/home/SyncEngineTimeline";
-import { HardwareBentoGrid } from "@/components/home/HardwareBentoGrid";
-import { ImmersionShowcase } from "@/components/home/ImmersionShowcase";
 import { LightingExperienceSection } from "@/components/home/experience/LightingExperienceSection";
+import { ProductCollectionGrid } from "@/components/home/ProductCollectionGrid";
 
 export const StackingHomeWrapper: React.FC = () => {
   const heroTrackRef = useRef<HTMLDivElement>(null);
@@ -52,9 +50,7 @@ export const StackingHomeWrapper: React.FC = () => {
       <div className="relative z-20 w-full bg-black text-white">
         <LightingExperienceSection />
         <PlatformMarquee />
-        <SyncEngineTimeline />
-        <HardwareBentoGrid />
-        <ImmersionShowcase />
+        <ProductCollectionGrid />
       </div>
     </div>
   );
