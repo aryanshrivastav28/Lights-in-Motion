@@ -48,9 +48,9 @@ export const StackingHomeWrapper: React.FC = () => {
 
       {/* SUBSEQUENT SECTIONS (Follow Page 2 naturally) */}
       <div className="relative z-20 w-full bg-black text-white">
-        <LightingExperienceSection />
-        <PlatformMarquee />
         <ProductCollectionGrid />
+        <PlatformMarquee />
+        <LightingExperienceSection />
       </div>
     </div>
   );

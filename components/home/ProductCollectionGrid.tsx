@@ -25,7 +25,7 @@ const PRODUCTS: CollectionProduct[] = [
     title: "Apex HDMI Sync TV Backlight ( HDMI 2.1 Version) (32-90 Inch TV size)",
     price: 8499,
     compareAtPrice: 9999,
-    image: "/products/tv-backlight/main.png",
+    image: "/products/apex/apex-hdmi-21.png",
     category: "TV Sync Set",
     dealLabel: "Diwali Special Deal",
     slug: "tv-backlight",
@@ -36,7 +36,7 @@ const PRODUCTS: CollectionProduct[] = [
     title: "Apex HDMI Sync TV Backlight ( HDMI 2.0 )( Upto 75 inch TVs )",
     price: 7199,
     compareAtPrice: 8999,
-    image: "/products/tv-backlight/main.png",
+    image: "/products/apex/apex-hdmi-20.png",
     category: "TV Sync Set",
     dealLabel: "Diwali Special Deal",
     slug: "tv-backlight",
@@ -55,11 +55,10 @@ const PRODUCTS: CollectionProduct[] = [
   {
     id: "apex-uplighter-floor-lamp",
     badge: "SALE",
-    isMostRecommended: true,
     title: "Apex Uplighter Floor Lamp",
     price: 10499,
     compareAtPrice: 12999,
-    image: "/products/lamp-lights/main.png",
+    image: "/products/apex/apex-uplighter.png",
     category: "Apex Collection",
     dealLabel: "Diwali Special Deal",
     slug: "lamp-lights",
@@ -219,10 +218,10 @@ export const ProductCollectionGrid: React.FC = () => {
               {/* Price Row */}
               <div className="flex items-baseline gap-2 pt-1">
                 <span className="text-neutral-900 font-extrabold text-lg sm:text-xl tracking-tight">
-                  {formatINR(product.price)}
+                  Rs. {product.price.toLocaleString("en-IN")}
                 </span>
                 <span className="text-neutral-400 line-through text-xs sm:text-sm font-normal">
-                  {formatINR(product.compareAtPrice)}
+                  Rs. {product.compareAtPrice.toLocaleString("en-IN")}
                 </span>
               </div>
             </div>
