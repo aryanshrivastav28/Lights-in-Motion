@@ -10,8 +10,6 @@ import {
   PRODUCT_CATALOG,
 } from "@/lib/data/product-catalog";
 import { useLocalization } from "@/context/LocalizationContext";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SiteFooter } from "@/components/layout/SiteFooter";
 import { cn } from "@/lib/utils/cn";
 
 interface ProductDetailViewProps {
@@ -180,19 +178,9 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
     .slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#963b18] selection:text-white flex flex-col">
-      {/* Top Announcement Bar matching uploaded reference */}
-      <div className="w-full bg-[#0a0a0c] border-b border-white/10 py-2 px-4 text-center">
-        <p className="text-xs sm:text-sm font-sans tracking-wide text-neutral-300 font-medium">
-          Uplevel your setup with our products • Free express shipping across India
-        </p>
-      </div>
-
-      {/* Global SiteHeader with synchronized language and currency selectors */}
-      <SiteHeader />
-
-      {/* Main Product Showcase Section */}
-      <main className="flex-1 pt-24 sm:pt-28 pb-20">
+    <div className="min-h-screen bg-black text-white selection:bg-[#963b18] selection:text-white flex flex-col pt-24 sm:pt-28">
+      {/* Product Showcase Section */}
+      <div className="flex-1 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumbs */}
@@ -888,7 +876,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
           </section>
 
         </div>
-      </main>
+      </div>
 
       {/* Buy It Now Quick Checkout Modal */}
       {buyNowModalOpen && (
@@ -950,8 +938,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
         </div>
       )}
 
-      {/* Global SiteFooter with red ambient underglow shade */}
-      <SiteFooter />
+      {/* Closing Container */}
     </div>
   );
 };
