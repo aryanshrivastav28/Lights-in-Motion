@@ -99,7 +99,7 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
   // Scroll left/right buttons for horizontal carousel
   const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
-      const scrollAmount = 340;
+      const scrollAmount = 420;
       carouselRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -242,7 +242,7 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
               <div
                 key={reel.id}
                 onClick={() => openReelModal(index)}
-                className="relative flex-shrink-0 w-[240px] sm:w-[260px] md:w-[280px] h-[440px] sm:h-[480px] rounded-3xl overflow-hidden bg-[#0A0B0E] border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.85)] cursor-pointer group hover:border-white/40 hover:shadow-[0_15px_45px_rgba(150,59,24,0.35)] transition-all duration-300 transform hover:-translate-y-1 snap-start"
+                className="relative flex-shrink-0 w-[300px] sm:w-[350px] md:w-[380px] lg:w-[410px] h-[540px] sm:h-[620px] md:h-[680px] rounded-3xl overflow-hidden bg-[#0A0B0E] border border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.9)] cursor-pointer group hover:border-white/50 hover:shadow-[0_20px_60px_rgba(150,59,24,0.4)] transition-all duration-300 transform hover:-translate-y-2 snap-start"
               >
                 {/* Background Video Loop Preview */}
                 <video
@@ -255,52 +255,14 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
                 />
 
                 {/* Dark Vignette Overlay to blend seamlessly with black background */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
-                {/* Top Badge (e.g. FEATURED / TOP SELLING) */}
-                {reel.badge && (
-                  <div className="absolute top-4 left-4 z-10">
-                    <span
-                      className={cn(
-                        "text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg font-mono text-white",
-                        reel.badge === "TOP SELLING"
-                          ? "bg-gradient-to-r from-[#6366F1] to-[#8B5CF6]"
-                          : reel.badge === "TRENDING"
-                          ? "bg-gradient-to-r from-[#F59E0B] to-[#EF4444]"
-                          : "bg-gradient-to-r from-[#3B82F6] to-[#06B6D4]"
-                      )}
-                    >
-                      {reel.badge}
-                    </span>
-                  </div>
-                )}
-
-                {/* Bottom Left Circular Play Indicator Button */}
-                <div className="absolute bottom-16 left-4 z-10 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-lg group-hover:bg-white group-hover:text-black transition-colors">
-                  <svg className="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-
-                {/* Bottom Product Info Pill matching reference image */}
-                <div className="absolute bottom-3 left-3 right-3 z-10 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 flex items-center justify-between text-black shadow-xl group-hover:bg-white transition-colors">
-                  <div className="min-w-0 pr-2">
-                    <span className="block text-xs font-bold truncate text-black font-sans">
-                      {reel.productTitle}
-                    </span>
-                    <span className="block text-[10px] text-neutral-600 font-mono uppercase tracking-wider">
-                      Tap to Watch with Audio
-                    </span>
-                  </div>
-
-                  {/* Thumbnail Avatar on right */}
-                  <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-black/10 bg-black">
-                    <Image
-                      src={reel.productImage}
-                      alt={reel.productTitle}
-                      fill
-                      className="object-cover"
-                    />
+                {/* Center Circular Play Button Indicator */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl group-hover:scale-115 group-hover:bg-white group-hover:text-black transition-all duration-300">
+                    <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current ml-0.5" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -366,11 +328,8 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
               className="absolute inset-0 w-full h-full object-contain bg-black cursor-pointer"
             />
 
-            {/* Top Bar with Badge & Audio Controls */}
-            <div className="relative z-20 flex items-center justify-between p-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#963b18] text-white">
-                {activeReel.badge || "FEATURED"}
-              </span>
+            {/* Top Bar with Audio Controls */}
+            <div className="relative z-20 flex items-center justify-end p-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
 
               {/* Sound / Unmute Button (User explicitly wanted audio!) */}
               <button
