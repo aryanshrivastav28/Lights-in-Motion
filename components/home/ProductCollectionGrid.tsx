@@ -100,7 +100,7 @@ export const ProductCollectionGrid: React.FC = () => {
   });
 
   return (
-    <section className="relative w-full bg-black py-16 sm:py-24 px-4 sm:px-8 md:px-12 text-white font-sans select-none border-t border-white/10">
+    <section className="relative w-full bg-black py-16 sm:py-24 px-4 sm:px-6 md:px-10 text-white font-sans select-none border-t border-white/10">
       
       {/* Top Filter Category Tabs */}
       <div className="flex justify-center mb-12 sm:mb-16">
@@ -124,37 +124,37 @@ export const ProductCollectionGrid: React.FC = () => {
         </div>
       </div>
 
-      {/* Product Cards Grid - 3 Columns for Maximum Product Image Prominence */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+      {/* 4 Products In One Line (Responsive Grid: 1 col mobile, 2 col tablet, 4 col desktop) */}
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className="bg-[#0B0C0E] rounded-3xl p-6 sm:p-7 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.85)] flex flex-col justify-between relative hover:border-white/25 hover:shadow-[0_16px_50px_rgba(0,0,0,0.95)] transition-all duration-300 group"
+            className="bg-[#0B0C0E] rounded-2xl p-4 sm:p-5 border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)] flex flex-col justify-between relative hover:border-white/25 hover:shadow-[0_10px_40px_rgba(0,0,0,0.95)] transition-all duration-300 group"
           >
             {/* Top Badges Header */}
-            <div className="flex items-start justify-between relative z-10 min-h-[32px]">
+            <div className="flex items-start justify-between relative z-10 min-h-[28px]">
               <span
-                className="text-white font-extrabold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-lg shadow-sm font-sans bg-[#E52E2E]"
+                className="text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 py-1 rounded-r-md rounded-tl-md shadow-xs font-sans bg-[#E52E2E]"
               >
                 {product.badge}
               </span>
             </div>
 
-            {/* Product Image Stage - High Visibility Expanded Showcase */}
-            <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] my-5 overflow-hidden rounded-2xl bg-neutral-950 border border-white/[0.08] shadow-inner">
+            {/* Product Image Stage - High-Fill Portrait Showcase so images are large & clearly visible */}
+            <div className="relative w-full aspect-[3/4] my-3.5 overflow-hidden rounded-xl bg-neutral-950 border border-white/[0.08] shadow-inner">
               <Image
                 src={product.image}
                 alt={product.title}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
             {/* Deal Banner */}
-            <div className="bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs sm:text-sm font-semibold py-2 px-4 rounded-xl flex items-center justify-center gap-2 shadow-2xs mb-4 text-center">
+            <div className="bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs mb-3 text-center">
               <svg
-                className="w-4 h-4 shrink-0 text-amber-300"
+                className="w-3.5 h-3.5 shrink-0 text-amber-300"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -170,18 +170,18 @@ export const ProductCollectionGrid: React.FC = () => {
             </div>
 
             {/* Title & Price Information */}
-            <div className="space-y-3 mt-1 flex-1 flex flex-col justify-between">
-              <h3 className="text-white font-bold text-lg sm:text-xl leading-snug line-clamp-2 min-h-[3.25rem] group-hover:text-white transition-colors">
+            <div className="space-y-2 mt-1 flex-1 flex flex-col justify-between">
+              <h3 className="text-white font-bold text-sm sm:text-base leading-snug line-clamp-2 min-h-[2.6rem] group-hover:text-neutral-100 transition-colors">
                 {product.title}
               </h3>
 
               {/* Price Row */}
-              <div className="flex items-baseline gap-2.5 pt-1">
-                <span className="text-white font-black text-2xl tracking-tight">
+              <div className="flex items-baseline gap-2 pt-1">
+                <span className="text-white font-black text-lg sm:text-xl tracking-tight">
                   Rs. {product.price.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
                 {product.compareAtPrice && (
-                  <span className="text-neutral-500 line-through text-sm sm:text-base font-normal">
+                  <span className="text-neutral-500 line-through text-xs sm:text-sm font-normal">
                     Rs. {product.compareAtPrice.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 )}
@@ -191,7 +191,7 @@ export const ProductCollectionGrid: React.FC = () => {
             {/* CTA Button */}
             <Link
               href={`/store?product=${product.slug}`}
-              className="bg-[#963b18] hover:bg-[#b0451c] text-white font-bold text-base py-3.5 sm:py-4 px-6 rounded-2xl w-full flex items-center justify-center gap-2.5 mt-5 transition-colors duration-200 shadow-lg group/btn"
+              className="bg-[#963b18] hover:bg-[#b0451c] text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 mt-4 transition-colors duration-200 shadow-md group/btn"
             >
               <span>Shop Now</span>
               <svg
