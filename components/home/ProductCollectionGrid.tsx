@@ -3,121 +3,108 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { formatINR } from "@/lib/utils/formatters";
 
 export interface CollectionProduct {
   id: string;
   badge: "BEST SELLING" | "SALE" | string;
-  isMostRecommended?: boolean;
   title: string;
   price: number;
-  compareAtPrice: number;
+  compareAtPrice?: number;
   image: string;
-  category: "TV Sync Set" | "Monitor Sync Set" | "Apex Collection";
+  category: "TV Sync Set" | "Monitor Sync Set" | "LIGHTINMOTION Collection";
   dealLabel: string;
   slug: string;
 }
 
 const PRODUCTS: CollectionProduct[] = [
   {
-    id: "apex-hdmi-21",
+    id: "tv-backlight",
     badge: "BEST SELLING",
-    title: "Apex HDMI Sync TV Backlight ( HDMI 2.1 Version) (32-90 Inch TV size)",
-    price: 8499,
-    compareAtPrice: 9999,
-    image: "/products/apex/apex-hdmi-21.png",
+    title: "TV Backlight",
+    price: 1699.0,
+    compareAtPrice: 2199.0,
+    image: "/products/tv-backlight/main.png",
     category: "TV Sync Set",
     dealLabel: "Diwali Special Deal",
     slug: "tv-backlight",
   },
   {
-    id: "apex-hdmi-20",
+    id: "monitor-backlight",
     badge: "SALE",
-    title: "Apex HDMI Sync TV Backlight ( HDMI 2.0 )( Upto 75 inch TVs )",
-    price: 7199,
-    compareAtPrice: 8999,
-    image: "/products/apex/apex-hdmi-20.png",
-    category: "TV Sync Set",
-    dealLabel: "Diwali Special Deal",
-    slug: "tv-backlight",
-  },
-  {
-    id: "apex-monitor-backlight",
-    badge: "SALE",
-    title: "Apex Monitor Backlight (Upto 40 Inches Monitor) (not for All Smart TVs)",
-    price: 1999,
-    compareAtPrice: 2299,
+    title: "LightinMotion Monitor Backlight",
+    price: 1399.0,
+    compareAtPrice: 1799.0,
     image: "/products/monitor-backlight/main.png",
     category: "Monitor Sync Set",
     dealLabel: "Diwali Special Deal",
     slug: "monitor-backlight",
   },
   {
-    id: "apex-uplighter-floor-lamp",
+    id: "lamp-lights",
     badge: "SALE",
-    title: "Apex Uplighter Floor Lamp",
-    price: 10499,
-    compareAtPrice: 12999,
-    image: "/products/apex/apex-uplighter.png",
-    category: "Apex Collection",
+    title: "LightinMotion Lamp Light",
+    price: 1899.0,
+    compareAtPrice: 2499.0,
+    image: "/products/lamp-lights/main.png",
+    category: "LIGHTINMOTION Collection",
     dealLabel: "Diwali Special Deal",
     slug: "lamp-lights",
   },
   {
-    id: "apex-dual-light-bars",
+    id: "bar-lights",
     badge: "SALE",
-    title: "Apex Dual Ambient Light Bars (Screen & Audio Sync)",
-    price: 4999,
-    compareAtPrice: 6999,
+    title: "Monitor Bar Lights",
+    price: 1899.0,
+    compareAtPrice: 2499.0,
     image: "/products/bar-lights/main.png",
-    category: "Apex Collection",
+    category: "Monitor Sync Set",
     dealLabel: "Diwali Special Deal",
     slug: "bar-lights",
   },
   {
-    id: "apex-custom-neon-strip",
+    id: "custom-sync-lights",
     badge: "SALE",
-    title: "Apex Custom Neon RGB Strip Light (Pixel Addressable)",
-    price: 3499,
-    compareAtPrice: 4499,
+    title: "Custom Sync Lights",
+    price: 1000.0,
+    compareAtPrice: 1499.0,
     image: "/products/custom-strip-light/main.png",
-    category: "Apex Collection",
+    category: "LIGHTINMOTION Collection",
     dealLabel: "Diwali Special Deal",
     slug: "custom-strip-light",
   },
   {
-    id: "apex-cloud-lighting",
+    id: "cloud-lights",
     badge: "SALE",
-    title: "Apex Cloud Lighting Station (Atmospheric Room Sync)",
-    price: 6999,
-    compareAtPrice: 8999,
+    title: "Cloud Lights",
+    price: 2200.0,
+    compareAtPrice: 2999.0,
     image: "/products/cloudlights/main.jpg",
-    category: "Apex Collection",
+    category: "LIGHTINMOTION Collection",
     dealLabel: "Diwali Special Deal",
     slug: "cloudlights",
   },
 ];
 
 export const ProductCollectionGrid: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("Apex Collection");
+  const [activeTab, setActiveTab] = useState<string>("LIGHTINMOTION Collection");
 
   const tabs = [
-    { id: "Apex Collection", label: "Apex Collection" },
+    { id: "LIGHTINMOTION Collection", label: "LIGHTINMOTION Collection" },
     { id: "TV Sync Set", label: "TV Sync Set" },
     { id: "Monitor Sync Set", label: "Monitor Sync Set" },
   ];
 
   const filteredProducts = PRODUCTS.filter((product) => {
-    if (activeTab === "Apex Collection") return true;
+    if (activeTab === "LIGHTINMOTION Collection") return true;
     return product.category === activeTab;
   });
 
   return (
-    <section className="relative w-full bg-[#F4F6F9] py-16 sm:py-24 px-4 sm:px-8 md:px-12 text-neutral-900 font-sans select-none">
+    <section className="relative w-full bg-black py-16 sm:py-24 px-4 sm:px-8 md:px-12 text-white font-sans select-none border-t border-white/10">
       
       {/* Top Filter Category Tabs */}
       <div className="flex justify-center mb-12 sm:mb-16">
-        <div className="bg-white/90 backdrop-blur-md p-1.5 rounded-full shadow-sm border border-neutral-200/80 inline-flex items-center gap-1 sm:gap-2">
+        <div className="bg-[#0D0E11]/90 backdrop-blur-md p-1.5 rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.8)] border border-white/10 inline-flex items-center gap-1 sm:gap-2">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -126,8 +113,8 @@ export const ProductCollectionGrid: React.FC = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 ${
                   isActive
-                    ? "bg-[#963b18] text-white shadow-sm scale-100"
-                    : "text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100/70"
+                    ? "bg-[#963b18] text-white shadow-[0_0_20px_rgba(150,59,24,0.4)] scale-100"
+                    : "text-neutral-400 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {tab.label}
@@ -137,51 +124,24 @@ export const ProductCollectionGrid: React.FC = () => {
         </div>
       </div>
 
-      {/* 4-Column Product Cards Grid */}
+      {/* Product Cards Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className="bg-white rounded-2xl p-5 border border-neutral-200/80 shadow-sm flex flex-col justify-between relative hover:shadow-md transition-all duration-300 group"
+            className="bg-[#0B0C0E] rounded-2xl p-5 border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)] flex flex-col justify-between relative hover:border-white/25 hover:shadow-[0_8px_40px_rgba(0,0,0,0.95)] transition-all duration-300 group"
           >
             {/* Top Badges Header */}
             <div className="flex items-start justify-between relative z-10 min-h-[32px]">
-              {/* Left Badge: BEST SELLING / SALE */}
               <span
-                className={`text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 py-1 rounded-r-md rounded-tl-md shadow-xs font-sans ${
-                  product.badge === "BEST SELLING"
-                    ? "bg-[#E52E2E]"
-                    : "bg-[#E52E2E]"
-                }`}
+                className="text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 py-1 rounded-r-md rounded-tl-md shadow-xs font-sans bg-[#E52E2E]"
               >
                 {product.badge}
               </span>
-
-              {/* Right Badge: MOST RECOMMENDED Emblem (Circular) */}
-              {product.isMostRecommended && (
-                <div className="w-16 h-16 rounded-full border-[2px] border-[#0084FF] flex flex-col items-center justify-center p-1 bg-white shadow-xs text-center -mt-1 -mr-1">
-                  <svg
-                    className="w-3.5 h-3.5 text-[#0084FF] mb-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span className="text-[7.5px] font-extrabold text-[#0084FF] leading-none uppercase tracking-tighter">
-                    MOST RECOMMENDED
-                  </span>
-                </div>
-              )}
             </div>
 
             {/* Product Image Stage */}
-            <div className="relative w-full aspect-[4/3] my-4 flex items-center justify-center overflow-hidden">
+            <div className="relative w-full aspect-[4/3] my-4 flex items-center justify-center overflow-hidden rounded-xl bg-neutral-950/70 p-2 border border-white/[0.04]">
               <Image
                 src={product.image}
                 alt={product.title}
@@ -191,10 +151,10 @@ export const ProductCollectionGrid: React.FC = () => {
               />
             </div>
 
-            {/* Diwali Special Deal Banner */}
-            <div className="bg-[#FDF3E7] text-[#8C581E] border border-[#F5E1C9] text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs mb-3 text-center">
+            {/* Deal Banner */}
+            <div className="bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs mb-3 text-center">
               <svg
-                className="w-3.5 h-3.5 shrink-0 text-[#8C581E]"
+                className="w-3.5 h-3.5 shrink-0 text-amber-300"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -211,29 +171,31 @@ export const ProductCollectionGrid: React.FC = () => {
 
             {/* Title & Price Information */}
             <div className="space-y-2 mt-1 flex-1 flex flex-col justify-between">
-              <h3 className="text-neutral-800 font-semibold text-sm sm:text-base leading-snug line-clamp-2 min-h-[2.6rem]">
+              <h3 className="text-white font-semibold text-sm sm:text-base leading-snug line-clamp-2 min-h-[2.6rem] group-hover:text-neutral-100 transition-colors">
                 {product.title}
               </h3>
 
               {/* Price Row */}
               <div className="flex items-baseline gap-2 pt-1">
-                <span className="text-neutral-900 font-extrabold text-lg sm:text-xl tracking-tight">
-                  Rs. {product.price.toLocaleString("en-IN")}
+                <span className="text-white font-extrabold text-lg sm:text-xl tracking-tight">
+                  Rs. {product.price.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
-                <span className="text-neutral-400 line-through text-xs sm:text-sm font-normal">
-                  Rs. {product.compareAtPrice.toLocaleString("en-IN")}
-                </span>
+                {product.compareAtPrice && (
+                  <span className="text-neutral-500 line-through text-xs sm:text-sm font-normal">
+                    Rs. {product.compareAtPrice.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                )}
               </div>
             </div>
 
             {/* CTA Button */}
             <Link
               href={`/store?product=${product.slug}`}
-              className="bg-[#963b18] hover:bg-[#7d3012] text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 mt-4 transition-colors duration-200 shadow-sm"
+              className="bg-[#963b18] hover:bg-[#b0451c] text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 mt-4 transition-colors duration-200 shadow-md group/btn"
             >
               <span>Shop Now</span>
               <svg
-                className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform group-hover/btn:translate-x-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
