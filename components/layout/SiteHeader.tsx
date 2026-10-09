@@ -123,8 +123,6 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                       <a
                         key={item.href}
                         href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="text-xs font-mono font-bold tracking-[0.18em] uppercase transition-colors py-1 text-neutral-400 hover:text-white"
                       >
                         <span>{item.label}</span>
@@ -411,8 +409,6 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                   <a
                     key={item.href}
                     href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider hover:bg-white/[0.05] transition-colors"
                   >
