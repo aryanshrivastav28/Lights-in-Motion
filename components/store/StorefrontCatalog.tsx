@@ -40,15 +40,15 @@ export const StorefrontCatalog: React.FC = () => {
   return (
     <div className="w-full py-10 sm:py-16 min-h-[85vh] text-white">
       <Container size="wide">
-        {/* Header Section matching screenshot */}
+        {/* Header Section matching reference */}
         <div className="text-center space-y-4 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-cyan-400">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-medium text-cyan-400">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(0,229,255,0.7)] animate-pulse" />
-            <span>HARDWARE COLLECTION</span>
+            <span className="tracking-wide">Hardware Collection</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-[0.2em] uppercase text-white font-sans">
-            LIGHT IN MOTION STORE
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-sans leading-tight">
+            Light in Motion Store
           </h1>
           <p className="text-sm sm:text-base text-neutral-400 max-w-xl mx-auto leading-relaxed font-sans">
             Cinema-grade ambient lighting systems, sync boxes, and custom display backlights for monitors and home theaters.
@@ -57,16 +57,16 @@ export const StorefrontCatalog: React.FC = () => {
           <div className="pt-2 flex justify-center items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/15 text-xs font-mono text-neutral-300 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 text-xs font-medium text-neutral-300 transition-colors cursor-pointer"
             >
               <ArrowLeftIcon size={12} />
-              <span>RETURN HOME</span>
+              <span>Return Home</span>
             </Link>
             <Link
               href="/admin"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-xs font-mono text-cyan-400 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-xs font-medium text-cyan-400 transition-colors cursor-pointer"
             >
-              <span>ADMIN PANEL</span>
+              <span>Admin Panel</span>
             </Link>
           </div>
         </div>

@@ -110,7 +110,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 href="/"
                 className="group flex items-baseline gap-1 focus-visible:outline-none"
               >
-                <span className="text-base sm:text-lg font-black tracking-[0.22em] uppercase text-white transition-colors group-hover:text-neutral-200">
+                <span className="text-base sm:text-lg font-extrabold tracking-tight uppercase text-white transition-colors group-hover:text-neutral-200">
                   LIGHTINMOTION
                 </span>
               </Link>
@@ -123,7 +123,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                       <a
                         key={item.href}
                         href={item.href}
-                        className="text-xs font-mono font-bold tracking-[0.18em] uppercase transition-colors py-1 text-neutral-400 hover:text-white"
+                        className="text-xs sm:text-sm font-semibold tracking-wide uppercase transition-colors py-1 text-neutral-400 hover:text-white"
                       >
                         <span>{item.label}</span>
                       </a>
@@ -140,8 +140,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                       key={item.href}
                       href={item.href}
                       className={cn(
-                        "text-xs font-mono font-bold tracking-[0.18em] uppercase transition-colors py-1 relative",
-                        isActive ? "text-white" : "text-neutral-400 hover:text-white"
+                        "text-xs sm:text-sm font-semibold tracking-wide uppercase transition-colors py-1 relative",
+                        isActive ? "text-white font-bold" : "text-neutral-400 hover:text-white"
                       )}
                     >
                       <span>{item.label}</span>

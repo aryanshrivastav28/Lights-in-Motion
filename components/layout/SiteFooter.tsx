@@ -123,7 +123,7 @@ export const SiteFooter: React.FC = () => {
             {/* Left: Brand Identity */}
             <div className="md:col-span-4 space-y-3">
               <Link href="/" className="inline-block">
-                <span className="text-xl sm:text-2xl font-black tracking-[0.22em] uppercase text-white">
+                <span className="text-xl sm:text-2xl font-extrabold tracking-tight uppercase text-white">
                   LIGHTINMOTION
                 </span>
               </Link>

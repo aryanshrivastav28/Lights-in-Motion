@@ -1,8 +1,15 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { LocalizationProvider } from "@/context/LocalizationContext";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "Light in Motion — A Cinema Experience at Home",
@@ -35,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-black text-white font-sans antialiased">
+    <html lang="en" className={inter.variable}>
+      <body className={`${inter.className} bg-black text-white antialiased`}>
         <LocalizationProvider>
           <SiteHeader overlay={true} cartCount={0} />
           <main>{children}</main>
