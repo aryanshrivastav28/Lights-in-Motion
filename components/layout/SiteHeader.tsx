@@ -83,10 +83,12 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
     }
   };
 
+  const APP_URL = "https://lightinmotion-web.vercel.app/#downloads";
+
   const navItems = [
-    { label: t("home"), href: "/" },
-    { label: t("store"), href: "/store" },
-    { label: t("app"), href: "/app" },
+    { label: t("home"), href: "/", external: false },
+    { label: t("store"), href: "/store", external: false },
+    { label: t("app"), href: APP_URL, external: true },
   ];
 
   return (
@@ -116,6 +118,20 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
               {/* Desktop Nav */}
               <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-6 xl:space-x-8">
                 {navItems.map((item) => {
+                  if (item.external) {
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-mono font-bold tracking-[0.18em] uppercase transition-colors py-1 text-neutral-400 hover:text-white"
+                      >
+                        <span>{item.label}</span>
+                      </a>
+                    );
+                  }
+
                   const isActive =
                     item.href === "/"
                       ? pathname === "/"
@@ -389,17 +405,35 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
           </div>
 
           <div className="flex-1 overflow-y-auto px-6 py-8 space-y-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider"
-              >
-                <span>{item.label}</span>
-                <ChevronRightIcon size={16} className="text-neutral-500" />
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.external) {
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider hover:bg-white/[0.05] transition-colors"
+                  >
+                    <span>{item.label}</span>
+                    <ChevronRightIcon size={16} className="text-neutral-500" />
+                  </a>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider"
+                >
+                  <span>{item.label}</span>
+                  <ChevronRightIcon size={16} className="text-neutral-500" />
+                </Link>
+              );
+            })}
 
             <div className="pt-6 border-t border-white/10 space-y-4">
               <div>

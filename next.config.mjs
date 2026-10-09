@@ -60,6 +60,15 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/app',
+        destination: 'https://lightinmotion-web.vercel.app/#downloads',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
