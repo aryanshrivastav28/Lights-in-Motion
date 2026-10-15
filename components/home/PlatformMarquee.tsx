@@ -54,11 +54,11 @@ function MarqueeSequence({
         >
           <div className="inline-flex items-baseline gap-2.5 sm:gap-3.5">
             {item.index && (
-              <span className="font-mono text-[10px] sm:text-xs text-neutral-400 tracking-widest font-medium select-none">
+              <span className="font-mono text-[10px] sm:text-xs text-neutral-500 tracking-widest font-semibold select-none">
                 {item.index}
               </span>
             )}
-            <span className="font-sans text-sm sm:text-base md:text-lg font-bold tracking-tight text-white uppercase select-none transition-colors duration-200">
+            <span className="font-sans text-sm sm:text-base md:text-lg font-black tracking-tight text-black uppercase select-none transition-colors duration-200">
               {item.label}
             </span>
           </div>
@@ -68,7 +68,7 @@ function MarqueeSequence({
             className="mx-4 sm:mx-6 md:mx-8 select-none flex items-center justify-center"
             aria-hidden="true"
           >
-            <span className="inline-block w-1 h-1 bg-white/20 rotate-45" />
+            <span className="inline-block w-1 h-1 bg-black/25 rotate-45" />
           </div>
         </li>
       ))}
@@ -95,24 +95,24 @@ export function PlatformMarquee() {
     <section
       id="ecosystem-compatibility"
       aria-label="Features & Platform Compatibility"
-      className="relative w-full bg-[#050505] py-4 sm:py-6 border-t border-white/10 overflow-hidden"
+      className="relative w-full bg-transparent py-4 sm:py-6 border-t border-black/10 overflow-hidden"
     >
       {/* Marquee Region (Edge-to-Edge Compact Ticker) */}
-      <div className="relative w-full border-y border-white/10 bg-[#0A0A0A] group">
+      <div className="relative w-full border-y border-black/10 bg-white/70 backdrop-blur-xs group">
         {/* Subtle Edge Masks: left & right gradients smoothly dissolve into background */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 z-20 pointer-events-none bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent"
+          className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 z-20 pointer-events-none bg-gradient-to-r from-white/80 via-white/40 to-transparent"
           aria-hidden="true"
         />
         <div
-          className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 z-20 pointer-events-none bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent"
+          className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 z-20 pointer-events-none bg-gradient-to-l from-white/80 via-white/40 to-transparent"
           aria-hidden="true"
         />
 
         {/* TRACK 01: Features & Control (Moves Left -> Right) */}
-        <div className="marquee-row relative w-full border-b border-white/10 overflow-hidden">
+        <div className="marquee-row relative w-full border-b border-black/10 overflow-hidden">
           {/* Subtle Technical Track Sub-Header */}
-          <div className="px-4 sm:px-8 py-1.5 flex items-center justify-between font-mono text-[9px] md:text-[10px] tracking-[0.2em] text-neutral-400 uppercase border-b border-white/10 select-none">
+          <div className="px-4 sm:px-8 py-1.5 flex items-center justify-between font-mono text-[9px] md:text-[10px] tracking-[0.2em] text-neutral-600 uppercase border-b border-black/10 select-none">
             <span>TRACK 01 // FEATURES &amp; CONTROL</span>
             <span>DIRECTION: FORWARD &rarr;</span>
           </div>
@@ -130,7 +130,7 @@ export function PlatformMarquee() {
         {/* TRACK 02: Platforms & Ecosystem (Moves Right -> Left) */}
         <div className="marquee-row relative w-full overflow-hidden">
           {/* Subtle Technical Track Sub-Header */}
-          <div className="px-4 sm:px-8 py-1.5 flex items-center justify-between font-mono text-[9px] md:text-[10px] tracking-[0.2em] text-neutral-400 uppercase border-b border-white/10 select-none">
+          <div className="px-4 sm:px-8 py-1.5 flex items-center justify-between font-mono text-[9px] md:text-[10px] tracking-[0.2em] text-neutral-600 uppercase border-b border-black/10 select-none">
             <span>&larr; DIRECTION: REVERSE</span>
             <span>TRACK 02 // PLATFORMS &amp; ECOSYSTEM</span>
           </div>

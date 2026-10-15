@@ -20,9 +20,9 @@ export const HoverExpandGallery: React.FC<{
   className?: string;
 }> = ({ images = DEFAULT_GALLERY_IMAGES, className }) => {
   return (
-    <section className="w-full py-16 sm:py-24 bg-black text-white overflow-hidden select-none border-t border-white/10 font-sans">
+    <section className="w-full py-16 sm:py-24 bg-transparent text-black overflow-hidden select-none border-t border-black/10 font-sans">
       <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
-        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-black tracking-wide text-[#F0E6D2] uppercase leading-[1.05]">
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-sans font-black tracking-tight text-black uppercase leading-[1.05]">
           LIGHT IN MOTION<br />HARDWARE SHOWCASE
         </h2>
       </div>
@@ -89,10 +89,10 @@ export const HoverExpand_001 = ({
                 aria-label={image.title || image.alt}
                 layout
                 className={cn(
-                  "relative cursor-pointer overflow-hidden rounded-2xl border shrink-0 transform-gpu focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black flex flex-col justify-between",
+                  "relative cursor-pointer overflow-hidden rounded-2xl border shrink-0 transform-gpu focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-white flex flex-col justify-between",
                   isActive
-                    ? "border-cyan-400/80 shadow-[0_0_32px_rgba(22,135,255,0.30)] bg-neutral-900"
-                    : "border-white/10 hover:border-white/30 bg-neutral-950"
+                    ? "border-black/70 shadow-[0_10px_35px_rgba(0,0,0,0.12)] bg-white/90"
+                    : "border-black/10 hover:border-black/30 bg-white/70"
                 )}
                 initial={{ width: "4.5rem", height: "30rem" }}
                 animate={{
@@ -110,7 +110,7 @@ export const HoverExpand_001 = ({
                 onKeyDown={(e) => handleKeyDown(e, index)}
               >
                 {/* Full-Cover Edge-to-Edge Product Image (0 Black Edges) */}
-                <div className="relative w-full h-full overflow-hidden bg-neutral-950 flex items-center justify-center">
+                <div className="relative w-full h-full overflow-hidden bg-neutral-100 flex items-center justify-center">
                   <motion.img
                     src={image.src}
                     onError={(e) => {
@@ -120,7 +120,7 @@ export const HoverExpand_001 = ({
                     }}
                     animate={{
                       scale: isActive ? 1.04 : 1,
-                      opacity: isActive ? 1 : 0.55,
+                      opacity: isActive ? 1 : 0.65,
                     }}
                     transition={{
                       type: "spring",
@@ -140,7 +140,7 @@ export const HoverExpand_001 = ({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"
+                        className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"
                       />
                     )}
                   </AnimatePresence>
@@ -158,17 +158,17 @@ export const HoverExpand_001 = ({
                         stiffness: 320,
                         damping: 28,
                       }}
-                      className="absolute bottom-0 left-0 right-0 z-20 p-5 bg-neutral-950/85 backdrop-blur-md border-t border-white/10 pointer-events-none flex flex-col items-start justify-end"
+                      className="absolute bottom-0 left-0 right-0 z-20 p-5 bg-white/95 backdrop-blur-md border-t border-black/10 pointer-events-none flex flex-col items-start justify-end shadow-lg"
                     >
-                      <span className="text-xs font-mono text-cyan-400 font-semibold tracking-widest uppercase">
+                      <span className="text-xs font-mono text-neutral-600 font-semibold tracking-widest uppercase">
                         {image.code}
                       </span>
                       {image.title && (
-                        <h3 className="text-xl font-sans font-bold text-white mt-0.5 tracking-tight">
+                        <h3 className="text-xl font-sans font-extrabold text-black mt-0.5 tracking-tight">
                           {image.title}
                         </h3>
                       )}
-                      <p className="text-sm sm:text-base font-sans text-neutral-300 mt-1 leading-relaxed line-clamp-2 font-normal tracking-wide">
+                      <p className="text-sm sm:text-base font-sans text-neutral-700 mt-1 leading-relaxed line-clamp-2 font-normal tracking-wide">
                         {image.alt}
                       </p>
                     </motion.div>
@@ -178,7 +178,7 @@ export const HoverExpand_001 = ({
                 {/* Inactive Vertical Label */}
                 {!isActive && (
                   <div className="absolute inset-0 z-10 flex items-center justify-center p-2 pointer-events-none">
-                    <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase rotate-[-90deg] whitespace-nowrap">
+                    <span className="text-[10px] font-mono tracking-widest text-neutral-600 uppercase rotate-[-90deg] whitespace-nowrap font-bold">
                       {image.code}
                     </span>
                   </div>

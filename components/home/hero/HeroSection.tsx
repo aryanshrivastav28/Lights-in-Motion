@@ -16,7 +16,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className, scrollYProg
       id="hero-experience-track"
       aria-label="LIGHTINMOTION Cinema Landing Experience"
       className={cn(
-        "relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-black",
+        "relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-transparent",
         className
       )}
     >

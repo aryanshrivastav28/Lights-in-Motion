@@ -4,59 +4,65 @@
 
 @layer base {
   :root {
-    --background: 0 0 0;
-    --background-secondary: 10 10 10;
-    --background-elevated: 18 18 18;
-    --foreground: 255 255 255;
-    --foreground-secondary: 163 163 163;
-    --muted: 115 115 115;
-    --border: rgba(255, 255, 255, 0.10);
-    --border-strong: rgba(255, 255, 255, 0.20);
-    --accent: 22 135 255;
-    --accent-deep: 7 87 184;
-    --surface-inverted: 255 255 255;
-    --foreground-inverted: 0 0 0;
+    --background: 247 247 247;
+    --background-secondary: 240 240 240;
+    --background-elevated: 255 255 255;
+    --foreground: 0 0 0;
+    --foreground-secondary: 40 40 40;
+    --muted: 100 100 100;
+    --border: rgba(0, 0, 0, 0.10);
+    --border-strong: rgba(0, 0, 0, 0.20);
+    --accent: 0 0 0;
+    --accent-deep: 20 20 20;
+    --surface-inverted: 0 0 0;
+    --foreground-inverted: 255 255 255;
   }
 
   html {
-    color-scheme: dark;
-    background-color: #000000;
-    color: #FFFFFF;
+    color-scheme: light;
+    background-color: #f7f7f7;
+    color: #000000;
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #f7f7f7;
+    background-image: url('/textures/crumpled-paper.jpg');
+    background-repeat: repeat;
+    background-size: 850px 850px;
+    background-attachment: fixed;
+    color: #000000;
     font-family: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background: rgba(22, 135, 255, 0.20);
+    background: #000000;
     color: #FFFFFF;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
   }
 }
 
 @layer components {
   .glass-panel {
-    background: rgba(18, 18, 18, 0.85);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   }
 
   .glass-panel-elevated {
-    background: rgba(26, 26, 26, 0.92);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   }
 
   .tech-grid {

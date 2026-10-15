@@ -79,14 +79,13 @@ export const LightingExperienceSection: React.FC<{ className?: string }> = ({
       ref={containerRef}
       id="lighting-experience"
       className={cn(
-        "relative w-full h-[400vh] bg-[#050505] text-white select-none font-sans border-t border-white/10",
+        "relative w-full h-[400vh] bg-transparent text-black select-none font-sans border-t border-black/10",
         className
       )}
     >
       {/* Sticky Viewport Container */}
       <div className="sticky top-0 w-full h-screen flex flex-col justify-between py-6 lg:py-8 overflow-hidden px-6 sm:px-10 max-w-7xl mx-auto">
         
-
 
         {/* Main Content Showcase Stage */}
         <div className="w-full my-auto py-2 perspective-[1200px]">
@@ -101,7 +100,7 @@ export const LightingExperienceSection: React.FC<{ className?: string }> = ({
               className="w-full max-w-5xl mx-auto flex items-center justify-center transform-gpu"
             >
               {/* Centered Pure Media Showcase Stage */}
-              <div className="relative w-full h-[65vh] sm:h-[72vh] lg:h-[80vh] rounded-[32px] overflow-hidden bg-neutral-950 border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.9)] group">
+              <div className="relative w-full h-[65vh] sm:h-[72vh] lg:h-[80vh] rounded-[32px] overflow-hidden bg-neutral-900 border border-black/10 shadow-[0_12px_45px_rgba(0,0,0,0.12)] group">
                 
                 {/* Ambient Backdrop Blur */}
                 {!videoError ? (

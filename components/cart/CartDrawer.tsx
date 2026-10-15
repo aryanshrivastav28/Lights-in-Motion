@@ -33,20 +33,20 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         </div>
       ) : (
         <div className="py-20 text-center space-y-5">
-          <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center mx-auto text-neutral-500">
+          <div className="w-12 h-12 rounded-full bg-black/5 border border-black/10 flex items-center justify-center mx-auto text-neutral-600">
             <CartIcon size={20} />
           </div>
           <div className="space-y-1.5">
-            <h3 className="text-xs font-mono tracking-[0.2em] uppercase text-white font-semibold">
+            <h3 className="text-xs font-mono tracking-[0.2em] uppercase text-black font-extrabold">
               YOUR CART IS EMPTY
             </h3>
-            <p className="text-xs text-neutral-400 max-w-xs mx-auto leading-relaxed">
+            <p className="text-xs text-neutral-600 max-w-xs mx-auto leading-relaxed">
               Explore cinema-grade ambient lighting designed for high-refresh monitors and home theaters.
             </p>
           </div>
           <div className="pt-2">
             <Link href="/store" onClick={onClose}>
-              <Button variant="secondary" size="sm">
+              <Button variant="primary" size="sm" className="bg-black hover:bg-neutral-800 text-white font-bold">
                 EXPLORE STORE
               </Button>
             </Link>

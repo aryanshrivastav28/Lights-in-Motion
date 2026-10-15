@@ -30,8 +30,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
-  colorScheme: "dark",
+  themeColor: "#F7F7F7",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -43,10 +43,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className={`${inter.className} bg-black text-white antialiased`}>
+      <body
+        className={`${inter.className} min-h-screen text-black antialiased bg-[#f7f7f7]`}
+        style={{
+          backgroundImage: "url('/textures/crumpled-paper.jpg')",
+          backgroundRepeat: "repeat",
+          backgroundSize: "850px 850px",
+          backgroundAttachment: "fixed",
+        }}
+      >
         <LocalizationProvider>
           <SiteHeader overlay={true} cartCount={0} />
-          <main>{children}</main>
+          <main className="relative z-10">{children}</main>
           <SiteFooter />
         </LocalizationProvider>
       </body>

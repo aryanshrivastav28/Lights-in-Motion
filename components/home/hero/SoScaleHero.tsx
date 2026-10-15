@@ -33,10 +33,7 @@ export const SoScaleHero: React.FC<SoScaleHeroProps> = ({ scrollYProgress }) => 
   });
 
   return (
-    <div className="relative w-full h-full min-h-[100svh] bg-black text-white select-none overflow-hidden flex flex-col items-center justify-center">
-      {/* Solid Dark Matte Background */}
-      <div className="absolute inset-0 z-0 bg-black pointer-events-none" />
-
+    <div className="relative w-full h-full min-h-[100svh] bg-transparent text-black select-none overflow-hidden flex flex-col items-center justify-center">
       {/* Main Logo Container */}
       <div className="relative z-10 flex items-center justify-center w-full px-4 text-center">
         <div className="inline-flex items-center justify-center max-w-full py-3">
@@ -49,7 +46,7 @@ export const SoScaleHero: React.FC<SoScaleHeroProps> = ({ scrollYProgress }) => 
               damping: 16,
               mass: 1.5,
             }}
-            className="text-6xl sm:text-8xl md:text-9xl lg:text-[11.5vw] font-black tracking-tighter leading-none text-white shrink-0 font-sans transform-gpu antialiased"
+            className="text-6xl sm:text-8xl md:text-9xl lg:text-[11.5vw] font-black tracking-tighter leading-none text-black shrink-0 font-sans transform-gpu antialiased"
           >
             L
           </motion.span>
@@ -79,7 +76,7 @@ export const SoScaleHero: React.FC<SoScaleHeroProps> = ({ scrollYProgress }) => 
                 ease: [0.16, 1, 0.3, 1],
                 delay: isRevealed ? 0.15 : 0,
               }}
-              className="text-6xl sm:text-8xl md:text-9xl lg:text-[11.5vw] font-black tracking-tighter leading-none text-white font-sans transform-gpu antialiased"
+              className="text-6xl sm:text-8xl md:text-9xl lg:text-[11.5vw] font-black tracking-tighter leading-none text-black font-sans transform-gpu antialiased"
             >
               IGHTINMOTION
             </motion.span>

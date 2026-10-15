@@ -23,7 +23,7 @@ export const StackingHomeWrapper: React.FC = () => {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0.25]);
 
   return (
-    <div id="homepage-canvas" className="w-full min-h-screen bg-black text-[#111214] select-none">
+    <div id="homepage-canvas" className="w-full min-h-screen bg-transparent text-black select-none">
       
       {/* 200vh Stacking Track for Page 1 & Page 2 Overlap Animation */}
       <div ref={heroTrackRef} className="relative w-full h-[200vh]">
@@ -42,13 +42,13 @@ export const StackingHomeWrapper: React.FC = () => {
         </div>
 
         {/* Page 2 (Gallery) - Positioned at 100vh so it glides OVER Page 1 on scroll */}
-        <div className="absolute top-[100vh] left-0 right-0 z-20 w-full min-h-screen bg-black shadow-[0_-40px_90px_rgba(0,0,0,1)] rounded-t-[36px] sm:rounded-t-[48px] border-t border-white/20 overflow-hidden">
+        <div className="absolute top-[100vh] left-0 right-0 z-20 w-full min-h-screen bg-white/60 backdrop-blur-md shadow-[0_-20px_50px_rgba(0,0,0,0.06)] rounded-t-[36px] sm:rounded-t-[48px] border-t border-black/10 overflow-hidden">
           <HoverExpandGallery />
         </div>
       </div>
 
       {/* SUBSEQUENT SECTIONS (Follow Page 2 naturally) */}
-      <div className="relative z-20 w-full bg-black text-white">
+      <div className="relative z-20 w-full bg-transparent text-black">
         <ProductCollectionGrid />
         <ReelsShowcase />
         <PlatformMarquee />

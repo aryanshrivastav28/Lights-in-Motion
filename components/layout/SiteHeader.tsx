@@ -97,8 +97,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
         className={cn(
           "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 select-none",
           scrolled
-            ? "bg-black/90 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-3 sm:py-3.5"
-            : "bg-black/60 backdrop-blur-sm border-b border-white/5 py-4 sm:py-4.5"
+            ? "bg-white/80 backdrop-blur-md border-b border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.06)] py-3 sm:py-3.5"
+            : "bg-white/40 backdrop-blur-sm border-b border-black/5 py-4 sm:py-4.5"
         )}
       >
         <Container size="wide">
@@ -110,7 +110,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 href="/"
                 className="group flex items-baseline gap-1 focus-visible:outline-none"
               >
-                <span className="text-base sm:text-lg font-extrabold tracking-tight uppercase text-white transition-colors group-hover:text-neutral-200">
+                <span className="text-base sm:text-lg font-extrabold tracking-tight uppercase text-black transition-colors group-hover:text-neutral-700">
                   LIGHTINMOTION
                 </span>
               </Link>
@@ -123,7 +123,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                       <a
                         key={item.href}
                         href={item.href}
-                        className="text-xs sm:text-sm font-semibold tracking-wide uppercase transition-colors py-1 text-neutral-400 hover:text-white"
+                        className="text-xs sm:text-sm font-semibold tracking-wide uppercase transition-colors py-1 text-neutral-600 hover:text-black"
                       >
                         <span>{item.label}</span>
                       </a>
@@ -141,12 +141,12 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                       href={item.href}
                       className={cn(
                         "text-xs sm:text-sm font-semibold tracking-wide uppercase transition-colors py-1 relative",
-                        isActive ? "text-white font-bold" : "text-neutral-400 hover:text-white"
+                        isActive ? "text-black font-bold" : "text-neutral-600 hover:text-black"
                       )}
                     >
                       <span>{item.label}</span>
                       {isActive && (
-                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#963b18] rounded-full" />
+                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-black rounded-full" />
                       )}
                     </Link>
                   );
@@ -155,7 +155,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
             </div>
 
             {/* Right Action Utilities matching exact uploaded reference */}
-            <div className="hidden md:flex items-center space-x-6 sm:space-x-7 text-sm font-medium text-white">
+            <div className="hidden md:flex items-center space-x-6 sm:space-x-7 text-sm font-medium text-black">
               
               {/* Country & Currency Selector Dropdown */}
               <div ref={currencyRef} className="relative">
@@ -182,8 +182,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 </button>
 
                 {currencyDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-56 bg-[#0E0F12] border border-white/15 rounded-xl shadow-[0_10px_35px_rgba(0,0,0,0.95)] py-2 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
-                    <div className="px-3 py-1.5 text-[10px] font-mono tracking-wider text-neutral-400 uppercase border-b border-white/10 mb-1">
+                  <div className="absolute right-0 mt-2 w-56 bg-white/95 border border-black/15 rounded-xl shadow-[0_10px_35px_rgba(0,0,0,0.12)] py-2 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+                    <div className="px-3 py-1.5 text-[10px] font-mono tracking-wider text-neutral-500 uppercase border-b border-black/10 mb-1">
                       Select Currency
                     </div>
                     {Object.values(CURRENCIES).map((curr) => {
@@ -197,8 +197,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                             setCurrencyDropdownOpen(false);
                           }}
                           className={cn(
-                            "w-full text-left px-3.5 py-2 text-xs sm:text-sm flex items-center justify-between hover:bg-white/10 transition-colors cursor-pointer",
-                            isSelected ? "text-white font-bold bg-white/5" : "text-neutral-300"
+                            "w-full text-left px-3.5 py-2 text-xs sm:text-sm flex items-center justify-between hover:bg-black/5 transition-colors cursor-pointer",
+                            isSelected ? "text-black font-bold bg-black/5" : "text-neutral-700"
                           )}
                         >
                           <span>{curr.label}</span>
@@ -220,7 +220,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                     setLanguageDropdownOpen(!languageDropdownOpen);
                     setCurrencyDropdownOpen(false);
                   }}
-                  className="flex items-center gap-1.5 hover:text-neutral-300 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide py-1"
+                  className="flex items-center gap-1.5 hover:text-neutral-600 transition-colors cursor-pointer text-xs sm:text-sm font-sans tracking-wide py-1 text-black"
                 >
                   <span>{language.label}</span>
                   <svg
@@ -237,8 +237,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 </button>
 
                 {languageDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-[#0E0F12] border border-white/15 rounded-xl shadow-[0_10px_35px_rgba(0,0,0,0.95)] py-2 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
-                    <div className="px-3 py-1.5 text-[10px] font-mono tracking-wider text-neutral-400 uppercase border-b border-white/10 mb-1">
+                  <div className="absolute right-0 mt-2 w-48 bg-white/95 border border-black/15 rounded-xl shadow-[0_10px_35px_rgba(0,0,0,0.12)] py-2 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+                    <div className="px-3 py-1.5 text-[10px] font-mono tracking-wider text-neutral-500 uppercase border-b border-black/10 mb-1">
                       Select Language
                     </div>
                     {Object.values(LANGUAGES).map((lang) => {
@@ -252,8 +252,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                             setLanguageDropdownOpen(false);
                           }}
                           className={cn(
-                            "w-full text-left px-3.5 py-2 text-xs sm:text-sm flex items-center justify-between hover:bg-white/10 transition-colors cursor-pointer",
-                            isSelected ? "text-white font-bold bg-white/5" : "text-neutral-300"
+                            "w-full text-left px-3.5 py-2 text-xs sm:text-sm flex items-center justify-between hover:bg-black/5 transition-colors cursor-pointer",
+                            isSelected ? "text-black font-bold bg-black/5" : "text-neutral-700"
                           )}
                         >
                           <span>{lang.label}</span>
@@ -272,7 +272,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 type="button"
                 aria-label="Search"
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="p-1 hover:text-neutral-300 transition-colors focus-visible:outline-none cursor-pointer"
+                className="p-1 text-black hover:text-neutral-600 transition-colors focus-visible:outline-none cursor-pointer"
               >
                 <svg
                   className="w-5 h-5"
@@ -291,7 +291,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 type="button"
                 aria-label="Account"
                 onClick={handleAccountClick}
-                className="p-1 hover:text-neutral-300 transition-colors focus-visible:outline-none cursor-pointer"
+                className="p-1 text-black hover:text-neutral-600 transition-colors focus-visible:outline-none cursor-pointer"
               >
                 <svg
                   className="w-5 h-5"
@@ -305,15 +305,15 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 </svg>
               </button>
 
-              {/* Shopping Bag Icon with Dark Rounded Square & Orange-Red Neon Corner Accent */}
+              {/* Shopping Bag Icon with Paper Aesthetic & Corner Accent */}
               <button
                 type="button"
                 aria-label="Shopping Bag"
                 onClick={handleCartClick}
-                className="relative bg-[#1A1B1E] hover:bg-[#24252A] p-2.5 rounded-xl border border-white/10 transition-colors focus-visible:outline-none group cursor-pointer shadow-md"
+                className="relative bg-white/90 hover:bg-white p-2.5 rounded-xl border border-black/15 transition-colors focus-visible:outline-none group cursor-pointer shadow-xs text-black"
               >
                 <svg
-                  className="w-5 h-5 text-white"
+                  className="w-5 h-5 text-black"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={1.8}
@@ -322,11 +322,11 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
 
-                {/* Orange-Red Corner Accent Indicator */}
-                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#FF3823] rounded-br-[4px] pointer-events-none" />
+                {/* Corner Accent Indicator */}
+                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-black rounded-br-[4px] pointer-events-none" />
 
                 {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#FF3823] text-white text-[10px] font-black rounded-full w-4 h-4 flex items-center justify-center">
+                  <span className="absolute -top-1.5 -right-1.5 bg-black text-white text-[10px] font-black rounded-full w-4 h-4 flex items-center justify-center">
                     {cartCount}
                   </span>
                 )}
@@ -339,10 +339,10 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 type="button"
                 aria-label="Shopping Bag"
                 onClick={handleCartClick}
-                className="relative bg-[#1A1B1E] p-2 rounded-lg border border-white/10"
+                className="relative bg-white/90 p-2 rounded-lg border border-black/15 text-black"
               >
                 <svg
-                  className="w-4 h-4 text-white"
+                  className="w-4 h-4 text-black"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={1.8}
@@ -350,14 +350,14 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-[#FF3823] rounded-br-[3px]" />
+                <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-black rounded-br-[3px]" />
               </button>
 
               <button
                 type="button"
                 aria-label="Toggle Menu"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-1.5 text-white hover:text-neutral-300"
+                className="p-1.5 text-black hover:text-neutral-700"
               >
                 {mobileMenuOpen ? <CloseIcon size={22} /> : <MenuIcon size={22} />}
               </button>
@@ -369,17 +369,17 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
       {/* Search Input Bar (Dropdown) */}
       {searchOpen && (
-        <div className="fixed top-16 left-0 right-0 z-40 bg-black/95 border-b border-white/10 py-4 px-6 backdrop-blur-md animate-in slide-in-from-top-2">
+        <div className="fixed top-16 left-0 right-0 z-40 bg-white/95 border-b border-black/10 py-4 px-6 backdrop-blur-md animate-in slide-in-from-top-2 shadow-lg">
           <div className="max-w-xl mx-auto flex items-center gap-3">
             <input
               type="text"
               autoFocus
               placeholder={t("searchPlaceholder")}
-              className="w-full bg-[#111214] border border-white/15 rounded-xl px-4 py-2.5 text-white placeholder:text-neutral-500 outline-none text-sm focus:border-white/40"
+              className="w-full bg-[#F2F0EB] border border-black/15 rounded-xl px-4 py-2.5 text-black placeholder:text-neutral-500 outline-none text-sm focus:border-black/40"
             />
             <button
               onClick={() => setSearchOpen(false)}
-              className="text-neutral-400 hover:text-white text-xs font-mono uppercase"
+              className="text-neutral-600 hover:text-black text-xs font-mono uppercase"
             >
               Close
             </button>
@@ -389,14 +389,14 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-black/95 backdrop-blur-xl md:hidden animate-in fade-in duration-200">
-          <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-            <span className="text-sm font-black uppercase tracking-[0.2em] text-white">
+        <div className="fixed inset-0 z-50 flex flex-col bg-[#F7F7F7]/98 backdrop-blur-xl md:hidden animate-in fade-in duration-200 text-black">
+          <div className="flex items-center justify-between px-6 py-5 border-b border-black/10">
+            <span className="text-sm font-black uppercase tracking-[0.2em] text-black">
               LIGHTINMOTION
             </span>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 text-neutral-400 hover:text-white"
+              className="p-2 text-neutral-600 hover:text-black"
             >
               <CloseIcon size={22} />
             </button>
@@ -410,7 +410,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider hover:bg-white/[0.05] transition-colors"
+                    className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-black/10 bg-black/[0.03] text-base font-semibold text-black tracking-wider hover:bg-black/[0.06] transition-colors"
                   >
                     <span>{item.label}</span>
                     <ChevronRightIcon size={16} className="text-neutral-500" />
@@ -423,7 +423,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-white/10 bg-white/[0.02] text-base font-semibold text-white tracking-wider"
+                  className="flex items-center justify-between py-3.5 px-4 rounded-xl border border-black/10 bg-black/[0.03] text-base font-semibold text-black tracking-wider hover:bg-black/[0.06]"
                 >
                   <span>{item.label}</span>
                   <ChevronRightIcon size={16} className="text-neutral-500" />
@@ -431,18 +431,18 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
               );
             })}
 
-            <div className="pt-6 border-t border-white/10 space-y-4">
+            <div className="pt-6 border-t border-black/10 space-y-4">
               <div>
-                <label className="block text-xs font-mono text-neutral-400 uppercase mb-1">
+                <label className="block text-xs font-mono text-neutral-600 uppercase mb-1">
                   Region &amp; Currency
                 </label>
                 <select
                   value={currency.code}
                   onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
-                  className="w-full bg-[#111214] border border-white/15 rounded-lg px-3 py-2 text-white text-sm outline-none"
+                  className="w-full bg-white border border-black/15 rounded-lg px-3 py-2 text-black text-sm outline-none"
                 >
                   {Object.values(CURRENCIES).map((curr) => (
-                    <option key={curr.code} value={curr.code} className="bg-black text-white">
+                    <option key={curr.code} value={curr.code} className="bg-white text-black">
                       {curr.label}
                     </option>
                   ))}
@@ -450,16 +450,16 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-neutral-400 uppercase mb-1">
+                <label className="block text-xs font-mono text-neutral-600 uppercase mb-1">
                   Language
                 </label>
                 <select
                   value={language.code}
                   onChange={(e) => setLanguage(e.target.value as LanguageCode)}
-                  className="w-full bg-[#111214] border border-white/15 rounded-lg px-3 py-2 text-white text-sm outline-none"
+                  className="w-full bg-white border border-black/15 rounded-lg px-3 py-2 text-black text-sm outline-none"
                 >
                   {Object.values(LANGUAGES).map((lang) => (
-                    <option key={lang.code} value={lang.code} className="bg-black text-white">
+                    <option key={lang.code} value={lang.code} className="bg-white text-black">
                       {lang.label}
                     </option>
                   ))}

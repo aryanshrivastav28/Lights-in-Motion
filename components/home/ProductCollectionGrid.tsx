@@ -95,11 +95,11 @@ export const ProductCollectionGrid: React.FC = () => {
   });
 
   return (
-    <section className="relative w-full bg-black py-16 sm:py-24 px-4 sm:px-6 md:px-10 text-white font-sans select-none border-t border-white/10">
+    <section className="relative w-full bg-transparent py-16 sm:py-24 px-4 sm:px-6 md:px-10 text-black font-sans select-none border-t border-black/10">
       
       {/* Top Filter Category Tabs */}
       <div className="flex justify-center mb-12 sm:mb-16">
-        <div className="bg-[#0D0E11]/90 backdrop-blur-md p-1.5 rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.8)] border border-white/10 inline-flex items-center gap-1 sm:gap-2">
+        <div className="bg-white/80 backdrop-blur-md p-1.5 rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-black/10 inline-flex items-center gap-1 sm:gap-2">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -108,8 +108,8 @@ export const ProductCollectionGrid: React.FC = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "bg-[#963b18] text-white shadow-[0_0_20px_rgba(150,59,24,0.4)] scale-100"
-                    : "text-neutral-400 hover:text-white hover:bg-white/5"
+                    ? "bg-black text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)] scale-100"
+                    : "text-neutral-600 hover:text-black hover:bg-black/5"
                 }`}
               >
                 {t(tab.labelKey)}
@@ -124,12 +124,12 @@ export const ProductCollectionGrid: React.FC = () => {
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className="bg-[#0B0C0E] rounded-2xl p-4 sm:p-5 border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)] flex flex-col justify-between relative hover:border-white/25 hover:shadow-[0_10px_40px_rgba(0,0,0,0.95)] transition-all duration-300 group"
+            className="bg-white/85 backdrop-blur-xs rounded-2xl p-4 sm:p-5 border border-black/10 shadow-[0_4px_24px_rgba(0,0,0,0.06)] flex flex-col justify-between relative hover:border-black/25 hover:shadow-[0_12px_36px_rgba(0,0,0,0.12)] transition-all duration-300 group"
           >
             {/* Top Badges Header */}
             <div className="flex items-start justify-between relative z-10 min-h-[28px]">
               <span
-                className="text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 py-1 rounded-r-md rounded-tl-md shadow-xs font-sans bg-[#E52E2E]"
+                className="text-white font-black text-[10px] sm:text-[11px] uppercase tracking-wider px-3 py-1 rounded-r-md rounded-tl-md shadow-xs font-sans bg-black"
               >
                 {t(product.badgeKey)}
               </span>
@@ -138,7 +138,7 @@ export const ProductCollectionGrid: React.FC = () => {
             {/* Product Image Stage */}
             <Link
               href={`/products/${product.slug}`}
-              className="relative w-full aspect-[3/4] my-3.5 overflow-hidden rounded-xl bg-neutral-950 border border-white/[0.08] shadow-inner block"
+              className="relative w-full aspect-[3/4] my-3.5 overflow-hidden rounded-xl bg-neutral-100 border border-black/5 shadow-inner block"
             >
               <Image
                 src={product.image}
@@ -150,9 +150,9 @@ export const ProductCollectionGrid: React.FC = () => {
             </Link>
 
             {/* Deal Banner */}
-            <div className="bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs mb-3 text-center">
+            <div className="bg-neutral-100 text-neutral-800 border border-black/10 text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center justify-center gap-1.5 mb-3 text-center">
               <svg
-                className="w-3.5 h-3.5 shrink-0 text-amber-300"
+                className="w-3.5 h-3.5 shrink-0 text-neutral-700"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -170,18 +170,18 @@ export const ProductCollectionGrid: React.FC = () => {
             {/* Title & Price Information */}
             <div className="space-y-2 mt-1 flex-1 flex flex-col justify-between">
               <Link href={`/products/${product.slug}`} className="block">
-                <h3 className="text-white font-bold text-sm sm:text-base leading-snug line-clamp-2 min-h-[2.6rem] group-hover:text-neutral-200 transition-colors">
+                <h3 className="text-black font-extrabold text-sm sm:text-base leading-snug line-clamp-2 min-h-[2.6rem] group-hover:text-neutral-700 transition-colors">
                   {t(product.titleKey)}
                 </h3>
               </Link>
 
               {/* Price Row dynamically formatted according to selected currency */}
               <div className="flex items-baseline gap-2 pt-1">
-                <span className="text-white font-black text-lg sm:text-xl tracking-tight">
+                <span className="text-black font-black text-lg sm:text-xl tracking-tight">
                   {formatPrice(product.price)}
                 </span>
                 {product.compareAtPrice && (
-                  <span className="text-neutral-500 line-through text-xs sm:text-sm font-normal">
+                  <span className="text-neutral-400 line-through text-xs sm:text-sm font-normal">
                     {formatPrice(product.compareAtPrice)}
                   </span>
                 )}
@@ -191,7 +191,7 @@ export const ProductCollectionGrid: React.FC = () => {
             {/* CTA Button */}
             <Link
               href={`/products/${product.slug}`}
-              className="bg-[#963b18] hover:bg-[#b0451c] text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 mt-4 transition-colors duration-200 shadow-md group/btn"
+              className="bg-black hover:bg-neutral-800 text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 mt-4 transition-colors duration-200 shadow-md group/btn"
             >
               <span>{t("shopNow")}</span>
               <svg

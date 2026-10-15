@@ -178,7 +178,7 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
   return (
     <section
       className={cn(
-        "relative w-full bg-black py-16 sm:py-24 text-white overflow-hidden select-none border-t border-white/10",
+        "relative w-full bg-transparent py-16 sm:py-24 text-black overflow-hidden select-none border-t border-black/10",
         className
       )}
     >
@@ -186,10 +186,10 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
         
         {/* Section Heading matching reference image: "Watch. Explore. Choose." */}
         <div className="text-center mb-12 sm:mb-16 space-y-2">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-sans">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-black font-sans">
             Watch. Explore. Choose.
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-400 font-mono tracking-wider uppercase">
+          <p className="text-xs sm:text-sm text-neutral-600 font-mono tracking-wider uppercase font-semibold">
             Real Customer Setups & Zero-Latency Light Shows
           </p>
         </div>
@@ -202,10 +202,10 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
             type="button"
             onClick={() => scroll("left")}
             aria-label="Previous reels"
-            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white text-black shadow-[0_8px_25px_rgba(0,0,0,0.8)] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer hover:scale-105"
+            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-black text-white shadow-[0_8px_25px_rgba(0,0,0,0.2)] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer hover:scale-105"
           >
             <svg
-              className="w-5 h-5 text-black"
+              className="w-5 h-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -220,10 +220,10 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
             type="button"
             onClick={() => scroll("right")}
             aria-label="Next reels"
-            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white text-black shadow-[0_8px_25px_rgba(0,0,0,0.8)] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer hover:scale-105"
+            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-black text-white shadow-[0_8px_25px_rgba(0,0,0,0.2)] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer hover:scale-105"
           >
             <svg
-              className="w-5 h-5 text-black"
+              className="w-5 h-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -242,7 +242,7 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
               <div
                 key={reel.id}
                 onClick={() => openReelModal(index)}
-                className="relative flex-shrink-0 w-[300px] sm:w-[350px] md:w-[380px] lg:w-[410px] h-[540px] sm:h-[620px] md:h-[680px] rounded-3xl overflow-hidden bg-[#0A0B0E] border border-white/15 shadow-[0_12px_45px_rgba(0,0,0,0.9)] cursor-pointer group hover:border-white/50 hover:shadow-[0_20px_60px_rgba(150,59,24,0.4)] transition-all duration-300 transform hover:-translate-y-2 snap-start"
+                className="relative flex-shrink-0 w-[300px] sm:w-[350px] md:w-[380px] lg:w-[410px] h-[540px] sm:h-[620px] md:h-[680px] rounded-3xl overflow-hidden bg-neutral-900 border border-black/10 shadow-[0_12px_45px_rgba(0,0,0,0.12)] cursor-pointer group hover:border-black/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.18)] transition-all duration-300 transform hover:-translate-y-2 snap-start"
               >
                 {/* Background Video Loop Preview */}
                 <video
@@ -254,12 +254,12 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
-                {/* Dark Vignette Overlay to blend seamlessly with black background */}
+                {/* Dark Vignette Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
                 {/* Center Circular Play Button Indicator */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl group-hover:scale-115 group-hover:bg-white group-hover:text-black transition-all duration-300">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-2xl group-hover:scale-115 group-hover:bg-white group-hover:text-black transition-all duration-300">
                     <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current ml-0.5" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>

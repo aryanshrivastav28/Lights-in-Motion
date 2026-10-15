@@ -61,7 +61,7 @@ export const Drawer: React.FC<DrawerProps> = ({
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-300"
+        className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity duration-300"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -70,19 +70,19 @@ export const Drawer: React.FC<DrawerProps> = ({
       <div
         ref={drawerRef}
         className={cn(
-          "relative h-full w-full sm:max-w-md md:max-w-[460px] bg-neutral-950/95 sm:backdrop-blur-md flex flex-col z-10 shadow-2xl transition-all duration-300 ease-out border-white/10",
+          "relative h-full w-full sm:max-w-md md:max-w-[460px] bg-white/95 sm:backdrop-blur-md flex flex-col z-10 shadow-2xl transition-all duration-300 ease-out border-black/10",
           position === "right" ? "ml-auto border-l animate-in slide-in-from-right" : "mr-auto border-r animate-in slide-in-from-left",
           className
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.08] shrink-0">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-black/10 shrink-0">
           <div>
-            <h2 className="text-xs font-mono uppercase tracking-[0.2em] text-white font-semibold">
+            <h2 className="text-xs font-mono uppercase tracking-[0.2em] text-black font-extrabold">
               {title || "PANEL"}
             </h2>
             {subtitle && (
-              <p className="text-[11px] text-neutral-400 mt-0.5 tracking-wider font-mono">
+              <p className="text-[11px] text-neutral-600 mt-0.5 tracking-wider font-mono font-semibold">
                 {subtitle}
               </p>
             )}
@@ -91,7 +91,7 @@ export const Drawer: React.FC<DrawerProps> = ({
             aria-label="Close drawer"
             size="sm"
             onClick={onClose}
-            className="text-neutral-400 hover:text-white"
+            className="text-neutral-600 hover:text-black"
           >
             <CloseIcon size={18} />
           </IconButton>
