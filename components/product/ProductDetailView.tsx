@@ -497,7 +497,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
                     onClick={() => setDetailsOpen(!detailsOpen)}
                     className="w-full flex items-center justify-between text-base font-extrabold text-black hover:text-neutral-700 transition-colors cursor-pointer text-left py-1"
                   >
-                    <span>Technical Specifications & What's Included</span>
+                    <span>Technical Specifications &amp; What&apos;s Included</span>
                     <span className="text-xl font-mono text-neutral-600">
                       {detailsOpen ? "−" : "+"}
                     </span>
@@ -527,7 +527,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
                       {/* 7. What's Included Checklist */}
                       <div className="pt-2 border-t border-black/5">
                         <span className="text-xs font-bold text-black uppercase tracking-wider block mb-2 font-mono">
-                          What's Included:
+                          What&apos;s Included:
                         </span>
                         <ul className="text-xs text-neutral-800 space-y-1.5 list-none">
                           {product.whatsInTheBox.map((item, i) => (
