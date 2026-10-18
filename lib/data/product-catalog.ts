@@ -758,8 +758,205 @@ export const PRODUCT_CATALOG: Record<string, DetailedProduct> = {
       },
     ],
   },
+
+  "sync-box": {
+    id: "sync-box",
+    slug: "sync-box",
+    title: "LightinMotion HDMI 2.1 Sync Box Hub",
+    titleKey: "syncBoxTitle",
+    headline: "Zero-Latency Ultra-HD Screen Immersion For Any HDMI Display",
+    introduction:
+      "Bridge your home entertainment and ambient lighting with the LightinMotion HDMI 2.1 Sync Box Hub. Supporting 4K@120Hz and 8K@60Hz with VRR, ALLM, and HDR10+ passthrough, it translates on-screen action into synchronized ambient illumination across all your LightinMotion lightstrips and bars with zero lag.",
+    experienceTitle: "Next-Generation HDMI 2.1 Immersion",
+    experienceContent: [
+      "Plug in your PS5, Xbox Series X, Apple TV 4K, or high-end PC rig and let the hardware sync processor illuminate your entire room in real-time.",
+      "Multi-port auto-switching intelligently activates your ambient lighting system as soon as your console or streaming player wakes up.",
+    ],
+    perfectFor: [
+      "🎮 PS5 & Xbox Series X / S",
+      "🖥️ 4K 144Hz & 120Hz Gaming Monitors",
+      "🎬 Apple TV 4K & Fire TV Cube",
+      "🍿 8K & 4K OLED / Mini-LED Home Theaters",
+      "🎧 Low Latency Competitive Setups",
+    ],
+    keyFeatures: [
+      "⚡ Ultra-low latency < 3ms hardware sync",
+      "📺 HDMI 2.1: 4K@120Hz, 8K@60Hz, VRR & ALLM",
+      "🌈 Syncs with up to 10 LightinMotion devices",
+      "🎮 4 HDMI In / 1 HDMI Out with auto-switching",
+      "📱 iOS & Android app control + RF Remote",
+      "🛡️ Premium CNC anodized aluminum chassis",
+    ],
+    specs: [
+      { label: "HDMI Standard", value: "HDMI 2.1 with eARC / VRR / ALLM" },
+      { label: "Max Resolution", value: "4K @ 120Hz / 8K @ 60Hz" },
+      { label: "Latency", value: "< 3 ms Hardware Passthrough" },
+      { label: "Inputs / Outputs", value: "4x HDMI 2.1 In / 1x HDMI 2.1 Out" },
+      { label: "Color Space", value: "RGB 4:4:4, HDR10+, Dolby Vision" },
+      { label: "Power Supply", value: "12V 3A DC Adapter (Included)" },
+    ],
+    whatsInTheBox: [
+      "LightinMotion HDMI 2.1 Sync Box Hub Unit",
+      "Ultra High Speed 48Gbps HDMI 2.1 Cable (1.5m)",
+      "12V Low Voltage DC Power Adapter",
+      "Wireless RF Controller Dial",
+      "Mounting Bracket & Rubber Feet",
+      "Instruction & Quickstart Manual",
+    ],
+    tagline: "The ultimate nerve center for your ambient room lighting.",
+    category: "TV Sync Set",
+    badge: "NEW ARRIVAL",
+    basePriceInINR: 3499.0,
+    compareAtPriceInINR: 4499.0,
+    variants: [
+      {
+        id: "sync-box-standard",
+        name: "HDMI 2.1 Sync Box Hub",
+        priceInINR: 3499.0,
+        compareAtPriceInINR: 4499.0,
+      },
+      {
+        id: "sync-box-bundle",
+        name: "Sync Box + High-Density Strip Bundle",
+        priceInINR: 4999.0,
+        compareAtPriceInINR: 6299.0,
+      },
+    ],
+    images: [
+      "/products/apex/apex-hdmi-21.png",
+      "/products/apex/apex-hdmi-20.png",
+    ],
+    shortDescription:
+      "Next-generation HDMI 2.1 sync hub delivering zero-lag room immersion for 4K 120Hz gaming and 8K home theaters.",
+    fullDescription: [
+      "Bridge your home entertainment and ambient lighting with the LightinMotion HDMI 2.1 Sync Box Hub.",
+      "Supporting 4K@120Hz and 8K@60Hz with VRR, ALLM, and HDR10+ passthrough, it translates on-screen action into synchronized ambient illumination across all your LightinMotion lightstrips and bars with zero lag.",
+    ],
+    features: [
+      "HDMI 2.1 48Gbps bandwidth with 4K@120Hz & 8K@60Hz support",
+      "Sub-3ms hardware screen analysis algorithm",
+      "Auto-input switching for up to 4 gaming consoles and streamers",
+    ],
+    shippingInfo: [
+      "Free express doorstep delivery across India (2 - 4 business days)",
+      "7-Day replacement guarantee",
+      "1-Year official manufacturer warranty",
+    ],
+    defaultReviews: [
+      {
+        id: "sync-rev-1",
+        author: "Devansh Mehra",
+        rating: 5,
+        date: "October 8, 2026",
+        title: "Flawless with PS5 and LG OLED at 120Hz VRR",
+        comment:
+          "Zero input lag, passes 4K 120Hz HDR without a hitch. The light sync is perfectly timed with explosions and transitions in games. Worth every rupee!",
+        verified: true,
+        helpfulCount: 24,
+      },
+    ],
+  },
+
+  "ambient-uplighter": {
+    id: "ambient-uplighter",
+    slug: "ambient-uplighter",
+    title: "LightinMotion Smart Ambient Uplighter",
+    titleKey: "ambientUplighterTitle",
+    headline: "Floor-to-Ceiling Atmospheric Radiance & Color Wash",
+    introduction:
+      "Fill your living space, gaming room, or studio with breathtaking indirect light. The LightinMotion Smart Ambient Uplighter casts expansive color washes up walls and ceilings, seamlessly pairing with your TV and monitor setups for complete 360-degree environmental immersion.",
+    experienceTitle: "Expansive 360° Room Wash",
+    experienceContent: [
+      "Engineered with a high-aperture diffuser lens, the Uplighter blankets entire walls with rich saturated gradients.",
+      "Sync it dynamically with your monitor or TV audio and video for an unforgettable spectacle.",
+    ],
+    perfectFor: [
+      "🎮 Battle Stations & Gaming Nooks",
+      "🛋️ Modern Living Rooms & Lounges",
+      "🎙️ Streaming Backgrounds & Podcasts",
+      "🎵 Audiophile & Music Chill Rooms",
+      "✨ Architectural Accent Lighting",
+    ],
+    keyFeatures: [
+      "🌈 2000 Lumen ultra-bright diffuse RGBW LEDs",
+      "📐 180° adjustable optical reflector head",
+      "⚡ Real-time sync with TV & Monitor backlights",
+      "📱 Wi-Fi & Bluetooth Smart App control",
+      "🎶 Built-in high sensitivity music acoustic sensor",
+      "🛡️ Weighted anti-tip solid metal circular base",
+    ],
+    specs: [
+      { label: "Luminous Flux", value: "2000 Lumens (Dimmable 1-100%)" },
+      { label: "Height & Head", value: "150cm (59 inches) / 25cm Reflector Dish" },
+      { label: "Chassis", value: "Matte Black Carbon Steel & Anodized Alloy" },
+      { label: "Wireless", value: "2.4GHz Wi-Fi + Bluetooth 5.2" },
+      { label: "Power Supply", value: "100-240V AC Worldwide Adapter (Included)" },
+    ],
+    whatsInTheBox: [
+      "LightinMotion Ambient Uplighter Optical Head",
+      "Modular Heavy-Duty Steel Stems",
+      "Weighted Solid Cast Anti-Tip Base",
+      "UL-Certified Power Supply",
+      "Smart Bluetooth Remote",
+      "Assembly Guide",
+    ],
+    tagline: "Wash your room in cinema-grade color.",
+    category: "LIGHTINMOTION Collection",
+    badge: "SALE",
+    basePriceInINR: 2499.0,
+    compareAtPriceInINR: 3299.0,
+    variants: [
+      {
+        id: "single-uplighter",
+        name: "Single Smart Ambient Uplighter",
+        priceInINR: 2499.0,
+        compareAtPriceInINR: 3299.0,
+      },
+      {
+        id: "twin-uplighter",
+        name: "Twin Uplighter Sanctuary Pack (Set of 2)",
+        priceInINR: 4499.0,
+        compareAtPriceInINR: 5999.0,
+      },
+    ],
+    images: [
+      "/products/apex/apex-uplighter.png",
+      "/products/apex/apex-uplighter.png",
+    ],
+    shortDescription:
+      "Floor-to-ceiling indirect diffuse atmospheric uplighter casting vibrant RGB washes across your room.",
+    fullDescription: [
+      "Fill your living space, gaming room, or studio with breathtaking indirect light.",
+      "The LightinMotion Smart Ambient Uplighter casts expansive color washes up walls and ceilings, seamlessly pairing with your TV and monitor setups for complete 360-degree environmental immersion.",
+    ],
+    features: [
+      "High-output 2000 Lumens RGBW ambient projection",
+      "180-degree tilting optical head to target walls or ceilings",
+      "Synchronizable with TV and PC display ecosystems",
+    ],
+    shippingInfo: [
+      "Free express doorstep delivery across India (2 - 4 business days)",
+      "7-Day replacement guarantee",
+      "1-Year official manufacturer warranty",
+    ],
+    defaultReviews: [
+      {
+        id: "up-rev-1",
+        author: "Harsh Vardhan",
+        rating: 5,
+        date: "October 6, 2026",
+        title: "The ambient light spread is astonishingly wide",
+        comment:
+          "It fills the entire corner of my gaming room with vibrant colors that match whatever is on my TV. The build quality of the metal pole and heavy base is top notch.",
+        verified: true,
+        helpfulCount: 18,
+      },
+    ],
+  },
 };
 
 // Aliases for alternate route paths
 PRODUCT_CATALOG["cloud-lights"] = PRODUCT_CATALOG["cloudlights"];
 PRODUCT_CATALOG["custom-sync-lights"] = PRODUCT_CATALOG["custom-strip-light"];
+PRODUCT_CATALOG["hdmi-sync-box"] = PRODUCT_CATALOG["sync-box"];
+PRODUCT_CATALOG["uplighter"] = PRODUCT_CATALOG["ambient-uplighter"];

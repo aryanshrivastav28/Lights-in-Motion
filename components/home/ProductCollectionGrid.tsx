@@ -77,6 +77,26 @@ const PRODUCTS: CollectionProduct[] = [
     category: "LIGHTINMOTION Collection",
     slug: "cloudlights",
   },
+  {
+    id: "sync-box",
+    badgeKey: "bestSelling",
+    titleKey: "syncBoxTitle",
+    price: 3499.0,
+    compareAtPrice: 4499.0,
+    image: "/products/apex/apex-hdmi-21.png",
+    category: "TV Sync Set",
+    slug: "sync-box",
+  },
+  {
+    id: "ambient-uplighter",
+    badgeKey: "sale",
+    titleKey: "ambientUplighterTitle",
+    price: 2499.0,
+    compareAtPrice: 3299.0,
+    image: "/products/apex/apex-uplighter.png",
+    category: "LIGHTINMOTION Collection",
+    slug: "ambient-uplighter",
+  },
 ];
 
 export const ProductCollectionGrid: React.FC = () => {
