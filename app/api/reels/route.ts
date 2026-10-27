@@ -11,9 +11,18 @@ export interface ReelData {
   productTitle: string;
   productSlug: string;
   productImage: string;
+  instagramUrl?: string;
 }
 
 const DEFAULT_METADATA: Record<string, Partial<ReelData>> = {
+  "instagram-reel-1.mp4": {
+    title: "LightinMotion Gaming Sync Setup",
+    badge: "FEATURED",
+    productTitle: "LightinMotion Monitor Backlight",
+    productSlug: "monitor-backlight",
+    productImage: "/products/monitor-backlight/main.png",
+    instagramUrl: "https://www.instagram.com/reel/DdlxarRgn2s/",
+  },
   "hdmi-sync-tv-backlight.mp4": {
     title: "HDMI Sync TV Backlight",
     badge: "FEATURED",
@@ -91,6 +100,7 @@ export async function GET() {
         productTitle: meta.productTitle || cleanTitle,
         productSlug: meta.productSlug || "cloudlights",
         productImage: meta.productImage || "/products/cloudlights/main.jpg",
+        instagramUrl: meta.instagramUrl,
       };
     });
 
