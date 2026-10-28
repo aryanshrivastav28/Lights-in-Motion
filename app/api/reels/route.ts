@@ -23,40 +23,13 @@ const DEFAULT_METADATA: Record<string, Partial<ReelData>> = {
     productImage: "/products/monitor-backlight/main.png",
     instagramUrl: "https://www.instagram.com/reel/DdlxarRgn2s/",
   },
-  "hdmi-sync-tv-backlight.mp4": {
-    title: "HDMI Sync TV Backlight",
-    badge: "FEATURED",
-    productTitle: "HDMI Sync TV Backlight",
+  "instagram-reel-2.mp4": {
+    title: "LightinMotion TV Sync Ambient Setup",
+    badge: "TRENDING",
+    productTitle: "LightinMotion TV Backlight",
     productSlug: "tv-backlight",
     productImage: "/products/tv-backlight/main.png",
-  },
-  "cloud-lights-room-makeover.mp4": {
-    title: "Cloud Lights Aesthetic",
-    badge: "TOP SELLING",
-    productTitle: "LightinMotion Cloud Lights",
-    productSlug: "cloudlights",
-    productImage: "/products/cloudlights/main.jpg",
-  },
-  "monitor-backlight-gaming.mp4": {
-    title: "Monitor Backlight Esports",
-    badge: "FEATURED",
-    productTitle: "Monitor Backlight",
-    productSlug: "monitor-backlight",
-    productImage: "/products/monitor-backlight/main.png",
-  },
-  "monitor-bar-lights-setup.mp4": {
-    title: "Dual Screen Bar Lights",
-    badge: "TRENDING",
-    productTitle: "Monitor Bar Lights",
-    productSlug: "bar-lights",
-    productImage: "/products/bar-lights/main.png",
-  },
-  "custom-sync-lights-tour.mp4": {
-    title: "Custom Strip Ambient Sync",
-    badge: "FEATURED",
-    productTitle: "Custom Sync Lights",
-    productSlug: "custom-strip-light",
-    productImage: "/products/custom-strip-light/main.png",
+    instagramUrl: "https://www.instagram.com/reel/DbKqkjayGau/",
   },
 };
 

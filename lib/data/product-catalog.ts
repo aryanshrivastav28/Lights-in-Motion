@@ -216,7 +216,7 @@ export const PRODUCT_CATALOG: Record<string, DetailedProduct> = {
       "🔧 Flexible installation",
     ],
     specs: [
-      { label: "Length Options", value: "3M Standard Kit / 5M Extended Kit" },
+      { label: "Length Options", value: "1M to 10M Custom Formats" },
       { label: "Diffuser Casing", value: "UV-Resistant Flexible Food-Grade Silicone" },
       { label: "Waterproof Rating", value: "IP67 Dust & Water Resistant" },
       { label: "LED Density", value: "96 Addressable LEDs / meter" },
@@ -237,16 +237,70 @@ export const PRODUCT_CATALOG: Record<string, DetailedProduct> = {
     compareAtPriceInINR: 1499.0,
     variants: [
       {
-        id: "3m-kit",
-        name: "Standard 3 Meter Kit",
+        id: "1m-kit",
+        name: "1 Meter",
         priceInINR: 1000.0,
-        compareAtPriceInINR: 1499.0,
+        compareAtPriceInINR: 1399.0,
+      },
+      {
+        id: "1-5m-kit",
+        name: "1.5 Meter",
+        priceInINR: 1199.0,
+        compareAtPriceInINR: 1599.0,
+      },
+      {
+        id: "2m-kit",
+        name: "2 Meters",
+        priceInINR: 1500.0,
+        compareAtPriceInINR: 1999.0,
+      },
+      {
+        id: "3m-kit",
+        name: "3 Meters",
+        priceInINR: 2000.0,
+        compareAtPriceInINR: 2599.0,
+      },
+      {
+        id: "4m-kit",
+        name: "4 Meters",
+        priceInINR: 2500.0,
+        compareAtPriceInINR: 3199.0,
       },
       {
         id: "5m-kit",
-        name: "Extended 5 Meter Kit",
-        priceInINR: 1450.0,
-        compareAtPriceInINR: 1999.0,
+        name: "5 Meters",
+        priceInINR: 3000.0,
+        compareAtPriceInINR: 3799.0,
+      },
+      {
+        id: "6m-kit",
+        name: "6 Meters",
+        priceInINR: 3500.0,
+        compareAtPriceInINR: 4399.0,
+      },
+      {
+        id: "7m-kit",
+        name: "7 Meters",
+        priceInINR: 4000.0,
+        compareAtPriceInINR: 4999.0,
+      },
+      {
+        id: "8m-kit",
+        name: "8 Meters",
+        priceInINR: 4500.0,
+        compareAtPriceInINR: 5599.0,
+      },
+      {
+        id: "9m-kit",
+        name: "9 Meters",
+        priceInINR: 5000.0,
+        compareAtPriceInINR: 6199.0,
+      },
+      {
+        id: "10m-kit",
+        name: "10 Meters",
+        priceInINR: 5500.0,
+        compareAtPriceInINR: 6799.0,
       },
     ],
     images: [
@@ -351,15 +405,9 @@ export const PRODUCT_CATALOG: Record<string, DetailedProduct> = {
     variants: [
       {
         id: "single-lamp",
-        name: "Single Ambient Tower",
+        name: "Lamp Light",
         priceInINR: 1899.0,
         compareAtPriceInINR: 2499.0,
-      },
-      {
-        id: "twin-lamp",
-        name: "Twin Sync Tower Set (Pack of 2)",
-        priceInINR: 3499.0,
-        compareAtPriceInINR: 4599.0,
       },
     ],
     images: [
@@ -462,16 +510,34 @@ export const PRODUCT_CATALOG: Record<string, DetailedProduct> = {
     compareAtPriceInINR: 1799.0,
     variants: [
       {
-        id: "24-27-inch",
-        name: "24 - 27 inch Display",
+        id: "21-5-inch",
+        name: "21.5\" Monitor",
         priceInINR: 1399.0,
         compareAtPriceInINR: 1799.0,
       },
       {
-        id: "32-34-inch",
-        name: "32 - 34 inch Ultrawide",
-        priceInINR: 1699.0,
-        compareAtPriceInINR: 2099.0,
+        id: "24-inch",
+        name: "24\" Monitor",
+        priceInINR: 1499.0,
+        compareAtPriceInINR: 1899.0,
+      },
+      {
+        id: "27-inch",
+        name: "27\" Monitor",
+        priceInINR: 1599.0,
+        compareAtPriceInINR: 1999.0,
+      },
+      {
+        id: "32-inch",
+        name: "32\" Monitor",
+        priceInINR: 1799.0,
+        compareAtPriceInINR: 2299.0,
+      },
+      {
+        id: "34-inch",
+        name: "34\" Monitor",
+        priceInINR: 1999.0,
+        compareAtPriceInINR: 2499.0,
       },
     ],
     images: [
@@ -573,16 +639,10 @@ export const PRODUCT_CATALOG: Record<string, DetailedProduct> = {
     compareAtPriceInINR: 2499.0,
     variants: [
       {
-        id: "single-bar",
-        name: "Single Screen Bar",
+        id: "bar-light",
+        name: "Bar Light",
         priceInINR: 1899.0,
         compareAtPriceInINR: 2499.0,
-      },
-      {
-        id: "dual-bar",
-        name: "Dual Screen Set (Pack of 2)",
-        priceInINR: 3499.0,
-        compareAtPriceInINR: 4599.0,
       },
     ],
     images: [
@@ -688,16 +748,34 @@ export const PRODUCT_CATALOG: Record<string, DetailedProduct> = {
     compareAtPriceInINR: 2199.0,
     variants: [
       {
-        id: "55-65-inch",
-        name: "55 - 65 inch TV Set",
+        id: "32-inch-tv",
+        name: "32\" TV",
         priceInINR: 1699.0,
         compareAtPriceInINR: 2199.0,
       },
       {
-        id: "75-85-inch",
-        name: "75 - 85 inch TV Set",
-        priceInINR: 2199.0,
-        compareAtPriceInINR: 2799.0,
+        id: "43-inch-tv",
+        name: "43\" TV",
+        priceInINR: 1799.0,
+        compareAtPriceInINR: 2299.0,
+      },
+      {
+        id: "50-inch-tv",
+        name: "50\" TV",
+        priceInINR: 1899.0,
+        compareAtPriceInINR: 2399.0,
+      },
+      {
+        id: "55-inch-tv",
+        name: "55\" TV",
+        priceInINR: 1999.0,
+        compareAtPriceInINR: 2499.0,
+      },
+      {
+        id: "65-inch-tv",
+        name: "65\" TV",
+        priceInINR: 2099.0,
+        compareAtPriceInINR: 2699.0,
       },
     ],
     images: [
