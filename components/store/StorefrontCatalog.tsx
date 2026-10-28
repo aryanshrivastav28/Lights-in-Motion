@@ -62,12 +62,6 @@ export const StorefrontCatalog: React.FC = () => {
               <ArrowLeftIcon size={12} />
               <span>Return Home</span>
             </Link>
-            <Link
-              href="/admin"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black/5 hover:bg-black/10 border border-black/15 text-xs font-bold text-neutral-800 transition-colors cursor-pointer"
-            >
-              <span>Admin Panel</span>
-            </Link>
           </div>
         </div>
 

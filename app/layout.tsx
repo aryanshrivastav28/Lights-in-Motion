@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { LocalizationProvider } from "@/context/LocalizationContext";
+import { CartProvider } from "@/context/CartContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -53,9 +54,11 @@ export default function RootLayout({
         }}
       >
         <LocalizationProvider>
-          <SiteHeader overlay={true} cartCount={0} />
-          <main className="relative z-10">{children}</main>
-          <SiteFooter />
+          <CartProvider>
+            <SiteHeader overlay={true} />
+            <main className="relative z-10">{children}</main>
+            <SiteFooter />
+          </CartProvider>
         </LocalizationProvider>
       </body>
     </html>

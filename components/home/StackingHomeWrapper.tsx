@@ -52,7 +52,6 @@ export const StackingHomeWrapper: React.FC = () => {
         <ProductCollectionGrid />
         <ReelsShowcase />
         <PlatformMarquee />
-        <LightingExperienceSection />
       </div>
     </div>
   );

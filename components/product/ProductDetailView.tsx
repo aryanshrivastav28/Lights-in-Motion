@@ -10,6 +10,7 @@ import {
   PRODUCT_CATALOG,
 } from "@/lib/data/product-catalog";
 import { useLocalization } from "@/context/LocalizationContext";
+import { useCart } from "@/context/CartContext";
 import { ReelsShowcase } from "@/components/shared/ReelsShowcase";
 import { cn } from "@/lib/utils/cn";
 
@@ -19,6 +20,7 @@ interface ProductDetailViewProps {
 
 export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product }) => {
   const { t, formatPrice } = useLocalization();
+  const { addToCart, openCart } = useCart();
 
   // Active Variant & Price
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(
@@ -93,13 +95,36 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
 
   // Add to cart handler
   const handleAddToCart = () => {
+    addToCart({
+      productId: product.id,
+      slug: product.slug,
+      title: product.title,
+      variantId: selectedVariant.id,
+      variantName: selectedVariant.name,
+      price: selectedVariant.priceInINR,
+      compareAtPrice: selectedVariant.compareAtPriceInINR,
+      image: (product.images && product.images[0]) || "/images/products/sync-controller-1.png",
+      quantity: quantity,
+    });
     setAddedToCartToast(true);
     setTimeout(() => setAddedToCartToast(false), 3500);
+    openCart();
   };
 
   // Buy it now handler
   const handleBuyNow = () => {
-    setBuyNowModalOpen(true);
+    addToCart({
+      productId: product.id,
+      slug: product.slug,
+      title: product.title,
+      variantId: selectedVariant.id,
+      variantName: selectedVariant.name,
+      price: selectedVariant.priceInINR,
+      compareAtPrice: selectedVariant.compareAtPriceInINR,
+      image: (product.images && product.images[0]) || "/images/products/sync-controller-1.png",
+      quantity: quantity,
+    });
+    openCart();
   };
 
   // Handle Review Submission
@@ -413,9 +438,13 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
                     Added {quantity} × {product.title} ({selectedVariant.name}) to cart!
                   </span>
-                  <Link href="/store" className="underline font-bold hover:text-black">
+                  <button
+                    type="button"
+                    onClick={openCart}
+                    className="underline font-bold hover:text-black cursor-pointer"
+                  >
                     View Cart
-                  </Link>
+                  </button>
                 </div>
               )}
 

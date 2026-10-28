@@ -249,22 +249,31 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
       {/* INTERACTIVE FULL-SCREEN REELS PLAYER WITH AUDIO */}
       {/* ============================================================== */}
       {activeReel && (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-6 animate-in fade-in duration-200">
-          
+        <div
+          onClick={closeReelModal}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-6 animate-in fade-in duration-200 cursor-pointer"
+        >
           {/* Close Backdrop Button */}
           <button
             type="button"
-            onClick={closeReelModal}
-            aria-label="Close modal"
-            className="absolute top-5 right-5 z-50 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors shadow-2xl"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeReelModal();
+            }}
+            aria-label="Close reel and return to page"
+            className="fixed top-5 right-5 sm:top-8 sm:right-8 z-[60] px-4 py-2 rounded-full bg-white text-black hover:bg-neutral-200 border border-black/20 flex items-center gap-2 text-xs sm:text-sm font-extrabold cursor-pointer transition-all shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:scale-105 active:scale-95"
           >
-            ✕
+            <span className="text-base leading-none">✕</span>
+            <span>Close & Return</span>
           </button>
 
           {/* Previous Reel Navigation Button (desktop) */}
           <button
             type="button"
-            onClick={prevReel}
+            onClick={(e) => {
+              e.stopPropagation();
+              prevReel();
+            }}
             aria-label="Previous reel"
             className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white items-center justify-center transition-colors cursor-pointer"
           >
@@ -276,7 +285,10 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
           {/* Next Reel Navigation Button (desktop) */}
           <button
             type="button"
-            onClick={nextReel}
+            onClick={(e) => {
+              e.stopPropagation();
+              nextReel();
+            }}
             aria-label="Next reel"
             className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white items-center justify-center transition-colors cursor-pointer"
           >
@@ -286,7 +298,10 @@ export const ReelsShowcase: React.FC<{ className?: string }> = ({ className }) =
           </button>
 
           {/* Reel Frame Container */}
-          <div className="relative w-full max-w-[420px] h-[85vh] max-h-[780px] bg-black rounded-3xl overflow-hidden border border-white/20 shadow-[0_20px_70px_rgba(0,0,0,1)] flex flex-col justify-between">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-[420px] h-[85vh] max-h-[780px] bg-black rounded-3xl overflow-hidden border border-white/20 shadow-[0_20px_70px_rgba(0,0,0,1)] flex flex-col justify-between cursor-default"
+          >
             
             {/* Native Video Element WITH FULL AUDIO */}
             <video

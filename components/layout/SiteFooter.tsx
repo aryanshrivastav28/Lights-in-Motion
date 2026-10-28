@@ -42,12 +42,40 @@ export const SiteFooter: React.FC = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeMessage, setSubscribeMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    setSubscribing(true);
+    setSubscribeMessage(null);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubscribed(true);
+        setSubscribeMessage(data.message || t("thankYouSubscribe"));
+        setEmail("");
+        setTimeout(() => {
+          setSubscribed(false);
+          setSubscribeMessage(null);
+        }, 5000);
+      }
+    } catch {
+      // Fallback optimistic
       setSubscribed(true);
-      setTimeout(() => setSubscribed(false), 4000);
+      setSubscribeMessage(t("thankYouSubscribe"));
       setEmail("");
+      setTimeout(() => setSubscribed(false), 4000);
+    } finally {
+      setSubscribing(false);
     }
   };
 
@@ -96,7 +124,7 @@ export const SiteFooter: React.FC = () => {
               </div>
               {subscribed && (
                 <p className="absolute -bottom-7 left-0 right-0 text-xs text-emerald-700 font-bold animate-in fade-in">
-                  {t("thankYouSubscribe")}
+                  {subscribeMessage || t("thankYouSubscribe")}
                 </p>
               )}
             </form>
@@ -123,7 +151,7 @@ export const SiteFooter: React.FC = () => {
                 <ul className="space-y-3 font-bold text-black text-sm">
                   <li>
                     <Link
-                      href="/store"
+                      href="/affiliate"
                       className="hover:text-neutral-600 transition-colors"
                     >
                       {t("affiliateProgram")}
@@ -148,7 +176,7 @@ export const SiteFooter: React.FC = () => {
                   </li>
                   <li>
                     <Link
-                      href="/store"
+                      href="/reseller"
                       className="hover:text-neutral-600 transition-colors"
                     >
                       {t("onlineReseller")}
@@ -156,7 +184,7 @@ export const SiteFooter: React.FC = () => {
                   </li>
                   <li>
                     <Link
-                      href="/store"
+                      href="/about"
                       className="hover:text-neutral-600 transition-colors"
                     >
                       {t("aboutUs")}
@@ -172,29 +200,44 @@ export const SiteFooter: React.FC = () => {
                 </span>
                 <ul className="space-y-3 font-bold text-black text-sm">
                   <li>
-                    <span className="hover:text-neutral-600 transition-colors cursor-pointer">
+                    <Link
+                      href="/policy/shipping"
+                      className="hover:text-neutral-600 transition-colors block"
+                    >
                       {t("shippingPolicy")}
-                    </span>
+                    </Link>
                   </li>
                   <li>
-                    <span className="hover:text-neutral-600 transition-colors cursor-pointer">
+                    <Link
+                      href="/policy/returns"
+                      className="hover:text-neutral-600 transition-colors block"
+                    >
                       {t("returnPolicy")}
-                    </span>
+                    </Link>
                   </li>
                   <li>
-                    <span className="hover:text-neutral-600 transition-colors cursor-pointer">
+                    <Link
+                      href="/policy/warranty"
+                      className="hover:text-neutral-600 transition-colors block"
+                    >
                       {t("warrantyPolicy")}
-                    </span>
+                    </Link>
                   </li>
                   <li>
-                    <span className="hover:text-neutral-600 transition-colors cursor-pointer">
+                    <Link
+                      href="/policy/privacy"
+                      className="hover:text-neutral-600 transition-colors block"
+                    >
                       {t("privacyPolicy")}
-                    </span>
+                    </Link>
                   </li>
                   <li>
-                    <span className="hover:text-neutral-600 transition-colors cursor-pointer">
+                    <Link
+                      href="/policy/terms"
+                      className="hover:text-neutral-600 transition-colors block"
+                    >
                       {t("termsOfService")}
-                    </span>
+                    </Link>
                   </li>
                 </ul>
               </div>

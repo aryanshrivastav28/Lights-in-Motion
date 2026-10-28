@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { MenuIcon, CloseIcon, ChevronRightIcon } from "@/components/ui/Icons";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { AuthModal } from "@/components/account/AuthModal";
+import { useCart } from "@/context/CartContext";
 import {
   useLocalization,
   CURRENCIES,
@@ -32,10 +33,11 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 }) => {
   const pathname = usePathname();
   const { currency, setCurrency, language, setLanguage, t } = useLocalization();
+  const { cartCount: liveCartCount, openCart } = useCart();
+  const effectiveCartCount = cartCount || liveCartCount;
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [currencyDropdownOpen, setCurrencyDropdownOpen] = useState(false);
@@ -71,7 +73,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
     if (onOpenCart) {
       onOpenCart();
     } else {
-      setCartDrawerOpen(true);
+      openCart();
     }
   };
 
@@ -325,9 +327,9 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 {/* Corner Accent Indicator */}
                 <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-black rounded-br-[4px] pointer-events-none" />
 
-                {cartCount > 0 && (
+                {effectiveCartCount > 0 && (
                   <span className="absolute -top-1.5 -right-1.5 bg-black text-white text-[10px] font-black rounded-full w-4 h-4 flex items-center justify-center">
-                    {cartCount}
+                    {effectiveCartCount}
                   </span>
                 )}
               </button>
@@ -351,6 +353,11 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
                 <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-black rounded-br-[3px]" />
+                {effectiveCartCount > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 bg-black text-white text-[9px] font-black rounded-full w-3.5 h-3.5 flex items-center justify-center">
+                    {effectiveCartCount}
+                  </span>
+                )}
               </button>
 
               <button
@@ -470,11 +477,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
         </div>
       )}
 
-      <CartDrawer
-        isOpen={cartDrawerOpen}
-        onClose={() => setCartDrawerOpen(false)}
-        itemCount={cartCount}
-      />
+      <CartDrawer />
       <AuthModal
         isOpen={authModalOpen}
         onClose={() => setAuthModalOpen(false)}
